@@ -27,7 +27,10 @@ Widget buildSheet() => Column(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20)))),
-                  child: Text("Deceli"))
+                  child: Text("Deceli")),
+              ElevatedButton(
+                onPressed: () {}, 
+                child: Icon(Icons.settings,))
             ],
           ),
         )
