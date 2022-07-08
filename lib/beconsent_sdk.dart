@@ -30,7 +30,11 @@ class _BeConsentState extends State<BeConsent> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Container(
+      color: Colors.white,
+      padding: EdgeInsets.all(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
       children: [
         Container(
           child: Text(
@@ -74,6 +78,7 @@ class _BeConsentState extends State<BeConsent> {
           ),
         )
       ],
+    )
     );
   }
 
