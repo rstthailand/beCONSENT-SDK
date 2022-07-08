@@ -5,32 +5,32 @@ import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
 
 Widget buildSheet() => Column(
       children: [
-        Text(
-          'BeConsent',
-          style: TextStyle(fontSize: 16),
+        Container(
+          child: Text(
+            'BeConsent',
+            style: TextStyle(fontSize: 20),
+          ),
         ),
-        Center(
+        Container(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () => Accept(),
+                onPressed: () => cancel(),
                 style: ButtonStyle(
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)))),
-                child: Text('Accept All'),
+                child: Text('Decline'),
               ),
+              SizedBox(width: 20,),
               ElevatedButton(
-                  onPressed: () => cancel(),
+                  onPressed: () => Accept(),
                   style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20)))),
-                  child: Text("Deceli")),
-              ElevatedButton(
-                onPressed: () {}, 
-                child: Icon(Icons.settings,))
+                  child: Text("Accept All"))
             ],
           ),
         )
