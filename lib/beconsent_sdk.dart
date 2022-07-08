@@ -66,6 +66,10 @@ class _BeConsentState extends State<BeConsent>{
     );
   }
 
+void cancel() {
+  print("press cancel");
+  Navigator.of(context).pop();
+}
 }
 
 Widget Toggle_btn(String text, bool val, Function ChangeState){
@@ -95,6 +99,3 @@ void Accept() {
   print("press Accept");
 }
 
-void cancel() {
-  print("press cancel");
-}
