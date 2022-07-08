@@ -1,7 +1,24 @@
 library beconsent_sdk;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+import 'package:flutter/material.dart';
+
+Widget buildSheet() => Column(
+      children: [
+        Text(
+          'BeConsent',
+          style: TextStyle(fontSize: 16),
+        ),
+        Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('Accept All'),
+              ),
+              ElevatedButton(onPressed: () {}, child: Text("Deceli"))
+            ],
+          ),
+        )
+      ],
+    );
