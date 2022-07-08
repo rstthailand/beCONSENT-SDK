@@ -14,7 +14,7 @@ Widget buildSheet() => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () => response.beconsent_api().getInfo('https://fakestoreapi.com/carts/5'),
+                onPressed: () => response.beconsent_api().getInfo(),
                 child: Text('Accept All'),
               ),
               ElevatedButton(onPressed: () {}, child: Text("Deceli"))
