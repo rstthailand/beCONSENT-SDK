@@ -1,6 +1,7 @@
 library beconsent_sdk;
 
 import 'package:flutter/material.dart';
+import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
 
 Widget buildSheet() => Column(
       children: [
@@ -13,7 +14,7 @@ Widget buildSheet() => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () => response.beconsent_api().getInfo('https://fakestoreapi.com/carts/5'),
                 child: Text('Accept All'),
               ),
               ElevatedButton(onPressed: () {}, child: Text("Deceli"))
