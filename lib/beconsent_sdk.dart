@@ -2,7 +2,7 @@ library beconsent_sdk;
 
 import 'package:flutter/material.dart';
 
-Widget PbuildSheet() => Column(
+Widget buildSheet() => Column(
       children: [
         Text(
           'BeConsent',
