@@ -3,11 +3,25 @@ library beconsent_sdk;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
-bool val = false;
-ChangeState(bool newVal){
-    val = newVal;
+
+class BeConsent extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    return _BeConsentState();
+  }
+  
 }
-Widget buildSheet() => Column(
+
+class _BeConsentState extends State<BeConsent>{
+  bool val = false;
+  changestate(bool newv){
+    setState(() {
+      val = newv;
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Column(
       children: [
         Container(
           child: Text(
@@ -43,13 +57,16 @@ Widget buildSheet() => Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Toggle_btn('test1', val, ChangeState),
-              Toggle_btn('test2', val, ChangeState)
+              Toggle_btn('test1', val, changestate),
+              Toggle_btn('test2', val, changestate)
             ],
           ),
         )
       ],
     );
+  }
+
+}
 
 Widget Toggle_btn(String text, bool val, Function ChangeState){
   return Padding(
@@ -81,5 +98,3 @@ void Accept() {
 void cancel() {
   print("press cancel");
 }
-
-
