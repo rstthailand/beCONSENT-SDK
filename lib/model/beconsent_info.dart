@@ -8,7 +8,7 @@ class beconsent_api{
   String? url;
 
   void getInfo() async{
-    final link = Uri.parse('https://fakestoreapi.com/carts');
+    final link = Uri.parse();
     http.Response response = await http.get(link);
 
     print(response);
