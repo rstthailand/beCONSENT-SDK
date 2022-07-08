@@ -14,10 +14,18 @@ class BeConsent extends StatefulWidget {
 
 class _BeConsentState extends State<BeConsent> {
   bool val = false;
+  String Decline = 'Decline';
   changestate(bool newv) {
     setState(() {
       val = newv;
     });
+    if(val == true){
+      Decline = 'Save Setting';
+    }
+    else{
+      Decline = 'Decline';
+    }
+    
   }
 
   @override
@@ -40,7 +48,7 @@ class _BeConsentState extends State<BeConsent> {
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)))),
-                child: Text('Decline'),
+                child: Text('$Decline'),
               ),
               SizedBox(
                 width: 20,
