@@ -15,20 +15,29 @@ Widget buildSheet() => Column(
             children: [
               ElevatedButton(
                 onPressed: () => Accept(),
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)))),
                 child: Text('Accept All'),
               ),
-              ElevatedButton(onPressed: () => cancel(),
-               child: Text("Deceli"))
+              ElevatedButton(
+                  onPressed: () => cancel(),
+                  style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)))),
+                  child: Text("Deceli"))
             ],
           ),
         )
       ],
     );
 
-void Accept(){
+void Accept() {
   print("press Accept");
 }
 
-void cancel(){
+void cancel() {
   print("press cancel");
 }
