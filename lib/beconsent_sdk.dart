@@ -39,6 +39,16 @@ class _BeConsentState extends State<BeConsent> {
           ),
         ),
         Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Toggle_btn('test1', val, changestate),
+              Toggle_btn('test2', val, changestate)
+            ],
+          ),
+        ),
+        Container(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -60,16 +70,6 @@ class _BeConsentState extends State<BeConsent> {
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20)))),
                   child: Text("Accept All"))
-            ],
-          ),
-        ),
-        Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Toggle_btn('test1', val, changestate),
-              Toggle_btn('test2', val, changestate)
             ],
           ),
         )
