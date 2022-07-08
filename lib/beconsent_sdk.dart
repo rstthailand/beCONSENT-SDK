@@ -35,7 +35,7 @@ class _BeConsentState extends State<BeConsent> {
         Container(
           child: Text(
             'BeConsent',
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 20,fontFamily: 'Kanit'),
           ),
         ),
         Container(
