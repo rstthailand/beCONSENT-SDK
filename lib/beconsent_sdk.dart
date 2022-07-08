@@ -14,12 +14,21 @@ Widget buildSheet() => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () => response.beconsent_api().getInfo(),
+                onPressed: () => Accept(),
                 child: Text('Accept All'),
               ),
-              ElevatedButton(onPressed: () {}, child: Text("Deceli"))
+              ElevatedButton(onPressed: () => cancel(),
+               child: Text("Deceli"))
             ],
           ),
         )
       ],
     );
+
+void Accept(){
+  print("press Accept");
+}
+
+void cancel(){
+  print("press cancel");
+}
