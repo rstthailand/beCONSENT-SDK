@@ -3,22 +3,23 @@ library beconsent_sdk;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
+import 'package:beconsent_sdk/model/toggle_switch.dart';
 
-class BeConsent extends StatefulWidget{
+class BeConsent extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _BeConsentState();
   }
-  
 }
 
-class _BeConsentState extends State<BeConsent>{
+class _BeConsentState extends State<BeConsent> {
   bool val = false;
-  changestate(bool newv){
+  changestate(bool newv) {
     setState(() {
       val = newv;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -41,7 +42,9 @@ class _BeConsentState extends State<BeConsent>{
                             borderRadius: BorderRadius.circular(20)))),
                 child: Text('Decline'),
               ),
-              SizedBox(width: 20,),
+              SizedBox(
+                width: 20,
+              ),
               ElevatedButton(
                   onPressed: () => Accept(),
                   style: ButtonStyle(
@@ -66,36 +69,13 @@ class _BeConsentState extends State<BeConsent>{
     );
   }
 
-void cancel() {
-  print("press cancel");
-  Navigator.of(context).pop();
-}
-}
+  void cancel() {
+    print("press cancel");
+    Navigator.of(context).pop();
+  }
 
-Widget Toggle_btn(String text, bool val, Function ChangeState){
-  return Padding(
-    padding: const EdgeInsets.only(top: 22.0,left: 16.0,right: 16.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(text, style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600
-        )),
-        Spacer(),
-        CupertinoSwitch(
-          value: val, 
-          onChanged: (newValue) {
-            ChangeState(newValue);
-          },
-          trackColor: Colors.grey,
-          activeColor: Colors.blue)
-      ],
-
-    ),);
+  void Accept() {
+    print("press Accept");
+    Navigator.of(context).pop();
+  }
 }
-
-void Accept() {
-  print("press Accept");
-}
-
