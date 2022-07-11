@@ -102,8 +102,7 @@ class _BeConsentState extends State<BeConsent> {
   void Accept() {
     print("press Accept");
     setState(() {
-      Future<Response> uuid = getUUID();
-      print("$uuid");
+      Future<Response> uuid = response.beconsent_api().getStatus() as Future<Response>;
     });   
     Navigator.of(context).pop();
   }
