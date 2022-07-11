@@ -6,8 +6,10 @@ import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
 import 'package:beconsent_sdk/model/toggle_switch.dart';
 import 'package:beconsent_sdk/model/getWorkspace.dart';
 import 'package:http/src/response.dart';
+import 'package:http/http.dart' as http;
 
 class BeConsent extends StatefulWidget {
+  
   @override
   State<StatefulWidget> createState() {
     return _BeConsentState();
@@ -15,77 +17,81 @@ class BeConsent extends StatefulWidget {
 }
 
 class _BeConsentState extends State<BeConsent> {
+  late GetWorkspace _ws;
   bool val = false;
   String Decline = 'Decline';
   changestate(bool newv) {
     setState(() {
       val = newv;
     });
-    if(val == true){
+    if (val == true) {
       Decline = 'Save Setting';
-    }
-    else{
+    } else {
       Decline = 'Decline';
     }
-    
   }
 
+  Future<http.Response> getUUID() async {
+    final link = Uri.parse('https://fakestoreapi.com/products/1');
+    http.Response response = await http.get(link);
 
-
-
+    return response;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      padding: EdgeInsets.all(16),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          child: Text(
-            'BeConsent',
-            style: TextStyle(fontSize: 20,fontFamily: 'Kanit'),
-          ),
-        ),
-        Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Toggle_btn('test1', val, changestate),
-              Toggle_btn('test2', val, changestate)
-            ],
-          ),
-        ),
-        Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () => cancel(),
-                style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)))),
-                child: Text('$Decline'),
+        color: Colors.white,
+        padding: EdgeInsets.all(16),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              child: Text(
+                'BeConsent',
+                style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
               ),
-              SizedBox(
-                width: 20,
+            ),
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Toggle_btn('test1', val, changestate),
+                  Toggle_btn('test2', val, changestate)
+                ],
               ),
-              ElevatedButton(
-                  onPressed: () => Accept(),
-                  style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)))),
-                  child: Text("Accept All"))
-            ],
-          ),
-        )
-      ],
-    )
-    );
+            ),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () => cancel(),
+                    style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)))),
+                    child: Text('$Decline'),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  ElevatedButton(
+                      onPressed: () => Accept(),
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(20)))),
+                      child: Text("Accept All"))
+                ],
+              ),
+            )
+          ],
+        ));
   }
 
   void cancel() {
@@ -95,8 +101,10 @@ class _BeConsentState extends State<BeConsent> {
 
   void Accept() {
     print("press Accept");
-    Future<Response> uuid = response.beconsent_api().getUUID();
-    print("$uuid");
+    setState(() {
+      Future<Response> uuid = getUUID();
+      print("$uuid");
+    });   
     Navigator.of(context).pop();
   }
 }
