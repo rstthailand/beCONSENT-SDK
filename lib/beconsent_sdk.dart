@@ -8,7 +8,6 @@ import 'package:beconsent_sdk/model/getWorkspace.dart';
 import 'package:http/src/response.dart';
 import 'package:http/http.dart' as http;
 
-
 int? code;
 
 Dataload() async {
@@ -71,19 +70,22 @@ class _BeConsentState extends State<BeConsent> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              child: Text(
-                '$code',
-                style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
-              ),
-            ),
+                child: Column(
+              children: [
+                Text(
+                  'MUTSARI DELIVERY User Data Collection Consent',
+                  style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
+                ),
+                Text(
+                    'to store information MUTSARI DELIVERY User Data Collection Consent'),
+              ],
+            )),
             Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  toggle_switch('test1'),
-                  toggle_switch('test2'),
-                  toggle_switch('test3'),
+                  toggle_switch('collect user information')
                 ],
               ),
             ),
