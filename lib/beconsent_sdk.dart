@@ -19,6 +19,7 @@ class BeConsent extends StatefulWidget {
 class _BeConsentState extends State<BeConsent> {
   late GetWorkspace _ws;
   bool val = false;
+  bool val1 = false;
   String Decline = 'Decline';
   changestate(bool newv) {
     setState(() {
@@ -57,8 +58,9 @@ class _BeConsentState extends State<BeConsent> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Toggle_btn('test1', changestate),
-                  Toggle_btn('test2', changestate)
+                  toggle_switch('test1'),
+                  toggle_switch('test2'),
+                  toggle_switch('test3'),
                 ],
               ),
             ),
