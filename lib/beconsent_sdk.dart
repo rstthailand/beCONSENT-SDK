@@ -8,7 +8,13 @@ import 'package:beconsent_sdk/model/getWorkspace.dart';
 import 'package:http/src/response.dart';
 import 'package:http/http.dart' as http;
 
+
 int? code;
+
+Dataload() async {
+  code = await response.beconsent_api().getData();
+  print(code);
+}
 
 press(var context) async {
   code = await response.beconsent_api().getData();
