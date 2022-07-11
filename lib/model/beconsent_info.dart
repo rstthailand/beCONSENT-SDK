@@ -12,11 +12,11 @@ class beconsent_api{
 
   String? url;
   GetWorkspace? _ws;
-  void getInfo() async{
+  Future<String?> getInfo() async{
     final link = Uri.parse('http://sit-consent.beconsent.tech:3003/api/v1/workspaces/1');
     http.Response response = await http.get(link);
     _ws = getWorkspaceFromJson(response.body);
-    print(_ws?.uuid);
+    return (_ws?.uuid);
   }
 
   Future<http.Response> getUUID() async{
