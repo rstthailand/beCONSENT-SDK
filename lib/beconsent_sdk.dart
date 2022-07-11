@@ -9,7 +9,6 @@ import 'package:http/src/response.dart';
 import 'package:http/http.dart' as http;
 
 class BeConsent extends StatefulWidget {
-  
   @override
   State<StatefulWidget> createState() {
     return _BeConsentState();
@@ -20,11 +19,12 @@ class _BeConsentState extends State<BeConsent> {
   int? code;
   var consent = ['1', '2', '3', '4'];
   late GetWorkspace _ws;
-  add_toogle(){
-    for(int i=0;i<consent.length;i++){
+  add_toogle() {
+    for (int i = 0; i < consent.length; i++) {
       toggle_switch('$i[i]');
     }
   }
+
   String Decline = 'Decline';
   // changestate(bool newv) {
   //   setState(() {
@@ -37,10 +37,13 @@ class _BeConsentState extends State<BeConsent> {
   //   }
   // }
 
+  Future _getd() async {
+    code = await response.beconsent_api().getData();
+  }
 
   @override
-  void initState(){
-    code = response.beconsent_api().getData() as int?;
+  void initState() {
+    _getd();
     super.initState();
   }
 
@@ -111,7 +114,7 @@ class _BeConsentState extends State<BeConsent> {
     // setState(() {
     //   Future<String?> uuid = response.beconsent_api().getStatus();
     //   print('$uuid');
-    // });   
+    // });
     Navigator.of(context).pop();
   }
 }
