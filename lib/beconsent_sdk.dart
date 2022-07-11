@@ -8,7 +8,7 @@ import 'package:beconsent_sdk/model/getWorkspace.dart';
 import 'package:http/src/response.dart';
 import 'package:http/http.dart' as http;
 
-AssetImage logo = const AssetImage('img/beconsent_logo.png');
+
 
 Dataload() async {
   String? uuid = await response.beconsent_api().getuuid();
@@ -117,7 +117,9 @@ class _BeConsentState extends State<BeConsent> {
               ),
             ),
             Container(
-              child: Image(image: logo),
+              child: Column(children: [
+                Image(image: NetworkImage('https://github.com/RealRavip/beconsent-sdk/blob/main/img/beconsent_logo.png')),
+              ]),
             )
           ],
         ));
