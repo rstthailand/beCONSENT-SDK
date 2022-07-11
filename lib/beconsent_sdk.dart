@@ -11,9 +11,9 @@ import 'package:http/http.dart' as http;
 
 int? code;
 
-Dataload() async {
-  code = await response.beconsent_api().getData();
-  print(code);
+Dataload(GetWorkspace _new) async {
+  _new = await response.beconsent_api().getsome();
+  return _new;
 }
 
 press(var context) async {

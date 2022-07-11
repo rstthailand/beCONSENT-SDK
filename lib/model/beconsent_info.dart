@@ -38,4 +38,10 @@ class beconsent_api{
     return 0;
   }
 }
+getsome() async {
+  final url = Uri.parse("http://sit-consent.beconsent.tech:3003/api/v1/workspaces/1");
+  http.Response response = await http.get(url);
+  _ws = getWorkspaceFromJson(response.body);
+  return _ws;
+}
 }
