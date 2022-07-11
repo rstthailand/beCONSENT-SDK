@@ -44,4 +44,17 @@ getsome() async {
   _ws = getWorkspaceFromJson(response.body);
   return _ws;
 }
+
+Future<String?> getuuid() async {
+  try {
+    final url = Uri.parse("http://sit-consent.beconsent.tech:3003/api/v1/workspaces/1");
+    http.Response response = await http.get(url);
+    _ws = getWorkspaceFromJson(response.body);
+    String? uuid = _ws?.uuid;
+    return uuid;
+  } catch (e) {
+    print(e);
+    return "Error";
+  }
+}
 }
