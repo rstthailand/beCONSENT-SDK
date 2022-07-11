@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
 import 'package:beconsent_sdk/model/toggle_switch.dart';
+import 'package:beconsent_sdk/model/getWorkspace.dart';
 
 class BeConsent extends StatefulWidget {
   @override
@@ -27,6 +28,10 @@ class _BeConsentState extends State<BeConsent> {
     }
     
   }
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +94,7 @@ class _BeConsentState extends State<BeConsent> {
 
   void Accept() {
     print("press Accept");
+    response.beconsent_api().getUUID();
     Navigator.of(context).pop();
   }
 }
