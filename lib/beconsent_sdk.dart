@@ -57,8 +57,8 @@ class _BeConsentState extends State<BeConsent> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Toggle_btn('test1', val, changestate),
-                  Toggle_btn('test2', val, changestate)
+                  Toggle_btn('test1', changestate),
+                  Toggle_btn('test2', changestate)
                 ],
               ),
             ),
