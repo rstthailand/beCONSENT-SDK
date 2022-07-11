@@ -17,20 +17,24 @@ class BeConsent extends StatefulWidget {
 }
 
 class _BeConsentState extends State<BeConsent> {
+  var consent = ['1', '2', '3', '4'];
   late GetWorkspace _ws;
-  bool val = false;
-  bool val1 = false;
-  String Decline = 'Decline';
-  changestate(bool newv) {
-    setState(() {
-      val = newv;
-    });
-    if (val == true) {
-      Decline = 'Save Setting';
-    } else {
-      Decline = 'Decline';
+  add_toogle(){
+    for(int i=0;i<consent.length;i++){
+      toggle_switch('$i[i]');
     }
   }
+  String Decline = 'Decline';
+  // changestate(bool newv) {
+  //   setState(() {
+  //     val = newv;
+  //   });
+  //   if (val == true) {
+  //     Decline = 'Save Setting';
+  //   } else {
+  //     Decline = 'Decline';
+  //   }
+  // }
 
   Future<http.Response> getUUID() async {
     final link = Uri.parse('https://fakestoreapi.com/products/1');
@@ -58,9 +62,10 @@ class _BeConsentState extends State<BeConsent> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  toggle_switch('test1'),
-                  toggle_switch('test2'),
-                  toggle_switch('test3'),
+                  add_toogle()
+                  // toggle_switch('test1'),
+                  // toggle_switch('test2'),
+                  // toggle_switch('test3'),
                 ],
               ),
             ),
