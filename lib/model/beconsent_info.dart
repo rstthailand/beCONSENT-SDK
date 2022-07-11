@@ -26,16 +26,16 @@ class beconsent_api{
     return response;
   }
 
-  Future<String?> getStatus() async {
+  Future<int?> getData() async {
   try {
-    final link = Uri.parse('https://fakestoreapi.com/products/1');
-    http.Response response = await http.get(link);
+    final url = Uri.parse("http://sit-consent.beconsent.tech:3003/api/v1/workspaces/1");
+    http.Response response = await http.get(url);
     _ws = getWorkspaceFromJson(response.body);
-    String? status = _ws?.uuid;
+    int? status = response.statusCode;
     return status;
   } catch (e) {
     print(e);
-    return 'error';
+    return 0;
   }
 }
 }

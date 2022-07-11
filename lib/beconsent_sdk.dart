@@ -17,6 +17,7 @@ class BeConsent extends StatefulWidget {
 }
 
 class _BeConsentState extends State<BeConsent> {
+  int? code;
   var consent = ['1', '2', '3', '4'];
   late GetWorkspace _ws;
   add_toogle(){
@@ -36,11 +37,11 @@ class _BeConsentState extends State<BeConsent> {
   //   }
   // }
 
-  Future<http.Response> getUUID() async {
-    final link = Uri.parse('https://fakestoreapi.com/products/1');
-    http.Response response = await http.get(link);
 
-    return response;
+  @override
+  Future<void> initState() async {
+    code = await response.beconsent_api().getData();
+    super.initState();
   }
 
   @override
@@ -53,7 +54,7 @@ class _BeConsentState extends State<BeConsent> {
           children: [
             Container(
               child: Text(
-                'BeConsent',
+                '$code',
                 style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
               ),
             ),
@@ -107,10 +108,10 @@ class _BeConsentState extends State<BeConsent> {
 
   void Accept() {
     print("press Accept");
-    setState(() {
-      Future<String?> uuid = response.beconsent_api().getStatus();
-      print('$uuid');
-    });   
+    // setState(() {
+    //   Future<String?> uuid = response.beconsent_api().getStatus();
+    //   print('$uuid');
+    // });   
     Navigator.of(context).pop();
   }
 }
