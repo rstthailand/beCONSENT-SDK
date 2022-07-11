@@ -8,7 +8,7 @@ import 'package:beconsent_sdk/model/getWorkspace.dart';
 import 'package:http/src/response.dart';
 import 'package:http/http.dart' as http;
 
-AssetImage logo = AssetImage('img/beconsent_logo.png');
+AssetImage logo = const AssetImage('img/beconsent_logo.png');
 
 Dataload() async {
   String? uuid = await response.beconsent_api().getuuid();
