@@ -39,7 +39,7 @@ class _BeConsentState extends State<BeConsent> {
 
 
   @override
-  Future<void> initState() async {
+  void initState() async {
     code = await response.beconsent_api().getData();
     super.initState();
   }
