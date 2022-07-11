@@ -8,6 +8,20 @@ import 'package:beconsent_sdk/model/getWorkspace.dart';
 import 'package:http/src/response.dart';
 import 'package:http/http.dart' as http;
 
+int? code;
+
+press(var context) async {
+  code = await response.beconsent_api().getData();
+  return showModalBottomSheet(
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+    context: context,
+    builder: (context) => BeConsent(),
+  );
+}
+
 class BeConsent extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -36,7 +50,6 @@ class _BeConsentState extends State<BeConsent> {
   //     Decline = 'Decline';
   //   }
   // }
-
 
   @override
   void initState() {
