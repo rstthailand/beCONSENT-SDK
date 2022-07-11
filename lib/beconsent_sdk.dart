@@ -8,7 +8,7 @@ import 'package:beconsent_sdk/model/getWorkspace.dart';
 import 'package:http/src/response.dart';
 import 'package:http/http.dart' as http;
 
-int? code;
+AssetImage logo = AssetImage('img/beconsent_logo.png');
 
 Dataload() async {
   String? uuid = await response.beconsent_api().getuuid();
@@ -16,7 +16,6 @@ Dataload() async {
 }
 
 press(var context) async {
-  code = await response.beconsent_api().getData();
   return showModalBottomSheet(
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
@@ -116,6 +115,9 @@ class _BeConsentState extends State<BeConsent> {
                       child: Text("Accept All"))
                 ],
               ),
+            ),
+            Container(
+              child: Image(image: logo),
             )
           ],
         ));
