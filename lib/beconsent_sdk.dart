@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
 import 'package:beconsent_sdk/model/toggle_switch.dart';
 import 'package:beconsent_sdk/model/getWorkspace.dart';
+import 'package:http/src/response.dart';
 
 class BeConsent extends StatefulWidget {
   @override
@@ -94,7 +95,8 @@ class _BeConsentState extends State<BeConsent> {
 
   void Accept() {
     print("press Accept");
-    response.beconsent_api().getUUID();
+    Future<Response> uuid = response.beconsent_api().getUUID();
+    print("$uuid");
     Navigator.of(context).pop();
   }
 }
