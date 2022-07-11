@@ -116,11 +116,11 @@ class _BeConsentState extends State<BeConsent> {
                 ],
               ),
             ),
-            Container(
-              child: Column(children: [
-                Image(image: NetworkImage('https://github.com/RealRavip/beconsent-sdk/blob/main/img/beconsent_logo.png')),
-              ]),
-            )
+            // Container(
+            //   child: Column(children: [
+            //     Image(image: NetworkImage('https://github.com/RealRavip/beconsent-sdk/blob/main/img/beconsent_logo.png')),
+            //   ]),
+            // )
           ],
         ));
   }
