@@ -78,14 +78,10 @@ class _BeConsentState extends State<BeConsent> {
               ],
             )),
             Container(
-              child: ListView.builder(
-                itemCount: consent.length,
-                itemBuilder: (context, i){
-                  return Card(
-                    child: toggle_switch('collect user information $i'),
-                  );
-                }
-                ),
+              child: ListView(
+                children: [
+                toggle_switch('collect user information $label')
+              ],)
               // child: Column(
               //   mainAxisAlignment: MainAxisAlignment.start,
               //   crossAxisAlignment: CrossAxisAlignment.start,
