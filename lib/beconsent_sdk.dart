@@ -41,20 +41,12 @@ class _BeConsentState extends State<BeConsent> {
     }
   }
 
-  Dataload() async {
-  response.beconsent_api().getuuid().then((value){
-    setState(() {
-      label = value;
-    });
-  } );
-}
 
   String Decline = 'Decline';
 
 
   @override
   void initState(){
-    code = Dataload();
     super.initState();
   }
 
