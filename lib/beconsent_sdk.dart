@@ -10,10 +10,7 @@ import 'package:http/http.dart' as http;
 
 
 
-Dataload() async {
-  String? uuid = await response.beconsent_api().getuuid();
-  return uuid;
-}
+
 
 press(var context) async {
   return showModalBottomSheet(
@@ -34,7 +31,8 @@ class BeConsent extends StatefulWidget {
 }
 
 class _BeConsentState extends State<BeConsent> {
-  int? code;
+  late Future<String?> code;
+  String? label = "";
   var consent = ['1', '2', '3', '4'];
   late GetWorkspace _ws;
   add_toogle() {
@@ -43,20 +41,20 @@ class _BeConsentState extends State<BeConsent> {
     }
   }
 
+  Dataload() async {
+  response.beconsent_api().getuuid().then((value){
+    setState(() {
+      label = value;
+    });
+  } );
+}
+
   String Decline = 'Decline';
-  // changestate(bool newv) {
-  //   setState(() {
-  //     val = newv;
-  //   });
-  //   if (val == true) {
-  //     Decline = 'Save Setting';
-  //   } else {
-  //     Decline = 'Decline';
-  //   }
-  // }
+
 
   @override
-  void initState() {
+  void initState(){
+    code = Dataload();
     super.initState();
   }
 
@@ -84,7 +82,7 @@ class _BeConsentState extends State<BeConsent> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  toggle_switch('collect user information')
+                  toggle_switch('collect user information $label')
                 ],
               ),
             ),
