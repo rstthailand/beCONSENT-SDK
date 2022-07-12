@@ -82,7 +82,7 @@ class _BeConsentState extends State<BeConsent> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  toggle_switch('collect user information $label')
+                  toggle_switch('collect user information')
                 ],
               ),
             ),
