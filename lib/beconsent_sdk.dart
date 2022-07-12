@@ -81,7 +81,9 @@ class _BeConsentState extends State<BeConsent> {
               child: ListView.builder(
                 itemCount: consent.length,
                 itemBuilder: (context, i){
-                  return toggle_switch('collect user information $i');
+                  return Card(
+                    child: toggle_switch('collect user information $i'),
+                  );
                 }
                 ),
               // child: Column(
