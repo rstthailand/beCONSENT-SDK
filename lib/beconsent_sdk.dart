@@ -14,14 +14,21 @@ late GetWorkspace _ws;
 
 
 press(var context) {
-  return FutureBuilder(
+  return showModalBottomSheet(
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+    context: context,
+    builder: (context) => FutureBuilder(
       future: getData(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          return build_sheet(context);
+          return BeConsent();
         }
-        return loading_sheet(context);
-      });
+        return LinearProgressIndicator();
+      }),
+  );
 }
 
 build_sheet(var context){
