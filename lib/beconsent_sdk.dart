@@ -13,7 +13,7 @@ late GetWorkspace _ws;
 
 
 
-press(var context) async {
+press(var context) {
   return FutureBuilder(
       future: response.getData(_ws),
       builder: (context, snapshot) {
@@ -77,11 +77,11 @@ class _BeConsentState extends State<BeConsent> {
                 child: Column(
               children: [
                 Text(
-                  _ws.name,
+                  '_ws.name',
                   style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
                 ),
                 Text(
-                    _ws.description),
+                    '_ws.description'),
               ],
             )),
             Container(
@@ -115,11 +115,6 @@ class _BeConsentState extends State<BeConsent> {
                 ],
               ),
             ),
-            // Container(
-            //   child: Column(children: [
-            //     Image(image: NetworkImage('https://github.com/RealRavip/beconsent-sdk/blob/main/img/beconsent_logo.png')),
-            //   ]),
-            // )
           ],
         ));
   }
