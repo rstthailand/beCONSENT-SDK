@@ -20,7 +20,7 @@ press(var context) async {
         if (snapshot.connectionState == ConnectionState.done) {
           return build_sheet(context);
         }
-        return LinearProgressIndicator();
+        return loading_sheet(context);
       });
 }
 
@@ -32,6 +32,17 @@ build_sheet(var context){
         borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
     context: context,
     builder: (context) => BeConsent(),
+  );
+}
+
+loading_sheet(var context){
+  return showModalBottomSheet(
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+    context: context,
+    builder: (context) => LinearProgressIndicator(),
   );
 }
 
