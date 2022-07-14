@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class toggle_switch extends StatefulWidget {
   var text;
-  toggle_switch(String txt){
+  toggle_switch(String txt) {
     text = txt;
   }
   @override
@@ -13,12 +13,14 @@ class toggle_switch extends StatefulWidget {
 }
 
 class _toggle_switchState extends State<toggle_switch> {
-  var text1;
-  _toggle_switchState(String text){
-    text1 = text;
+  var consent_name;
+  _toggle_switchState(String text) {
+    consent_name = text;
   }
-  bool val = false; 
+
+  bool val = false;
   String Decline = 'Decline';
+
   changestate(bool newv) {
     setState(() {
       val = newv;
@@ -30,45 +32,40 @@ class _toggle_switchState extends State<toggle_switch> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return Padding(
-    padding: const EdgeInsets.only(top: 22.0, left: 16.0, right: 16.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(text1, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-        Spacer(),
-        CupertinoSwitch(
+    return Card(
+      child: ListTile(
+        title: Text(consent_name,
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+        trailing: CupertinoSwitch(
             value: val,
             onChanged: (newValue) {
               changestate(newValue);
             },
             trackColor: Colors.grey,
-            activeColor: Colors.blue)
-      ],
-    ),
-  );
-  }}
+            activeColor: Colors.blue),
+      ),
+    );
+  }
+}
 
 
-// Widget Toggle_btn(String text, bool val ,Function ChangeState) {
-//   return Padding(
+
+// Padding(
 //     padding: const EdgeInsets.only(top: 22.0, left: 16.0, right: 16.0),
 //     child: Row(
 //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //       children: [
-//         Text(text, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+//         Text(text1, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
 //         Spacer(),
 //         CupertinoSwitch(
 //             value: val,
 //             onChanged: (newValue) {
-//               ChangeState(newValue);
+//               changestate(newValue);
 //             },
 //             trackColor: Colors.grey,
 //             activeColor: Colors.blue)
 //       ],
 //     ),
 //   );
-// }

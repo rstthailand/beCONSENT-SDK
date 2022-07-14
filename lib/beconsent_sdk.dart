@@ -6,13 +6,25 @@ import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
 import 'package:beconsent_sdk/model/toggle_switch.dart';
 import 'package:beconsent_sdk/model/getWorkspace.dart';
 import 'package:http/src/response.dart';
+import 'package:beconsent_sdk/model/create_toggle.dart';
 import 'package:http/http.dart' as http;
 
-
+late GetWorkspace _ws;
 
 
 
 press(var context) async {
+  return FutureBuilder(
+      future: response.getData(_ws),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return build_sheet(context);
+        }
+        return LinearProgressIndicator();
+      });
+}
+
+build_sheet(var context){
   return showModalBottomSheet(
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
@@ -33,20 +45,11 @@ class BeConsent extends StatefulWidget {
 class _BeConsentState extends State<BeConsent> {
   late Future<String?> code;
   String? label = "";
-  var consent = ['1', '2', '3', '4'];
-  late GetWorkspace _ws;
-  add_toogle() {
-    for (int i = 0; i < consent.length; i++) {
-      toggle_switch('$i[i]');
-    }
-  }
-
 
   String Decline = 'Decline';
 
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
@@ -62,21 +65,15 @@ class _BeConsentState extends State<BeConsent> {
                 child: Column(
               children: [
                 Text(
-                  'MUTSARI DELIVERY User Data Collection Consent',
+                  _ws.name,
                   style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
                 ),
                 Text(
-                    'to store information MUTSARI DELIVERY User Data Collection Consent'),
+                    _ws.description),
               ],
             )),
             Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  toggle_switch('collect user information')
-                ],
-              ),
+              child: create_toggle(_ws),
             ),
             Container(
               child: Row(
@@ -122,10 +119,6 @@ class _BeConsentState extends State<BeConsent> {
 
   void Accept() {
     print("press Accept");
-    // setState(() {
-    //   Future<String?> uuid = response.beconsent_api().getStatus();
-    //   print('$uuid');
-    // });
     Navigator.of(context).pop();
   }
 }
