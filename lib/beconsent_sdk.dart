@@ -15,7 +15,7 @@ late GetWorkspace _ws;
 
 press(var context) {
   return FutureBuilder(
-      future: response.getData(_ws),
+      future: getData(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           return build_sheet(context);
@@ -129,3 +129,12 @@ class _BeConsentState extends State<BeConsent> {
     Navigator.of(context).pop();
   }
 }
+
+
+Future <GetWorkspace> getData() async{
+    final url = Uri.parse("http://sit-consent.beconsent.tech:3003/api/v1/workspaces/1");
+    var response = await http.get(url);
+    print(response.body);
+    _ws = getWorkspaceFromJson(response.body);
+    return _ws;
+  }
