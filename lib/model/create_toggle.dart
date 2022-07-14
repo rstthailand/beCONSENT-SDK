@@ -27,6 +27,8 @@ class _create_toggleState extends State<create_toggle> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
       itemCount: consent.length,
       itemBuilder: (context, i){
         return toggle_switch('txt');
