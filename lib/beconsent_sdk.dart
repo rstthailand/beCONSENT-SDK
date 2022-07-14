@@ -62,6 +62,7 @@ class _BeConsentState extends State<BeConsent> {
   @override
   void initState() {
     super.initState();
+    response.getData(_ws);
   }
 
   @override
