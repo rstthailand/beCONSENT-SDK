@@ -31,27 +31,6 @@ press(var context) {
   );
 }
 
-build_sheet(var context){
-  return showModalBottomSheet(
-    isScrollControlled: true,
-    backgroundColor: Colors.transparent,
-    shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-    context: context,
-    builder: (context) => BeConsent(),
-  );
-}
-
-loading_sheet(var context){
-  return showModalBottomSheet(
-    isScrollControlled: true,
-    backgroundColor: Colors.transparent,
-    shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-    context: context,
-    builder: (context) => LinearProgressIndicator(),
-  );
-}
 
 class BeConsent extends StatefulWidget {
   @override
@@ -84,11 +63,11 @@ class _BeConsentState extends State<BeConsent> {
                 child: Column(
               children: [
                 Text(
-                  '_ws.name',
+                  _ws.name,
                   style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
                 ),
                 Text(
-                    '_ws.description'),
+                    _ws.description),
               ],
             )),
             Container(
