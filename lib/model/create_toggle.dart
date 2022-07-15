@@ -22,6 +22,7 @@ class _create_toggleState extends State<create_toggle> {
 
   late Consent _c;
   var consent = [];
+  var description = [];
   late String lang = _c.defaultLanguage;
   bool val = false;
 
@@ -30,8 +31,10 @@ class _create_toggleState extends State<create_toggle> {
       for (var k in i.purposeCategories) {
         if (lang == 'th') {
           consent.add(k.name.th);
+          description.add(k.description.th);
         } else {
           consent.add(k.name.en);
+          description.add(k.description.en);
         }
       }
     }
@@ -45,7 +48,7 @@ class _create_toggleState extends State<create_toggle> {
         shrinkWrap: true,
         itemCount: consent.length,
         itemBuilder: (context, i) {
-          return toggle_switch(consent[i]);
+          return toggle_switch(consent[i],description[i]);
         });
   }
 }

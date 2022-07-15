@@ -1,21 +1,26 @@
+import 'package:beconsent_sdk/model/Consent.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class toggle_switch extends StatefulWidget {
   var text;
-  toggle_switch(String txt) {
+  var description;
+  toggle_switch(String txt, String des) {
     text = txt;
+    description = des;
   }
   @override
   State<StatefulWidget> createState() {
-    return _toggle_switchState(text);
+    return _toggle_switchState(text,description);
   }
 }
 
 class _toggle_switchState extends State<toggle_switch> {
   var consent_name;
-  _toggle_switchState(String text) {
+  var description;
+  _toggle_switchState(String text, String des) {
     consent_name = text;
+    description = des;
   }
 
   bool val = false;
@@ -38,6 +43,7 @@ class _toggle_switchState extends State<toggle_switch> {
       child: ListTile(
         title: Text(consent_name,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+            subtitle: Text(description),
         trailing: CupertinoSwitch(
             value: val,
             onChanged: (newValue) {
