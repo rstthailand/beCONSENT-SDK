@@ -114,7 +114,7 @@ class _BeConsentState extends State<BeConsent> {
 
 Future<Consent> getData() async {
   final url =
-      Uri.parse("http://sit-consent.beconsent.tech:3003/api/v1/workspaces/1");
+      Uri.parse("http://dev.beconsent.tech/api/v1/03a29a62-eb39-4d7b-895c-7e900d893e37/consent-versions/application/3daed8d8-79ae-493f-b68a-dc0da0ee35f6");
   var response = await http.get(url);
   print(response.body);
   _ws = consentFromJson(response.body);
