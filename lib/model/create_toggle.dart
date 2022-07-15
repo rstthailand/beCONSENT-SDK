@@ -2,27 +2,35 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:beconsent_sdk/model/toggle_switch.dart';
-import 'package:beconsent_sdk/model/getWorkspace.dart';
+import 'package:beconsent_sdk/model/Consent.dart';
 
 class create_toggle extends StatefulWidget {
-  late GetWorkspace _ws;
-  create_toggle(GetWorkspace ws) {
-    _ws = ws;
+  late Consent _c;
+  create_toggle(Consent c) {
+    _c = c;
   }
   @override
   State<StatefulWidget> createState() {
-    return _create_toggleState(_ws);
+    return _create_toggleState(_c);
   }
 }
 
 class _create_toggleState extends State<create_toggle> {
-  _create_toggleState(GetWorkspace ws) {
-    _ws = ws;
+  _create_toggleState(Consent c) {
+    _c = c;
   }
 
-  late GetWorkspace _ws;
-  var consent = ['consent1', 'consent2'];
+  late Consent _c;
+  var consent = [];
   bool val = false;
+
+  add_index(){
+    for (var i in _c.purposes){
+      for(var k in i.purposeCategories){
+        consent.add(k.name.en);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +39,7 @@ class _create_toggleState extends State<create_toggle> {
       shrinkWrap: true,
       itemCount: consent.length,
       itemBuilder: (context, i){
-        return toggle_switch('txt');
+        return toggle_switch(consent[i]);
       });
   }
 }

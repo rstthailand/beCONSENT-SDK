@@ -4,14 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
 import 'package:beconsent_sdk/model/toggle_switch.dart';
-import 'package:beconsent_sdk/model/getWorkspace.dart';
+import 'package:beconsent_sdk/model/Consent.dart';
 import 'package:http/src/response.dart';
 import 'package:beconsent_sdk/model/create_toggle.dart';
 import 'package:http/http.dart' as http;
 
-late GetWorkspace _ws;
-
-
+late Consent _ws;
 
 press(var context) {
   return showModalBottomSheet(
@@ -21,16 +19,15 @@ press(var context) {
         borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
     context: context,
     builder: (context) => FutureBuilder(
-      future: getData(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          return BeConsent();
-        }
-        return LinearProgressIndicator();
-      }),
+        future: getData(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return BeConsent();
+          }
+          return LinearProgressIndicator();
+        }),
   );
 }
-
 
 class BeConsent extends StatefulWidget {
   @override
@@ -48,7 +45,6 @@ class _BeConsentState extends State<BeConsent> {
   @override
   void initState() {
     super.initState();
-    response.getData(_ws);
   }
 
   @override
@@ -63,11 +59,10 @@ class _BeConsentState extends State<BeConsent> {
                 child: Column(
               children: [
                 Text(
-                  _ws.name,
+                  _ws.title.th,
                   style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
                 ),
-                Text(
-                    _ws.description),
+                Text(_ws.description.th),
               ],
             )),
             Container(
@@ -116,11 +111,11 @@ class _BeConsentState extends State<BeConsent> {
   }
 }
 
-
-Future <GetWorkspace> getData() async{
-    final url = Uri.parse("http://sit-consent.beconsent.tech:3003/api/v1/workspaces/1");
-    var response = await http.get(url);
-    print(response.body);
-    _ws = getWorkspaceFromJson(response.body);
-    return _ws;
-  }
+Future<Consent> getData() async {
+  final url =
+      Uri.parse("http://sit-consent.beconsent.tech:3003/api/v1/workspaces/1");
+  var response = await http.get(url);
+  print(response.body);
+  _ws = consentFromJson(response.body);
+  return _ws;
+}
