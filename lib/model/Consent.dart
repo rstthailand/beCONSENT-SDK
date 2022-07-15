@@ -60,7 +60,7 @@ class Consent {
   late final String consentUUID;
   late final String workspaceUUID;
 
-  Consent.fromJson(Map<String, dynamic> json){
+  Consent.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     uuid = json['uuid'];
     createdAt = json['createdAt'];
@@ -72,7 +72,8 @@ class Consent {
     title = Title.fromJson(json['title']);
     description = Description.fromJson(json['description']);
     privacyLinkName = PrivacyLinkName.fromJson(json['privacyLinkName']);
-    availableLanguage = List.castFrom<dynamic, String>(json['availableLanguage']);
+    availableLanguage =
+        List.castFrom<dynamic, String>(json['availableLanguage']);
     defaultLanguage = json['defaultLanguage'];
     linkPolicy = json['linkPolicy'];
     logo = json['logo'];
@@ -83,7 +84,8 @@ class Consent {
     template = Template.fromJson(json['template']);
     collectionChannel = json['collectionChannel'];
     publishedAt = json['publishedAt'];
-    purposes = List.from(json['purposes']).map((e)=>Purposes.fromJson(e)).toList();
+    purposes =
+        List.from(json['purposes']).map((e) => Purposes.fromJson(e)).toList();
     workspaceId = json['workspaceId'];
     consentId = json['consentId'];
     consentUUID = json['consentUUID'];
@@ -114,7 +116,7 @@ class Consent {
     _data['template'] = template.toJson();
     _data['collectionChannel'] = collectionChannel;
     _data['publishedAt'] = publishedAt;
-    _data['purposes'] = purposes.map((e)=>e.toJson()).toList();
+    _data['purposes'] = purposes.map((e) => e.toJson()).toList();
     _data['workspaceId'] = workspaceId;
     _data['consentId'] = consentId;
     _data['consentUUID'] = consentUUID;
@@ -145,7 +147,7 @@ class Application {
   late final bool deactivate;
   late final DataController dataController;
 
-  Application.fromJson(Map<String, dynamic> json){
+  Application.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     uuid = json['uuid'];
     workspaceId = json['workspaceId'];
@@ -200,7 +202,7 @@ class DataController {
   late final String linkPolicy;
   late final String logo;
 
-  DataController.fromJson(Map<String, dynamic> json){
+  DataController.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     uuid = json['uuid'];
     workspaceId = json['workspaceId'];
@@ -241,7 +243,7 @@ class Title {
   late final String en;
   late final String th;
 
-  Title.fromJson(Map<String, dynamic> json){
+  Title.fromJson(Map<String, dynamic> json) {
     en = json['en'];
     th = json['th'];
   }
@@ -262,7 +264,7 @@ class Description {
   late final String en;
   late final String th;
 
-  Description.fromJson(Map<String, dynamic> json){
+  Description.fromJson(Map<String, dynamic> json) {
     en = json['en'];
     th = json['th'];
   }
@@ -283,7 +285,7 @@ class PrivacyLinkName {
   late final String en;
   late final String th;
 
-  PrivacyLinkName.fromJson(Map<String, dynamic> json){
+  PrivacyLinkName.fromJson(Map<String, dynamic> json) {
     en = json['en'];
     th = json['th'];
   }
@@ -306,7 +308,7 @@ class Template {
   late final Modal modal;
   late final bool showLogo;
 
-  Template.fromJson(Map<String, dynamic> json){
+  Template.fromJson(Map<String, dynamic> json) {
     themeColor = json['themeColor'];
     modal = Modal.fromJson(json['modal']);
     showLogo = json['showLogo'];
@@ -337,7 +339,7 @@ class Modal {
   late final String rejectButtonBackgroundColor;
   late final String rejectButtonTextColor;
 
-  Modal.fromJson(Map<String, dynamic> json){
+  Modal.fromJson(Map<String, dynamic> json) {
     backgroundColor = json['backgroundColor'];
     textColor = json['textColor'];
     acceptButtonBackgroundColor = json['acceptButtonBackgroundColor'];
@@ -416,15 +418,20 @@ class Purposes {
   late final int workspaceId;
   late final int purposeId;
 
-  Purposes.fromJson(Map<String, dynamic> json){
+  Purposes.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     uuid = json['uuid'];
-    purposeCategories = List.from(json['purposeCategories']).map((e)=>PurposeCategories.fromJson(e)).toList();
-    piiCategories = List.from(json['piiCategories']).map((e)=>PiiCategories.fromJson(e)).toList();
+    purposeCategories = List.from(json['purposeCategories'])
+        .map((e) => PurposeCategories.fromJson(e))
+        .toList();
+    piiCategories = List.from(json['piiCategories'])
+        .map((e) => PiiCategories.fromJson(e))
+        .toList();
     personnel = Personnel.fromJson(json['personnel']);
     title = Title.fromJson(json['title']);
     description = Description.fromJson(json['description']);
-    availableLanguage = List.castFrom<dynamic, String>(json['availableLanguage']);
+    availableLanguage =
+        List.castFrom<dynamic, String>(json['availableLanguage']);
     defaultLanguage = json['defaultLanguage'];
     primary = json['primary'];
     dataSubjectGroup = json['dataSubjectGroup'];
@@ -432,7 +439,8 @@ class Purposes {
     lawfulBases = List.castFrom<dynamic, dynamic>(json['lawfulBases']);
     lawfulBasisDescription = json['lawfulBasisDescription'];
     isInternalApplication = json['isInternalApplication'];
-    internalApplication = InternalApplication.fromJson(json['internalApplication']);
+    internalApplication =
+        InternalApplication.fromJson(json['internalApplication']);
     thirdPartyDisclosure = json['thirdPartyDisclosure'];
     thirdPartyName = null;
     thirdPartyCountry = json['thirdPartyCountry'];
@@ -450,8 +458,9 @@ class Purposes {
     final _data = <String, dynamic>{};
     _data['id'] = id;
     _data['uuid'] = uuid;
-    _data['purposeCategories'] = purposeCategories.map((e)=>e.toJson()).toList();
-    _data['piiCategories'] = piiCategories.map((e)=>e.toJson()).toList();
+    _data['purposeCategories'] =
+        purposeCategories.map((e) => e.toJson()).toList();
+    _data['piiCategories'] = piiCategories.map((e) => e.toJson()).toList();
     _data['personnel'] = personnel.toJson();
     _data['title'] = title.toJson();
     _data['description'] = description.toJson();
@@ -497,13 +506,14 @@ class PurposeCategories {
   late final List<String> availableLanguage;
   late final String defaultLanguage;
 
-  PurposeCategories.fromJson(Map<String, dynamic> json){
+  PurposeCategories.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     uuid = json['uuid'];
     workspaceId = json['workspaceId'];
     name = Name.fromJson(json['name']);
     description = Description.fromJson(json['description']);
-    availableLanguage = List.castFrom<dynamic, String>(json['availableLanguage']);
+    availableLanguage =
+        List.castFrom<dynamic, String>(json['availableLanguage']);
     defaultLanguage = json['defaultLanguage'];
   }
 
@@ -528,7 +538,7 @@ class Name {
   late final String en;
   late final String th;
 
-  Name.fromJson(Map<String, dynamic> json){
+  Name.fromJson(Map<String, dynamic> json) {
     en = json['en'];
     th = json['th'];
   }
@@ -559,13 +569,14 @@ class PiiCategories {
   late final List<String> availableLanguage;
   late final String defaultLanguage;
 
-  PiiCategories.fromJson(Map<String, dynamic> json){
+  PiiCategories.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     uuid = json['uuid'];
     workspaceId = json['workspaceId'];
     name = Name.fromJson(json['name']);
     description = Description.fromJson(json['description']);
-    availableLanguage = List.castFrom<dynamic, String>(json['availableLanguage']);
+    availableLanguage =
+        List.castFrom<dynamic, String>(json['availableLanguage']);
     defaultLanguage = json['defaultLanguage'];
   }
 
@@ -600,7 +611,7 @@ class Personnel {
   late final String email;
   late final String logo;
 
-  Personnel.fromJson(Map<String, dynamic> json){
+  Personnel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     uuid = json['uuid'];
     name = json['name'];
@@ -645,7 +656,7 @@ class InternalApplication {
   late final bool deactivate;
   late final DataController dataController;
 
-  InternalApplication.fromJson(Map<String, dynamic> json){
+  InternalApplication.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     uuid = json['uuid'];
     workspaceId = json['workspaceId'];

@@ -4,7 +4,8 @@
 
 import 'dart:convert';
 
-GetWorkspace getWorkspaceFromJson(String str) => GetWorkspace.fromJson(json.decode(str));
+GetWorkspace getWorkspaceFromJson(String str) =>
+    GetWorkspace.fromJson(json.decode(str));
 
 String getWorkspaceToJson(GetWorkspace data) => json.encode(data.toJson());
 
@@ -26,20 +27,20 @@ class GetWorkspace {
   String description;
 
   factory GetWorkspace.fromJson(Map<String, dynamic> json) => GetWorkspace(
-    id: json["id"],
-    uuid: json["uuid"],
-    createdAt: DateTime.parse(json["createdAt"]),
-    updatedAt: DateTime.parse(json["updatedAt"]),
-    name: json["name"],
-    description: json["description"],
-  );
+        id: json["id"],
+        uuid: json["uuid"],
+        createdAt: DateTime.parse(json["createdAt"]),
+        updatedAt: DateTime.parse(json["updatedAt"]),
+        name: json["name"],
+        description: json["description"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "uuid": uuid,
-    "createdAt": createdAt.toIso8601String(),
-    "updatedAt": updatedAt.toIso8601String(),
-    "name": name,
-    "description": description,
-  };
+        "id": id,
+        "uuid": uuid,
+        "createdAt": createdAt.toIso8601String(),
+        "updatedAt": updatedAt.toIso8601String(),
+        "name": name,
+        "description": description,
+      };
 }

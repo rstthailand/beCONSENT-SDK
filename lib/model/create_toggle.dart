@@ -22,12 +22,17 @@ class _create_toggleState extends State<create_toggle> {
 
   late Consent _c;
   var consent = [];
+  late String lang = _c.defaultLanguage;
   bool val = false;
 
-  add_index(){
-    for (var i in _c.purposes){
-      for(var k in i.purposeCategories){
-        consent.add(k.name.en);
+  add_index() {
+    for (var i in _c.purposes) {
+      for (var k in i.purposeCategories) {
+        if (lang == 'th') {
+          consent.add(k.name.th);
+        } else {
+          consent.add(k.name.en);
+        }
       }
     }
   }
@@ -36,11 +41,11 @@ class _create_toggleState extends State<create_toggle> {
   Widget build(BuildContext context) {
     add_index();
     return ListView.builder(
-      scrollDirection: Axis.vertical,
-      shrinkWrap: true,
-      itemCount: consent.length,
-      itemBuilder: (context, i){
-        return toggle_switch(consent[i]);
-      });
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        itemCount: consent.length,
+        itemBuilder: (context, i) {
+          return toggle_switch(consent[i]);
+        });
   }
 }
