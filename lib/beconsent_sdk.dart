@@ -49,7 +49,6 @@ class _BeConsentState extends State<BeConsent> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-        initialChildSize: 0.3,
         minChildSize: 0.3,
         maxChildSize: 0.9,
         builder: (_, controller) => Container(
