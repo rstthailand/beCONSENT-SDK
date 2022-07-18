@@ -69,7 +69,7 @@ class _BeConsentState extends State<BeConsent> {
                   ],
                 )),
                 Container(
-                  child: create_toggle(_ws),
+                  child: create_toggle(_ws,controller),
                 ),
                 Container(
                   child: Row(

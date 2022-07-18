@@ -6,21 +6,25 @@ import 'package:beconsent_sdk/model/globals.dart' as global;
 
 class create_toggle extends StatefulWidget {
   late Consent _c;
-  create_toggle(Consent c) {
+  late var controller;
+  create_toggle(Consent c,var Acontroller) {
     _c = c;
+    controller = Acontroller;
   }
   @override
   State<StatefulWidget> createState() {
-    return _create_toggleState(_c);
+    return _create_toggleState(_c,controller);
   }
 }
 
 class _create_toggleState extends State<create_toggle> {
-  _create_toggleState(Consent c) {
+  _create_toggleState(Consent c,var Controller) {
     _c = c;
+    controller = Controller;
   }
 
   late Consent _c;
+  late var controller;
   late String lang = _c.defaultLanguage;
   bool val = false;
 
@@ -55,6 +59,7 @@ class _create_toggleState extends State<create_toggle> {
   Widget build(BuildContext context) {
     add_index();
     return ListView.builder(
+      controller: controller,
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         itemCount: global.record.length,
