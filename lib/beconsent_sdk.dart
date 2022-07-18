@@ -107,7 +107,7 @@ class _BeConsentState extends State<BeConsent> {
   }
 
   void Accept() {
-    for(var i in global.record){
+    for (var i in global.record) {
       print('${i.val} ${i.name}');
     }
     print("press Accept");
