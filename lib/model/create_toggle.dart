@@ -36,25 +36,24 @@ class _create_toggleState extends State<create_toggle> {
     if (!global.record.isEmpty) {
     } else {
       for (var i in _c.purposes) {
-        for (var k in i.purposeCategories) {
           if (lang == 'th') {
             consent_record rec = consent_record(
-                id: k.id,
-                uuid: k.uuid,
+                id: i.id,
+                uuid: i.uuid,
                 val: val,
-                name: k.name.th,
-                description: k.description.th);
+                name: i.title.th,
+                description: i.description.th);
             global.record.add(rec);
           } else {
             consent_record rec = consent_record(
-                id: k.id,
-                uuid: k.uuid,
+                id: i.id,
+                uuid: i.uuid,
                 val: val,
-                name: k.name.en,
-                description: k.description.en);
+                name: i.title.en,
+                description: i.description.en);
             global.record.add(rec);
           }
-        }
+        
       }
     }
   }
