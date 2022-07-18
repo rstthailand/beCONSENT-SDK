@@ -100,7 +100,6 @@ class _create_toggleState extends State<create_toggle> {
                   value: global.record[i].val,
                   onChanged: (newValue) {
                     if(global.record[i].primary == true){
-                      
                     }
                     else{
                       setState(() {
