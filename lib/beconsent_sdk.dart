@@ -58,8 +58,7 @@ class _BeConsentState extends State<BeConsent> {
             child: ListView(
               controller: controller,
               children: [
-                Container(
-                    child: Column(
+                  Column(
                   children: [
                     Text(
                       _ws.title.th,
@@ -67,12 +66,9 @@ class _BeConsentState extends State<BeConsent> {
                     ),
                     Text(_ws.description.th),
                   ],
-                )),
-                Container(
-                  child: create_toggle(_ws,controller),
                 ),
-                Container(
-                  child: Row(
+                  create_toggle(_ws,controller),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
@@ -98,7 +94,6 @@ class _BeConsentState extends State<BeConsent> {
                           child: Text(global.Accept))
                     ],
                   ),
-                ),
               ],
             )));
     // Container(
