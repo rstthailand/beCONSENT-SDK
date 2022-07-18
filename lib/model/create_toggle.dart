@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:beconsent_sdk/model/toggle_switch.dart';
 import 'package:beconsent_sdk/model/Consent.dart';
 import 'package:beconsent_sdk/model/record_consent.dart';
 import 'package:beconsent_sdk/model/globals.dart' as global;
@@ -26,8 +24,6 @@ class _create_toggleState extends State<create_toggle> {
   }
 
   late Consent _c;
-  var consent = [];
-  var description = [];
   late String lang = _c.defaultLanguage;
   bool val = false;
 
