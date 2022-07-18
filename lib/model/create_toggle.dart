@@ -67,7 +67,7 @@ class _create_toggleState extends State<create_toggle> {
             child: ListTile(
               title: Text(global.record[i].name,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-              subtitle: Text(global.record[i].description),
+              // subtitle: Text(global.record[i].description),
               trailing: CupertinoSwitch(
                   value: global.record[i].val,
                   onChanged: (newValue) {
