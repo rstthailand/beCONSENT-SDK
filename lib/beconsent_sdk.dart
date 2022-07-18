@@ -40,7 +40,6 @@ class _BeConsentState extends State<BeConsent> {
   late Future<String?> code;
   String? label = "";
 
-
   @override
   void initState() {
     super.initState();
@@ -49,55 +48,108 @@ class _BeConsentState extends State<BeConsent> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.white,
-        padding: EdgeInsets.all(16),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-                child: Column(
+    return DraggableScrollableSheet(
+        initialChildSize: 0.6,
+        minChildSize: 0.3,
+        maxChildSize: 0.6,
+        builder: (_, controller) => Container(
+            color: Colors.white,
+            padding: EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  _ws.title.th,
-                  style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
+                Container(
+                    child: Column(
+                  children: [
+                    Text(
+                      _ws.title.th,
+                      style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
+                    ),
+                    Text(_ws.description.th),
+                  ],
+                )),
+                Container(
+                  child: create_toggle(_ws),
                 ),
-                Text(_ws.description.th),
-              ],
-            )),
-            Container(
-              child: create_toggle(_ws),
-            ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () => cancel(),
-                    style: ButtonStyle(
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () => cancel(),
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)))),
-                    child: Text(global.Decline),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  ElevatedButton(
-                      onPressed: () => Accept(),
-                      style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                        child: Text(global.Decline),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      ElevatedButton(
+                          onPressed: () => Accept(),
+                          style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(20)))),
-                      child: Text(global.Accept))
-                ],
-              ),
-            ),
-          ],
-        ));
+                          child: Text(global.Accept))
+                    ],
+                  ),
+                ),
+              ],
+            )));
+    // Container(
+    //     color: Colors.white,
+    //     padding: EdgeInsets.all(16),
+    //     child: Column(
+    //       mainAxisSize: MainAxisSize.min,
+    //       children: [
+    //         Container(
+    //             child: Column(
+    //           children: [
+    //             Text(
+    //               _ws.title.th,
+    //               style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
+    //             ),
+    //             Text(_ws.description.th),
+    //           ],
+    //         )),
+    //         Container(
+    //           child: create_toggle(_ws),
+    //         ),
+    //         Container(
+    //           child: Row(
+    //             mainAxisAlignment: MainAxisAlignment.center,
+    //             children: [
+    //               ElevatedButton(
+    //                 onPressed: () => cancel(),
+    //                 style: ButtonStyle(
+    //                     shape:
+    //                         MaterialStateProperty.all<RoundedRectangleBorder>(
+    //                             RoundedRectangleBorder(
+    //                                 borderRadius: BorderRadius.circular(20)))),
+    //                 child: Text(global.Decline),
+    //               ),
+    //               SizedBox(
+    //                 width: 20,
+    //               ),
+    //               ElevatedButton(
+    //                   onPressed: () => Accept(),
+    //                   style: ButtonStyle(
+    //                       shape:
+    //                           MaterialStateProperty.all<RoundedRectangleBorder>(
+    //                               RoundedRectangleBorder(
+    //                                   borderRadius:
+    //                                       BorderRadius.circular(20)))),
+    //                   child: Text(global.Accept))
+    //             ],
+    //           ),
+    //         ),
+    //       ],
+    //     ));
   }
 
   void cancel() {
@@ -108,9 +160,7 @@ class _BeConsentState extends State<BeConsent> {
 
   void Accept() {
     for (var i in global.record) {
-      if(i.val == true){
-        
-      }
+      if (i.val == true) {}
     }
     print("press Accept");
     Navigator.of(context).pop();
