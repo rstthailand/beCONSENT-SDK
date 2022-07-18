@@ -10,7 +10,8 @@ import 'package:beconsent_sdk/model/globals.dart' as global;
 
 late Consent _ws;
 
-press(var context) {
+press(var context, String url) {
+  global.Url = url;
   return showModalBottomSheet(
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
@@ -18,7 +19,7 @@ press(var context) {
         borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
     context: context,
     builder: (context) => FutureBuilder(
-        future: getData(),
+        future: getData(global.Url),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return BeConsent();
@@ -44,7 +45,7 @@ class _BeConsentState extends State<BeConsent> {
   @override
   void initState() {
     super.initState();
-    getData();
+    getData(global.Url);
   }
 
   @override
@@ -108,16 +109,17 @@ class _BeConsentState extends State<BeConsent> {
 
   void Accept() {
     for (var i in global.record) {
-      print('${i.val} ${i.name}');
+      if(i.val == true){
+        
+      }
     }
     print("press Accept");
     Navigator.of(context).pop();
   }
 }
 
-Future<Consent> getData() async {
-  final url = Uri.parse(
-      "http://dev.beconsent.tech/api/v1/03a29a62-eb39-4d7b-895c-7e900d893e37/consent-versions/application/6d426cad-5fc9-43cb-a62a-71aec701f0e9");
+Future<Consent> getData(String url) async {
+  final url = Uri.parse(global.Url);
   var response = await http.get(url);
   print(response.body);
   _ws = consentFromJson(response.body);
