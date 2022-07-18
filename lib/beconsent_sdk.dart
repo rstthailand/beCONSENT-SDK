@@ -1,13 +1,12 @@
 library beconsent_sdk;
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
-import 'package:beconsent_sdk/model/toggle_switch.dart';
 import 'package:beconsent_sdk/model/Consent.dart';
-import 'package:http/src/response.dart';
 import 'package:beconsent_sdk/model/create_toggle.dart';
+import 'package:beconsent_sdk/model/record_consent.dart';
 import 'package:http/http.dart' as http;
+import 'package:beconsent_sdk/model/globals.dart' as global;
 
 late Consent _ws;
 
@@ -108,6 +107,9 @@ class _BeConsentState extends State<BeConsent> {
   }
 
   void Accept() {
+    for(var i in global.record){
+      print('${i.val} ${i.name}');
+    }
     print("press Accept");
     Navigator.of(context).pop();
   }
