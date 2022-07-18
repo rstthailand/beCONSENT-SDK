@@ -26,7 +26,10 @@ class _create_toggleState extends State<create_toggle> {
   bool val = false;
 
   add_index() {
-    global.record.clear();
+    if(!global.record.isEmpty){
+
+    }
+    else{
     for (var i in _c.purposes) {
       if (lang == 'th') {
         consent_record rec = consent_record(
@@ -49,7 +52,7 @@ class _create_toggleState extends State<create_toggle> {
         global.Decline = "Decline";
         global.Accept = "Accept All";
       }
-    }
+    }}
   }
 
   @override
