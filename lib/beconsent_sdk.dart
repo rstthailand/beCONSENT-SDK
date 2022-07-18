@@ -67,7 +67,7 @@ class _BeConsentState extends State<BeConsent> {
                     Text(_ws.description.th),
                   ],
                 ),
-                create_toggle(_ws, controller),
+                create_toggle(_ws),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
