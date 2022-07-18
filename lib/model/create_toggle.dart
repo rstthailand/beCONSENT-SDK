@@ -26,33 +26,61 @@ class _create_toggleState extends State<create_toggle> {
   bool val = false;
 
   add_index() {
-    if(!global.record.isEmpty){
-
-    }
-    else{
-    for (var i in _c.purposes) {
-      if (lang == 'th') {
-        consent_record rec = consent_record(
-            id: i.id,
-            uuid: i.uuid,
-            val: val,
-            name: i.title.th,
-            description: i.description.th);
-        global.record.add(rec);
-        global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
-        global.Accept = "ยอมรับทั้งหมด";
-      } else {
-        consent_record rec = consent_record(
-            id: i.id,
-            uuid: i.uuid,
-            val: val,
-            name: i.title.en,
-            description: i.description.en);
-        global.record.add(rec);
-        global.Decline = "Decline";
-        global.Accept = "Accept All";
+    if (!global.record.isEmpty) {
+    } else {
+      for (var i in _c.purposes) {
+        if (i.primary == true) {
+          if (lang == 'th') {
+            consent_record rec = consent_record(
+                id: i.id,
+                uuid: i.uuid,
+                val: val = true,
+                name: i.title.th,
+                description: i.description.th,
+                primary: i.primary);
+            global.record.add(rec);
+            global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
+            global.Accept = "ยอมรับทั้งหมด";
+          } else {
+            consent_record rec = consent_record(
+                id: i.id,
+                uuid: i.uuid,
+                val: val = true,
+                name: i.title.en,
+                description: i.description.en,
+                primary: i.primary);
+            global.record.add(rec);
+            global.Decline = "Decline";
+            global.Accept = "Accept All";
+          }
+        }
+        else{
+          if (lang == 'th') {
+            consent_record rec = consent_record(
+                id: i.id,
+                uuid: i.uuid,
+                val: val = true,
+                name: i.title.th,
+                description: i.description.th,
+                primary: i.primary);
+            global.record.add(rec);
+            global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
+            global.Accept = "ยอมรับทั้งหมด";
+          } else {
+            consent_record rec = consent_record(
+                id: i.id,
+                uuid: i.uuid,
+                val: val = true,
+                name: i.title.en,
+                description: i.description.en,
+                primary: i.primary);
+            global.record.add(rec);
+            global.Decline = "Decline";
+            global.Accept = "Accept All";
+          }
+        }
       }
-    }}
+    }
   }
 
   @override
@@ -71,9 +99,17 @@ class _create_toggleState extends State<create_toggle> {
               trailing: CupertinoSwitch(
                   value: global.record[i].val,
                   onChanged: (newValue) {
-                    setState(() {
+                    if(global.record[i].primary == true){
+                      setState(() {
+                      global.record[i].val = true;
+                    });
+                    }
+                    else{
+                      setState(() {
                       global.record[i].val = newValue;
                     });
+                    }
+                    
                   },
                   trackColor: Colors.grey,
                   activeColor: Colors.blue),
