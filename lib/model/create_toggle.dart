@@ -57,6 +57,7 @@ class _create_toggleState extends State<create_toggle> {
     add_index();
     return ListView.builder(
         scrollDirection: Axis.vertical,
+        padding: const EdgeInsets.all(8.0),
         shrinkWrap: true,
         itemCount: global.record.length,
         itemBuilder: (context, i) {
