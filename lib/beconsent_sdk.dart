@@ -64,6 +64,7 @@ class _BeConsentState extends State<BeConsent> {
                     Text(
                       _ws.title.th,
                       style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
+                      textAlign: TextAlign.center,
                     ),
                     Text(_ws.description.th),
                   ],
