@@ -49,16 +49,16 @@ class _BeConsentState extends State<BeConsent> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-        initialChildSize: 0.6,
+        initialChildSize: 0.9,
         minChildSize: 0.3,
-        maxChildSize: 0.6,
+        maxChildSize: 0.9,
         builder: (_, controller) => Container(
             color: Colors.white,
             padding: EdgeInsets.all(16),
             child: ListView(
               controller: controller,
               children: [
-                  Column(
+                Column(
                   children: [
                     Text(
                       _ws.title.th,
@@ -67,33 +67,33 @@ class _BeConsentState extends State<BeConsent> {
                     Text(_ws.description.th),
                   ],
                 ),
-                  create_toggle(_ws,controller),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () => cancel(),
+                create_toggle(_ws, controller),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => cancel(),
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(20)))),
+                      child: Text(global.Decline),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    ElevatedButton(
+                        onPressed: () => Accept(),
                         style: ButtonStyle(
                             shape: MaterialStateProperty.all<
                                     RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)))),
-                        child: Text(global.Decline),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      ElevatedButton(
-                          onPressed: () => Accept(),
-                          style: ButtonStyle(
-                              shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(20)))),
-                          child: Text(global.Accept))
-                    ],
-                  ),
+                        child: Text(global.Accept))
+                  ],
+                ),
               ],
             )));
     // Container(
