@@ -55,8 +55,8 @@ class _BeConsentState extends State<BeConsent> {
         builder: (_, controller) => Container(
             color: Colors.white,
             padding: EdgeInsets.all(16),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+            child: ListView(
+              controller: controller,
               children: [
                 Container(
                     child: Column(
