@@ -59,6 +59,7 @@ class _BeConsentState extends State<BeConsent> {
               scrollDirection: Axis.vertical,
               children: [
                 Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       _ws.title.th,
