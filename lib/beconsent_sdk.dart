@@ -40,7 +40,6 @@ class _BeConsentState extends State<BeConsent> {
   late Future<String?> code;
   String? label = "";
 
-  String Decline = 'Decline';
 
   @override
   void initState() {
@@ -80,7 +79,7 @@ class _BeConsentState extends State<BeConsent> {
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)))),
-                    child: Text('$Decline'),
+                    child: Text(global.Decline),
                   ),
                   SizedBox(
                     width: 20,
@@ -93,7 +92,7 @@ class _BeConsentState extends State<BeConsent> {
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(20)))),
-                      child: Text("Accept All"))
+                      child: Text(global.Accept))
                 ],
               ),
             ),
