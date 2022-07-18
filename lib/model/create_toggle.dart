@@ -59,7 +59,7 @@ class _create_toggleState extends State<create_toggle> {
             consent_record rec = consent_record(
                 id: i.id,
                 uuid: i.uuid,
-                val: val = true,
+                val: val,
                 name: i.title.th,
                 description: i.description.th,
                 primary: i.primary);
@@ -70,7 +70,7 @@ class _create_toggleState extends State<create_toggle> {
             consent_record rec = consent_record(
                 id: i.id,
                 uuid: i.uuid,
-                val: val = true,
+                val: val,
                 name: i.title.en,
                 description: i.description.en,
                 primary: i.primary);
@@ -100,9 +100,7 @@ class _create_toggleState extends State<create_toggle> {
                   value: global.record[i].val,
                   onChanged: (newValue) {
                     if(global.record[i].primary == true){
-                      setState(() {
-                      global.record[i].val = true;
-                    });
+                      
                     }
                     else{
                       setState(() {
