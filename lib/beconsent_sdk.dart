@@ -29,6 +29,25 @@ press(var context, String url) {
   );
 }
 
+show_popup(BuildContext context, String url){
+  global.Url = url;
+  showModalBottomSheet(
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+    context: context,
+    builder: (context) => FutureBuilder(
+        future: getData(global.Url),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return BeConsent();
+          }
+          return LinearProgressIndicator();
+        }),
+  );
+}
+
 class BeConsent extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
