@@ -29,6 +29,7 @@ press(var context, String url) {
 
 
 popup_show(BuildContext context, String url) {
+  getData(global.Url);
   global.Url = url;
   Future.delayed(
       Duration.zero,
