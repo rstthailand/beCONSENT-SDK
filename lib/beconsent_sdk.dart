@@ -49,16 +49,15 @@ popup_show(BuildContext context) {
                 future: getData(global.Url),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
-                    if(_ws.defaultLanguage == "th"){
+                    if (_ws.defaultLanguage == "th") {
                       global.title = _ws.title.th;
                       global.description = _ws.description.th;
                       global.Accept = "ยอมรับทั้งหมด";
                       global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
-                      }
-                      else{
-                        global.title = _ws.title.en;
-                        global.description = _ws.description.en;
-                      }
+                    } else {
+                      global.title = _ws.title.en;
+                      global.description = _ws.description.en;
+                    }
                     return BeConsent();
                   }
                   return const Center(
@@ -88,56 +87,60 @@ class _BeConsentState extends State<BeConsent> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(32.0))),
         child: SingleChildScrollView(
-      child: Container(
-          child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            child: Column(children: [
-              Text(
-                global.title,
-                style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
-                textAlign: TextAlign.center,
+          child: Container(
+              child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                child: Column(children: [
+                  Text(
+                    global.title,
+                    style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(global.description)
+                ]),
               ),
-              Text(global.description)
-            ]),
-          ),
-          SingleChildScrollView(
-            child: Container(
-              height: 500,
-              child: create_toggle(_ws),
-            ),
-          ),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () => cancel(),
-                  style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)))),
-                  child: Text(global.Decline),
+              SingleChildScrollView(
+                child: Container(
+                  height: 500,
+                  child: create_toggle(_ws),
                 ),
-                SizedBox(
-                  width: 20,
-                ),
-                ElevatedButton(
-                    onPressed: () => Accept(),
-                    style: ButtonStyle(
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
+              ),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => cancel(),
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(20)))),
+                      child: Text(global.Decline),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    ElevatedButton(
+                        onPressed: () => Accept(),
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)))),
-                    child: Text(global.Accept))
-              ],
-            ),
-          )
-        ],
-      )),
-    ));
+                        child: Text(global.Accept))
+                  ],
+                ),
+              )
+            ],
+          )),
+        ));
   }
 
   void cancel() {
