@@ -69,6 +69,17 @@ class _create_toggleState extends State<create_toggle> {
         }
         else{
           if (lang == 'th') {
+            if(i.title.th == ""){
+              consent_record rec = consent_record(
+                id: i.id,
+                uuid: i.uuid,
+                val: true,
+                name: i.title.en,
+                description: i.description.en,
+                primary: i.primary,
+                isSelected: false);
+            global.record.add(rec);
+            }
             consent_record rec = consent_record(
                 id: i.id,
                 uuid: i.uuid,
