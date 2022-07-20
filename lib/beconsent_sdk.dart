@@ -82,10 +82,9 @@ class _BeConsentState extends State<BeConsent> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      child: Container(
-            color: Colors.white,
-            padding: EdgeInsets.all(16),
-            child: ListView(
+      child: Column(
+            children: [
+            ListView(
               scrollDirection: Axis.vertical,
               children: [
                 Column(
@@ -128,7 +127,7 @@ class _BeConsentState extends State<BeConsent> {
                   ],
                 ),
               ],
-            )),
+            )],),
     );
     // DraggableScrollableSheet(
     //     minChildSize: 0.3,
