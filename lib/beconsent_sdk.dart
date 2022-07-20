@@ -49,6 +49,14 @@ popup_show(BuildContext context) {
                 future: getData(global.Url),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
+                    if(_ws.defaultLanguage == "th"){
+                      global.title = _ws.title.th;
+                      global.description = _ws.description.th;
+                      }
+                      else{
+                        global.title = _ws.title.en;
+                        global.description = _ws.description.en;
+                      }
                     return BeConsent();
                   }
                   return const Center(
