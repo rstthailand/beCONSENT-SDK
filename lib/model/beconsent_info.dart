@@ -7,12 +7,17 @@ import 'package:beconsent_sdk/model/globals.dart' as global;
 
 cancelConsent(Consent id) async{
     final url = Uri.parse("http://dev.beconsent.tech/api/v1/03a29a62-eb39-4d7b-895c-7e900d893e37/user-consents");
+    for (var i in global.record){
+      if(i.val == true){
+        global.Action = "PARTIAL";
+      }
+    }
     var response = await http.post(url, body: {
       "consentId": id.consentId.toString(),
       "uid": "real_test",
       "name":"Test customAPI",
       "consentVersion": id.version,
-      "action": "NONE",
+      "action": global.Action,
       "language": "th",
       "collectionChannel": "Mobile App"
     });
@@ -32,7 +37,7 @@ cancelConsent(Consent id) async{
       "name":"Test customAPI",
       "consentVersion": _c.version,
       "purposes": purpose,
-      "action": "PARTIAL",
+      "action": "ACCEPT ALL",
       "language": "th",
       "collectionChannel": "Mobile App"};
 

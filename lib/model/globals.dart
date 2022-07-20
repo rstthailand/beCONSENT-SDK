@@ -4,3 +4,4 @@ List<consent_record> record = [];
 String Url = "";
 String Decline = "Decline";
 String Accept = "Accept All";
+String Action = "NONE";
