@@ -87,6 +87,7 @@ class _BeConsentState extends State<BeConsent> {
     return Dialog(
       child: Container(
           child: Column(
+            mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             child: Text(
