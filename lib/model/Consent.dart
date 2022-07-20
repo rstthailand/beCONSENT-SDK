@@ -199,7 +199,7 @@ class DataController {
   late final String email;
   late final String website;
   late final String linkPolicy;
-  late final Null logo;
+  late String? logo;
 
   DataController.fromJson(Map<String, dynamic> json){
     id = json['id'];
