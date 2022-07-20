@@ -94,7 +94,9 @@ class _BeConsentState extends State<BeConsent> {
               child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
+              Padding(
+                padding: EdgeInsets.only(top: 12,bottom: 12),
+                child: Container(
                 child: Column(children: [
                   Text(
                     global.title,
@@ -103,7 +105,7 @@ class _BeConsentState extends State<BeConsent> {
                   ),
                   Text(global.description)
                 ]),
-              ),
+              )),
               SingleChildScrollView(
                 child: Container(
                   height: 500,
