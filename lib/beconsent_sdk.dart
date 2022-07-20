@@ -123,10 +123,11 @@ class _BeConsentState extends State<BeConsent> {
   }
 
   void Accept() {
-    for (var i in global.record) {
-      if (i.val == true) {}
-    }
+    // for (var i in global.record) {
+    //   if (i.val == true) {}
+    // }
     print("press Accept");
+    response.sendConsent(_ws);
     Navigator.of(context).pop();
   }
 }
