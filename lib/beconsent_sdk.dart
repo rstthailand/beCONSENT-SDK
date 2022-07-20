@@ -17,27 +17,26 @@ Future getData(String url) async {
   _ws = consentFromJson(response.body);
 }
 
-init(String url){
-  getData(url);
-}
-
-press(var context, String url) {
+init(String url) {
   global.Url = url;
-  return showDialog(
-            context: context,
-            builder: (context) => FutureBuilder(
-                future: getData(global.Url),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    return BeConsent();
-                  }
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }),
-          );
+  getData(global.Url);
 }
 
+press(var context) {
+  return showDialog(
+    context: context,
+    builder: (context) => FutureBuilder(
+        future: getData(global.Url),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return BeConsent();
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }),
+  );
+}
 
 popup_show(BuildContext context, String url) {
   getData(global.Url);
@@ -73,7 +72,7 @@ class _BeConsentState extends State<BeConsent> {
   @override
   void initState() {
     getData(global.Url);
-    super.initState(); 
+    super.initState();
   }
 
   @override
@@ -129,7 +128,6 @@ class _BeConsentState extends State<BeConsent> {
         ],
       )),
     ));
-    
   }
 
   void cancel() {
@@ -139,13 +137,8 @@ class _BeConsentState extends State<BeConsent> {
   }
 
   void Accept() {
-    // for (var i in global.record) {
-    //   if (i.val == true) {}
-    // }
     print("press Accept");
     response.AcceptAllConsent(_ws);
     Navigator.of(context).pop();
   }
 }
-
-
