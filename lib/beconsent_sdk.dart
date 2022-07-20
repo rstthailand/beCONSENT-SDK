@@ -110,7 +110,9 @@ class _BeConsentState extends State<BeConsent> {
                   child: create_toggle(_ws),
                 ),
               ),
-              Container(
+              Padding(
+                padding: EdgeInsets.all(12),
+                child: Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -137,7 +139,7 @@ class _BeConsentState extends State<BeConsent> {
                         child: Text(global.Accept, style: TextStyle(fontSize: 16),))
                   ],
                 ),
-              )
+              ))
             ],
           )),
         ));
