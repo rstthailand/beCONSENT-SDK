@@ -111,7 +111,7 @@ class _BeConsentState extends State<BeConsent> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(12),
+                padding: EdgeInsets.only(top: 12, bottom: 12),
                 child: Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
