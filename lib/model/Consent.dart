@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 Consent consentFromJson(String str) => Consent.fromJson(json.decode(str));
+String beConsentToJson(Consent data) => json.encode(data.toJson());
 
 class Consent {
   Consent({
@@ -18,10 +19,10 @@ class Consent {
     required this.availableLanguage,
     required this.defaultLanguage,
     required this.linkPolicy,
-    required this.logo,
+    this.logo,
     required this.showPrivacyPolicyLink,
-     this.customApiDescription,
-     this.latestVersion,
+    this.customApiDescription,
+    this.latestVersion,
     required this.version,
     required this.template,
     required this.collectionChannel,
@@ -46,7 +47,7 @@ class Consent {
   late final List<String> availableLanguage;
   late final String defaultLanguage;
   late final String linkPolicy;
-  late final String logo;
+  late final Null logo;
   late final bool showPrivacyPolicyLink;
   late final Null customApiDescription;
   late final Null latestVersion;
@@ -59,7 +60,7 @@ class Consent {
   late final int consentId;
   late final String consentUUID;
   late final String workspaceUUID;
-  
+
   Consent.fromJson(Map<String, dynamic> json){
     id = json['id'];
     uuid = json['uuid'];
@@ -75,7 +76,7 @@ class Consent {
     availableLanguage = List.castFrom<dynamic, String>(json['availableLanguage']);
     defaultLanguage = json['defaultLanguage'];
     linkPolicy = json['linkPolicy'];
-    logo = json['logo'];
+    logo = null;
     showPrivacyPolicyLink = json['showPrivacyPolicyLink'];
     customApiDescription = null;
     latestVersion = null;
@@ -131,7 +132,7 @@ class Application {
     required this.name,
     required this.description,
     required this.sourceOfData,
-     this.otherSource,
+    this.otherSource,
     required this.deactivate,
     required this.dataController,
   });
@@ -144,7 +145,7 @@ class Application {
   late final Null otherSource;
   late final bool deactivate;
   late final DataController dataController;
-  
+
   Application.fromJson(Map<String, dynamic> json){
     id = json['id'];
     uuid = json['uuid'];
@@ -185,7 +186,7 @@ class DataController {
     required this.email,
     required this.website,
     required this.linkPolicy,
-    required this.logo,
+    this.logo,
   });
   late final int id;
   late final String uuid;
@@ -198,8 +199,8 @@ class DataController {
   late final String email;
   late final String website;
   late final String linkPolicy;
-  late final String logo;
-  
+  late final Null logo;
+
   DataController.fromJson(Map<String, dynamic> json){
     id = json['id'];
     uuid = json['uuid'];
@@ -212,7 +213,7 @@ class DataController {
     email = json['email'];
     website = json['website'];
     linkPolicy = json['linkPolicy'];
-    logo = json['logo'];
+    logo = null;
   }
 
   Map<String, dynamic> toJson() {
@@ -240,7 +241,7 @@ class Title {
   });
   late final String en;
   late final String th;
-  
+
   Title.fromJson(Map<String, dynamic> json){
     en = json['en'];
     th = json['th'];
@@ -261,7 +262,7 @@ class Description {
   });
   late final String en;
   late final String th;
-  
+
   Description.fromJson(Map<String, dynamic> json){
     en = json['en'];
     th = json['th'];
@@ -282,7 +283,7 @@ class PrivacyLinkName {
   });
   late final String en;
   late final String th;
-  
+
   PrivacyLinkName.fromJson(Map<String, dynamic> json){
     en = json['en'];
     th = json['th'];
@@ -305,7 +306,7 @@ class Template {
   late final String themeColor;
   late final Modal modal;
   late final bool showLogo;
-  
+
   Template.fromJson(Map<String, dynamic> json){
     themeColor = json['themeColor'];
     modal = Modal.fromJson(json['modal']);
@@ -336,7 +337,7 @@ class Modal {
   late final String acceptButtonTextColor;
   late final String rejectButtonBackgroundColor;
   late final String rejectButtonTextColor;
-  
+
   Modal.fromJson(Map<String, dynamic> json){
     backgroundColor = json['backgroundColor'];
     textColor = json['textColor'];
@@ -373,14 +374,14 @@ class Purposes {
     required this.dataSubjectGroup,
     required this.isConsentPurpose,
     required this.lawfulBases,
-     this.lawfulBasisDescription,
+    this.lawfulBasisDescription,
     required this.isInternalApplication,
-     this.internalApplication,
+    this.internalApplication,
     required this.thirdPartyDisclosure,
-     this.thirdPartyName,
+    this.thirdPartyName,
     required this.thirdPartyCountry,
-     this.thirdPartyContract,
-     this.dataRetentionDescription,
+    this.thirdPartyContract,
+    this.dataRetentionDescription,
     required this.storage,
     required this.securityMeasure,
     required this.version,
@@ -415,7 +416,7 @@ class Purposes {
   late final String publishedAt;
   late final int workspaceId;
   late final int purposeId;
-  
+
   Purposes.fromJson(Map<String, dynamic> json){
     id = json['id'];
     uuid = json['uuid'];
@@ -496,7 +497,7 @@ class PurposeCategories {
   late final Description description;
   late final List<String> availableLanguage;
   late final String defaultLanguage;
-  
+
   PurposeCategories.fromJson(Map<String, dynamic> json){
     id = json['id'];
     uuid = json['uuid'];
@@ -527,7 +528,7 @@ class Name {
   });
   late final String en;
   late final String th;
-  
+
   Name.fromJson(Map<String, dynamic> json){
     en = json['en'];
     th = json['th'];
@@ -558,7 +559,7 @@ class PiiCategories {
   late final Description description;
   late final List<String> availableLanguage;
   late final String defaultLanguage;
-  
+
   PiiCategories.fromJson(Map<String, dynamic> json){
     id = json['id'];
     uuid = json['uuid'];
@@ -599,7 +600,7 @@ class Personnel {
   late final String phone;
   late final String email;
   late final String logo;
-  
+
   Personnel.fromJson(Map<String, dynamic> json){
     id = json['id'];
     uuid = json['uuid'];
@@ -631,7 +632,7 @@ class InternalApplication {
     required this.name,
     required this.description,
     required this.sourceOfData,
-     this.otherSource,
+    this.otherSource,
     required this.deactivate,
     required this.dataController,
   });
@@ -644,7 +645,7 @@ class InternalApplication {
   late final Null otherSource;
   late final bool deactivate;
   late final DataController dataController;
-  
+
   InternalApplication.fromJson(Map<String, dynamic> json){
     id = json['id'];
     uuid = json['uuid'];
