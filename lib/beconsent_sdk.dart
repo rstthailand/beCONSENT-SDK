@@ -31,7 +31,7 @@ press(var context, String url) {
 popup_show(BuildContext context, String url) {
   global.Url = url;
   Future.delayed(
-      Duration.zero,
+      const Duration(seconds: 2),
       () => showDialog(
             context: context,
             builder: (context) => FutureBuilder(
