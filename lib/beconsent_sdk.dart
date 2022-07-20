@@ -38,9 +38,7 @@ press(var context) {
   );
 }
 
-popup_show(BuildContext context, String url) {
-  getData(global.Url);
-  global.Url = url;
+popup_show(BuildContext context) {
   Future.delayed(
       Duration.zero,
       () => showDialog(
