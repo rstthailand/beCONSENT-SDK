@@ -22,6 +22,18 @@ init(String url, String name, String uid) {
   global.Name = name;
   global.uid = uid;
   getData(global.Url);
+  if(_ws.defaultLanguage == "th"){
+    global.title = _ws.title.th;
+    global.description = _ws.description.th;
+    global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
+    global.Accept = "ยอมรับทั้งหมด";
+  }
+  else{
+    global.title = _ws.title.en;
+    global.description = _ws.description.en;
+    global.Decline = "Decline Addition";
+    global.Accept = "Accept All";
+  }
 }
 
 press(var context) {
@@ -86,11 +98,11 @@ class _BeConsentState extends State<BeConsent> {
           Container(
             child: Column(children: [
               Text(
-                _ws.title.th,
+                global.title,
                 style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
                 textAlign: TextAlign.center,
               ),
-              Text(_ws.description.th)
+              Text(global.description)
             ]),
           ),
           SingleChildScrollView(
