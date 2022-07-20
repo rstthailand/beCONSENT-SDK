@@ -189,7 +189,7 @@ class _BeConsentState extends State<BeConsent> {
 
   void cancel() {
     print("press cancel");
-    response.cancelConsent(_ws.workspaceUUID);
+    response.cancelConsent(_ws.id);
     Navigator.of(context).pop();
   }
 
