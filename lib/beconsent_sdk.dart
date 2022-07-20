@@ -78,8 +78,8 @@ class _BeConsentState extends State<BeConsent> {
 
   @override
   void initState() {
-    super.initState();
     getData(global.Url);
+    super.initState(); 
   }
 
   @override
