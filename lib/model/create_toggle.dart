@@ -114,14 +114,11 @@ class _create_toggleState extends State<create_toggle> {
                   activeColor: Colors.blue),
               onTap: () {
                 setState(() {
-                  global.record[i].isSelected
-                  ? global.record[i].isSelected = true
-                  : global.record[i].isSelected = false;
-                  // if (global.record[i].isSelected == false) {
-                  //   global.record[i].isSelected = true;
-                  // } else {
-                  //   global.record[i].isSelected = false;
-                  // }
+                  if (global.record[i].isSelected == false) {
+                    global.record[i].isSelected = true;
+                  } else {
+                    global.record[i].isSelected = false;
+                  }
                 });
               },
             ),
