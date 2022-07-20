@@ -34,7 +34,7 @@ class _create_toggleState extends State<create_toggle> {
             consent_record rec = consent_record(
                 id: i.id,
                 uuid: i.uuid,
-                val: val = true,
+                val: true,
                 name: i.title.th,
                 description: i.description.th,
                 primary: i.primary,
@@ -46,7 +46,7 @@ class _create_toggleState extends State<create_toggle> {
             consent_record rec = consent_record(
                 id: i.id,
                 uuid: i.uuid,
-                val: val = true,
+                val: true,
                 name: i.title.en,
                 description: i.description.en,
                 primary: i.primary,
