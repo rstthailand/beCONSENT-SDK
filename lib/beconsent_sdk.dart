@@ -10,6 +10,13 @@ import 'package:beconsent_sdk/model/globals.dart' as global;
 
 late Consent _ws;
 
+Future getData(String url) async {
+  final url = Uri.parse(global.Url);
+  var response = await http.get(url);
+  print(response.body);
+  _ws = consentFromJson(response.body);
+}
+
 press(var context, String url) {
   global.Url = url;
   return showDialog(
@@ -137,10 +144,4 @@ class _BeConsentState extends State<BeConsent> {
   }
 }
 
-Future<Consent> getData(String url) async {
-  final url = Uri.parse(global.Url);
-  var response = await http.get(url);
-  print(response.body);
-  _ws = consentFromJson(response.body);
-  return _ws;
-}
+
