@@ -5,6 +5,7 @@ class consent_record{
   String name;
   String description;
   bool primary;
+  bool isSelected;
 
   consent_record({
     required this.id,
@@ -12,6 +13,7 @@ class consent_record{
     required this.val,
     required this.name,
     required this.description,
-    required this.primary
+    required this.primary,
+    required this.isSelected
 });
 }

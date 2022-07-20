@@ -37,7 +37,8 @@ class _create_toggleState extends State<create_toggle> {
                 val: val = true,
                 name: i.title.th,
                 description: i.description.th,
-                primary: i.primary);
+                primary: i.primary,
+                isSelected: false);
             global.record.add(rec);
             global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
             global.Accept = "ยอมรับทั้งหมด";
@@ -48,7 +49,8 @@ class _create_toggleState extends State<create_toggle> {
                 val: val = true,
                 name: i.title.en,
                 description: i.description.en,
-                primary: i.primary);
+                primary: i.primary,
+                isSelected: false);
             global.record.add(rec);
             global.Decline = "Decline";
             global.Accept = "Accept All";
@@ -62,7 +64,8 @@ class _create_toggleState extends State<create_toggle> {
                 val: val,
                 name: i.title.th,
                 description: i.description.th,
-                primary: i.primary);
+                primary: i.primary,
+                isSelected: false);
             global.record.add(rec);
             global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
             global.Accept = "ยอมรับทั้งหมด";
@@ -73,7 +76,8 @@ class _create_toggleState extends State<create_toggle> {
                 val: val,
                 name: i.title.en,
                 description: i.description.en,
-                primary: i.primary);
+                primary: i.primary,
+                isSelected: false);
             global.record.add(rec);
             global.Decline = "Decline";
             global.Accept = "Accept All";
@@ -95,7 +99,9 @@ class _create_toggleState extends State<create_toggle> {
             child: ListTile(
               title: Text(global.record[i].name,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-              // subtitle: Text(global.record[i].description),
+              subtitle: global.record[i].isSelected
+              ? Text(global.record[i].description)
+              : Text(''),
               trailing: CupertinoSwitch(
                   value: global.record[i].val,
                   onChanged: (newValue) {
@@ -110,6 +116,16 @@ class _create_toggleState extends State<create_toggle> {
                   },
                   trackColor: Colors.grey,
                   activeColor: Colors.blue),
+                  onTap: (){
+                    setState(() {
+                      if(global.record[i].isSelected == false){
+                              global.record[i].isSelected = true;
+                            }
+                            else{
+                              global.record[i].isSelected = false;
+                            }
+                    });
+                  },
             ),
           );
         });

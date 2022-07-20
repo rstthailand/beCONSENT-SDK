@@ -48,6 +48,20 @@ show_popup(BuildContext context, String url){
   );
 }
 
+popup_show(BuildContext context, String url){
+  global.Url = url;
+  Future.delayed(Duration.zero, () => showDialog(
+      context: context,
+      builder: (context) => FutureBuilder(
+        future: getData(global.Url),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return BeConsent();
+          }
+          return LinearProgressIndicator();
+        }),));
+}
+
 class BeConsent extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -67,14 +81,11 @@ class _BeConsentState extends State<BeConsent> {
 
   @override
   Widget build(BuildContext context) {
-    return DraggableScrollableSheet(
-        minChildSize: 0.3,
-        maxChildSize: 0.9,
-        builder: (_, controller) => Container(
+    return Dialog(
+      child: Container(
             color: Colors.white,
             padding: EdgeInsets.all(16),
             child: ListView(
-              controller: controller,
               scrollDirection: Axis.vertical,
               children: [
                 Column(
@@ -116,56 +127,59 @@ class _BeConsentState extends State<BeConsent> {
                   ],
                 ),
               ],
-            )));
-    // Container(
-    //     color: Colors.white,
-    //     padding: EdgeInsets.all(16),
-    //     child: Column(
-    //       mainAxisSize: MainAxisSize.min,
-    //       children: [
-    //         Container(
-    //             child: Column(
+            )),
+    );
+    // DraggableScrollableSheet(
+    //     minChildSize: 0.3,
+    //     maxChildSize: 0.9,
+    //     builder: (_, controller) => Container(
+    //         color: Colors.white,
+    //         padding: EdgeInsets.all(16),
+    //         child: ListView(
+    //           controller: controller,
+    //           scrollDirection: Axis.vertical,
     //           children: [
-    //             Text(
-    //               _ws.title.th,
-    //               style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
+    //             Column(
+    //               mainAxisAlignment: MainAxisAlignment.center,
+    //               children: [
+    //                 Text(
+    //                   _ws.title.th,
+    //                   style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
+    //                   textAlign: TextAlign.center,
+    //                 ),
+    //                 Text(_ws.description.th),
+    //               ],
     //             ),
-    //             Text(_ws.description.th),
-    //           ],
-    //         )),
-    //         Container(
-    //           child: create_toggle(_ws),
-    //         ),
-    //         Container(
-    //           child: Row(
-    //             mainAxisAlignment: MainAxisAlignment.center,
-    //             children: [
-    //               ElevatedButton(
-    //                 onPressed: () => cancel(),
-    //                 style: ButtonStyle(
-    //                     shape:
-    //                         MaterialStateProperty.all<RoundedRectangleBorder>(
-    //                             RoundedRectangleBorder(
-    //                                 borderRadius: BorderRadius.circular(20)))),
-    //                 child: Text(global.Decline),
-    //               ),
-    //               SizedBox(
-    //                 width: 20,
-    //               ),
-    //               ElevatedButton(
-    //                   onPressed: () => Accept(),
+    //             create_toggle(_ws),
+    //             Row(
+    //               mainAxisAlignment: MainAxisAlignment.center,
+    //               children: [
+    //                 ElevatedButton(
+    //                   onPressed: () => cancel(),
     //                   style: ButtonStyle(
     //                       shape:
     //                           MaterialStateProperty.all<RoundedRectangleBorder>(
     //                               RoundedRectangleBorder(
     //                                   borderRadius:
     //                                       BorderRadius.circular(20)))),
-    //                   child: Text(global.Accept))
-    //             ],
-    //           ),
-    //         ),
-    //       ],
-    //     ));
+    //                   child: Text(global.Decline),
+    //                 ),
+    //                 SizedBox(
+    //                   width: 20,
+    //                 ),
+    //                 ElevatedButton(
+    //                     onPressed: () => Accept(),
+    //                     style: ButtonStyle(
+    //                         shape: MaterialStateProperty.all<
+    //                                 RoundedRectangleBorder>(
+    //                             RoundedRectangleBorder(
+    //                                 borderRadius: BorderRadius.circular(20)))),
+    //                     child: Text(global.Accept))
+    //               ],
+    //             ),
+    //           ],
+    //         )));
+   
   }
 
   void cancel() {
