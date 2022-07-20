@@ -37,7 +37,7 @@ cancelConsent(Consent id) async{
       "name":"Test customAPI",
       "consentVersion": _c.version,
       "purposes": purpose,
-      "action": "ACCEPT ALL",
+      "action": "ALL",
       "language": "th",
       "collectionChannel": "Mobile App"};
 
