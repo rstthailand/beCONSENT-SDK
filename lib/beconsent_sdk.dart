@@ -20,7 +20,9 @@ press(var context, String url) {
                   if (snapshot.connectionState == ConnectionState.done) {
                     return BeConsent();
                   }
-                  return LinearProgressIndicator();
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
                 }),
           );
 }
@@ -38,7 +40,9 @@ popup_show(BuildContext context, String url) {
                   if (snapshot.connectionState == ConnectionState.done) {
                     return BeConsent();
                   }
-                  return LinearProgressIndicator();
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
                 }),
           ));
 }
