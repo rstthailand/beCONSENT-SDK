@@ -17,6 +17,10 @@ Future getData(String url) async {
   _ws = consentFromJson(response.body);
 }
 
+init(String url){
+  getData(url);
+}
+
 press(var context, String url) {
   global.Url = url;
   return showDialog(
