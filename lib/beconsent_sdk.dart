@@ -29,7 +29,7 @@ press(var context, String url) {
   );
 }
 
-show_popup(BuildContext context, String url) {
+show_popup(BuildContext context, String url){
   global.Url = url;
   showModalBottomSheet(
     isScrollControlled: true,
@@ -48,21 +48,18 @@ show_popup(BuildContext context, String url) {
   );
 }
 
-popup_show(BuildContext context, String url) {
+popup_show(BuildContext context, String url){
   global.Url = url;
-  Future.delayed(
-      Duration.zero,
-      () => showDialog(
-            context: context,
-            builder: (context) => FutureBuilder(
-                future: getData(global.Url),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    return BeConsent();
-                  }
-                  return LinearProgressIndicator();
-                }),
-          ));
+  Future.delayed(Duration.zero, () => showDialog(
+      context: context,
+      builder: (context) => FutureBuilder(
+        future: getData(global.Url),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return BeConsent();
+          }
+          return LinearProgressIndicator();
+        }),));
 }
 
 class BeConsent extends StatefulWidget {
@@ -86,56 +83,52 @@ class _BeConsentState extends State<BeConsent> {
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
-          color: Colors.white,
-          padding: EdgeInsets.all(16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListView(
-                scrollDirection: Axis.vertical,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        _ws.title.th,
-                        style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
-                        textAlign: TextAlign.center,
-                      ),
-                      Text(_ws.description.th),
-                    ],
-                  ),
-                  create_toggle(_ws),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () => cancel(),
+            color: Colors.white,
+            padding: EdgeInsets.all(16),
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      _ws.title.th,
+                      style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(_ws.description.th),
+                  ],
+                ),
+                create_toggle(_ws),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => cancel(),
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(20)))),
+                      child: Text(global.Decline),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    ElevatedButton(
+                        onPressed: () => Accept(),
                         style: ButtonStyle(
                             shape: MaterialStateProperty.all<
                                     RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)))),
-                        child: Text(global.Decline),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      ElevatedButton(
-                          onPressed: () => Accept(),
-                          style: ButtonStyle(
-                              shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(20)))),
-                          child: Text(global.Accept))
-                    ],
-                  ),
-                ],
-              )
-            ],
-          )),
+                        child: Text(global.Accept))
+                  ],
+                ),
+              ],
+            )),
     );
     // DraggableScrollableSheet(
     //     minChildSize: 0.3,
@@ -187,6 +180,7 @@ class _BeConsentState extends State<BeConsent> {
     //             ),
     //           ],
     //         )));
+   
   }
 
   void cancel() {
