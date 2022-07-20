@@ -14,8 +14,8 @@ cancelConsent(Consent id) async{
     }
     var response = await http.post(url, body: {
       "consentId": id.consentId.toString(),
-      "uid": "real_test",
-      "name":"Test customAPI",
+      "uid": global.uid,
+      "name": global.Name,
       "consentVersion": id.version,
       "action": global.Action,
       "language": "th",
@@ -33,8 +33,8 @@ cancelConsent(Consent id) async{
     }
     Map<String, dynamic> args = {
       "consentId": _c.consentId.toString(),
-      "uid": "real_test",
-      "name":"Test customAPI",
+      "uid": global.uid,
+      "name": global.Name,
       "consentVersion": _c.version,
       "purposes": purpose,
       "action": "ALL",

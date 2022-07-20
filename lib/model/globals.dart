@@ -5,3 +5,5 @@ String Url = "";
 String Decline = "Decline";
 String Accept = "Accept All";
 String Action = "NONE";
+String uid = "";
+String Name = "";

@@ -17,8 +17,10 @@ Future getData(String url) async {
   _ws = consentFromJson(response.body);
 }
 
-init(String url) {
+init(String url, String name, String uid) {
   global.Url = url;
+  global.Name = name;
+  global.uid = uid;
   getData(global.Url);
 }
 
