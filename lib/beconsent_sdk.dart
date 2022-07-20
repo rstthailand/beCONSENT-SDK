@@ -111,7 +111,7 @@ class _BeConsentState extends State<BeConsent> {
                 ),
               ),
               Container(
-                child: Row(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
@@ -124,9 +124,9 @@ class _BeConsentState extends State<BeConsent> {
                                           BorderRadius.circular(20)))),
                       child: Text(global.Decline),
                     ),
-                    SizedBox(
-                      width: 20,
-                    ),
+                    // SizedBox(
+                    //   width: 20,
+                    // ),
                     ElevatedButton(
                         onPressed: () => Accept(),
                         style: ButtonStyle(
