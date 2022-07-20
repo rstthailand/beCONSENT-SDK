@@ -7,3 +7,5 @@ String Accept = "Accept All";
 String Action = "NONE";
 String uid = "";
 String Name = "";
+String title = "";
+String description = "";
