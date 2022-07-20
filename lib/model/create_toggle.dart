@@ -104,15 +104,12 @@ class _create_toggleState extends State<create_toggle> {
               : Text(''),
               trailing: CupertinoSwitch(
                   value: global.record[i].val,
-                  onChanged: (newValue) {
-                    if(global.record[i].primary == true){
-                    }
-                    else{
-                      setState(() {
+                  onChanged: global.record[i].primary
+                  ? null
+                  : (newValue) {
+                    setState(() {
                       global.record[i].val = newValue;
                     });
-                    }
-                    
                   },
                   trackColor: Colors.grey,
                   activeColor: Colors.blue),
