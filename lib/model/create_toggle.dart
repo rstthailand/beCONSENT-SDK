@@ -55,8 +55,7 @@ class _create_toggleState extends State<create_toggle> {
             global.Decline = "Decline Addition";
             global.Accept = "Accept All";
           }
-        }
-        else{
+        } else {
           if (lang == 'th') {
             consent_record rec = consent_record(
                 id: i.id,
@@ -100,29 +99,28 @@ class _create_toggleState extends State<create_toggle> {
               title: Text(global.record[i].name,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
               subtitle: global.record[i].isSelected
-              ? Text(global.record[i].description)
-              : Text(''),
+                  ? Text(global.record[i].description)
+                  : null,
               trailing: CupertinoSwitch(
                   value: global.record[i].val,
                   onChanged: global.record[i].primary
-                  ? null
-                  : (newValue) {
-                    setState(() {
-                      global.record[i].val = newValue;
-                    });
-                  },
+                      ? null
+                      : (newValue) {
+                          setState(() {
+                            global.record[i].val = newValue;
+                          });
+                        },
                   trackColor: Colors.grey,
                   activeColor: Colors.blue),
-                  onTap: (){
-                    setState(() {
-                      if(global.record[i].isSelected == false){
-                              global.record[i].isSelected = true;
-                            }
-                            else{
-                              global.record[i].isSelected = false;
-                            }
-                    });
-                  },
+              onTap: () {
+                setState(() {
+                  if (global.record[i].isSelected == false) {
+                    global.record[i].isSelected = true;
+                  } else {
+                    global.record[i].isSelected = false;
+                  }
+                });
+              },
             ),
           );
         });
