@@ -122,7 +122,7 @@ class _BeConsentState extends State<BeConsent> {
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(20)))),
-                      child: Text(global.Decline),
+                      child: Text(global.Decline, style: TextStyle(fontSize: 16),),
                     ),
                     SizedBox(
                       width: 20,
@@ -134,7 +134,7 @@ class _BeConsentState extends State<BeConsent> {
                                     RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)))),
-                        child: Text(global.Accept))
+                        child: Text(global.Accept, style: TextStyle(fontSize: 16),))
                   ],
                 ),
               )
