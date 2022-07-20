@@ -88,7 +88,7 @@ class _BeConsentState extends State<BeConsent> {
   Widget build(BuildContext context) {
     return Dialog(
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(32.0))),
+            borderRadius: BorderRadius.all(Radius.circular(20.0))),
         child: SingleChildScrollView(
           child: Container(
               child: Column(
