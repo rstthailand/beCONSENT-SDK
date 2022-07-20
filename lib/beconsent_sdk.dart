@@ -52,6 +52,8 @@ popup_show(BuildContext context) {
                     if(_ws.defaultLanguage == "th"){
                       global.title = _ws.title.th;
                       global.description = _ws.description.th;
+                      global.Accept = "ยอมรับทั้งหมด";
+                      global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
                       }
                       else{
                         global.title = _ws.title.en;
