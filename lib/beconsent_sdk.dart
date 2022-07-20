@@ -85,23 +85,27 @@ class _BeConsentState extends State<BeConsent> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      child: SingleChildScrollView(
+        child: SingleChildScrollView(
       child: Container(
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            child: Text(
-              _ws.title.th,
-              style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
-              textAlign: TextAlign.center,
-            ),
+            child: Column(children: [
+              Text(
+                _ws.title.th,
+                style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
+                textAlign: TextAlign.center,
+              ),
+              Text(_ws.description.th)
+            ]),
           ),
           SingleChildScrollView(
-          child: Container(
-            height: 500,
-            child: create_toggle(_ws),
-          ),),
+            child: Container(
+              height: 500,
+              child: create_toggle(_ws),
+            ),
+          ),
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -129,8 +133,8 @@ class _BeConsentState extends State<BeConsent> {
             ),
           )
         ],
-      )),)
-    );
+      )),
+    ));
     // DraggableScrollableSheet(
     //     minChildSize: 0.3,
     //     maxChildSize: 0.9,
