@@ -127,7 +127,7 @@ class _BeConsentState extends State<BeConsent> {
     //   if (i.val == true) {}
     // }
     print("press Accept");
-    response.sendConsent(_ws);
+    response.AcceptAllConsent(_ws);
     Navigator.of(context).pop();
   }
 }
