@@ -30,7 +30,6 @@ class _create_toggleState extends State<create_toggle> {
     
     for (var i in _c.purposes) {
       if (global.record.isNotEmpty) {
-        break;
       } else {
         if (lang == 'th') {
           if (i.primary == true) {
