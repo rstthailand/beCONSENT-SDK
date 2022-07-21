@@ -98,18 +98,19 @@ class _BeConsentState extends State<BeConsent> {
               Padding(
                   padding: EdgeInsets.all(20),
                   child: Container(
-                    color: global.blue_navi,
-                    child: Column(children: [
+                    color: Colors.blue,
+                    child: Column(
+                      children: [
                       Text(
                         global.title,
-                        style: TextStyle(fontSize: 20, fontFamily: 'Kanit',color: Colors.white),
+                        style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
                         textAlign: TextAlign.center,
                       ),
                       Padding(
                           padding: EdgeInsets.all(12),
                           child: Center(
                             child: Text(global.description,
-                            style: TextStyle(color: Colors.white),),
+                            style: TextStyle(),),
                           ))
                     ]),
                   )),
