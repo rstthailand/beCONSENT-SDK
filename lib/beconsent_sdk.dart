@@ -108,7 +108,7 @@ class _BeConsentState extends State<BeConsent> {
               Padding(
                   padding: EdgeInsets.all(20),
                   child: Container(
-                    color: Colors.blue,
+                    color: Colors.transparent,
                     child: Column(children: [
                       Text(
                         global.title,
