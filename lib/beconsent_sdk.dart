@@ -119,6 +119,7 @@ class _BeConsentState extends State<BeConsent> {
                   )),
               SingleChildScrollView(
                 child: Container(
+                  color: Colors.white,
                   height: 500,
                   child: create_toggle(_ws),
                 ),
@@ -126,8 +127,10 @@ class _BeConsentState extends State<BeConsent> {
               Padding(
                   padding: EdgeInsets.only(top: 12, bottom: 12),
                   child: Container(
+                    color: Colors.white,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         ElevatedButton(
                           onPressed: () => cancel(),
