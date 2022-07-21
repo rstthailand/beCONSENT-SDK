@@ -27,16 +27,17 @@ init(String url, String name, String uid) {
 press(var context) {
   return showDialog(
     context: context,
-    builder: (context) => FutureBuilder(
-        future: getData(global.Url),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return BeConsent();
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }),
+    builder: (context) => BeConsent(),
+    // FutureBuilder(
+    //     future: getData(global.Url),
+    //     builder: (context, snapshot) {
+    //       if (snapshot.connectionState == ConnectionState.done) {
+    //         return BeConsent();
+    //       }
+    //       return const Center(
+    //         child: CircularProgressIndicator(),
+    //       );
+    //     }),
   );
 }
 
@@ -104,8 +105,8 @@ class _BeConsentState extends State<BeConsent> {
                         textAlign: TextAlign.center,
                       ),
                       Padding(
-                          padding: EdgeInsets.all(30),
-                          child: Container(
+                          padding: EdgeInsets.all(12),
+                          child: Center(
                             child: Text(global.description),
                           ))
                     ]),
