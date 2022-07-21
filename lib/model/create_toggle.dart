@@ -20,20 +20,21 @@ class _create_toggleState extends State<create_toggle> {
     _c = c;
   }
 
+
   late Consent _c;
   late var controller;
   late String lang = _c.defaultLanguage;
   bool val = false;
 
   add_index() {
-    bool havePrime = false;
+    
     for (var i in _c.purposes) {
       if (global.record.isNotEmpty) {
         break;
       } else {
         if (lang == 'th') {
           if (i.primary == true) {
-            havePrime = true;
+            global.havePrime = true;
           }
           consent_record rec = consent_record(
               id: i.id,
@@ -46,7 +47,7 @@ class _create_toggleState extends State<create_toggle> {
           global.record.add(rec);
         } else {
           if (i.primary == true) {
-            havePrime = true;
+            global.havePrime = true;
           }
           consent_record rec = consent_record(
               id: i.id,
@@ -60,7 +61,7 @@ class _create_toggleState extends State<create_toggle> {
         }
       }
     }
-    if (havePrime == true) {
+    if (global.havePrime == true) {
       if (lang == 'th') {
         global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
         global.Accept = "ยอมรับทั้งหมด";
