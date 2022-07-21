@@ -88,12 +88,13 @@ class _BeConsentState extends State<BeConsent> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      backgroundColor: Colors.blue,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
         child: SingleChildScrollView(
           child: Container(
               child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
