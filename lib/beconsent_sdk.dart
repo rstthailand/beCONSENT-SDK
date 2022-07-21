@@ -104,7 +104,7 @@ class _BeConsentState extends State<BeConsent> {
                         textAlign: TextAlign.center,
                       ),
                       Padding(
-                          padding: EdgeInsets.all(12),
+                          padding: EdgeInsets.all(30),
                           child: Container(
                             child: Text(global.description),
                           ))
