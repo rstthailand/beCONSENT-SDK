@@ -29,9 +29,8 @@ class _create_toggleState extends State<create_toggle> {
     if (!global.record.isEmpty) {
       for(var i in global.record){
         if(i.primary != true && i.val == true){
-          setState(() {
+          print('come');
             global.Decline = "บันทึกค่าที่เลือก";
-          });
         }
       }
     } else {
