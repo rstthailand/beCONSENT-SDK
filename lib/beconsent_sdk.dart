@@ -104,7 +104,7 @@ class _BeConsentState extends State<BeConsent> {
                     child: Column(children: [
                       Text(
                         global.title,
-                        style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
+                        style: TextStyle(fontSize: 20, fontFamily: 'Kanit',fontWeight: FontWeight.bold,color: Colors.white),
                         textAlign: TextAlign.center,
                       ),
                       Padding(
@@ -112,7 +112,7 @@ class _BeConsentState extends State<BeConsent> {
                           child: Center(
                             child: Text(
                               global.description,
-                              style: TextStyle(),
+                              style: TextStyle(color: Colors.white,),
                             ),
                           ))
                     ]),
