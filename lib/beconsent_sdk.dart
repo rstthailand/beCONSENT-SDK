@@ -93,6 +93,14 @@ class _BeConsentState extends State<BeConsent> {
             borderRadius: BorderRadius.all(Radius.circular(10.0))),
         child: SingleChildScrollView(
           child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Colors.blue,
+                Colors.white,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,)
+            ),
               child: Column(
             // crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
