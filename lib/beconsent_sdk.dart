@@ -112,7 +112,7 @@ class _BeConsentState extends State<BeConsent> {
                           child: Center(
                             child: Text(
                               global.description,
-                              style: TextStyle(color: Colors.white,),
+                              style: TextStyle(fontFamily: 'Kanit', color: Colors.white,),
                             ),
                           ))
                     ]),
