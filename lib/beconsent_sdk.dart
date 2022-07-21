@@ -93,14 +93,14 @@ class _BeConsentState extends State<BeConsent> {
         child: SingleChildScrollView(
           child: Container(
               child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
                   padding: EdgeInsets.all(20),
                   child: Container(
                     color: Colors.blue,
-                    child: Column(
-                      children: [
+                    child: Column(children: [
                       Text(
                         global.title,
                         style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
@@ -109,8 +109,10 @@ class _BeConsentState extends State<BeConsent> {
                       Padding(
                           padding: EdgeInsets.all(12),
                           child: Center(
-                            child: Text(global.description,
-                            style: TextStyle(),),
+                            child: Text(
+                              global.description,
+                              style: TextStyle(),
+                            ),
                           ))
                     ]),
                   )),
