@@ -90,7 +90,7 @@ class _BeConsentState extends State<BeConsent> {
     return Dialog(
       backgroundColor: Colors.blue,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10.0))),
+            borderRadius: BorderRadius.all(Radius.circular(20.0))),
         child: SingleChildScrollView(
           child: Container(
             decoration: BoxDecoration(
@@ -135,7 +135,7 @@ class _BeConsentState extends State<BeConsent> {
               Padding(
                   padding: EdgeInsets.only(top: 12, bottom: 12),
                   child: Container(
-                    color: Colors.white,
+                    color: Colors.transparent,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
