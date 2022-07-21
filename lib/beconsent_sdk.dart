@@ -95,19 +95,21 @@ class _BeConsentState extends State<BeConsent> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: EdgeInsets.all(20),
-                child: Container(
-                child: Column(children: [
-                  Text(
-                    global.title,
-                    style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
-                    textAlign: TextAlign.center,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(12),
-                    child: Text(global.description))
-                ]),
-              )),
+                  padding: EdgeInsets.all(20),
+                  child: Container(
+                    child: Column(children: [
+                      Text(
+                        global.title,
+                        style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
+                        textAlign: TextAlign.center,
+                      ),
+                      Padding(
+                          padding: EdgeInsets.all(12),
+                          child: Container(
+                            child: Text(global.description),
+                          ))
+                    ]),
+                  )),
               SingleChildScrollView(
                 child: Container(
                   height: 500,
@@ -115,35 +117,42 @@ class _BeConsentState extends State<BeConsent> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 12, bottom: 12),
-                child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () => cancel(),
-                      style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                  padding: EdgeInsets.only(top: 12, bottom: 12),
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () => cancel(),
+                          style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(20)))),
-                      child: Text(global.Decline, style: TextStyle(fontSize: 16),),
+                          child: Text(
+                            global.Decline,
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        ElevatedButton(
+                            onPressed: () => Accept(),
+                            style: ButtonStyle(
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20)))),
+                            child: Text(
+                              global.Accept,
+                              style: TextStyle(fontSize: 16),
+                            ))
+                      ],
                     ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    ElevatedButton(
-                        onPressed: () => Accept(),
-                        style: ButtonStyle(
-                            shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20)))),
-                        child: Text(global.Accept, style: TextStyle(fontSize: 16),))
-                  ],
-                ),
-              ))
+                  ))
             ],
           )),
         ));
