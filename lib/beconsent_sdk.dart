@@ -88,90 +88,95 @@ class _BeConsentState extends State<BeConsent> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.blue,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
         child: SingleChildScrollView(
           child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Colors.blue,
-                Colors.white,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,)
-            ),
-              child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Container(
-                    color: Colors.transparent,
-                    child: Column(children: [
-                      Text(
-                        global.title,
-                        style: TextStyle(fontSize: 20, fontFamily: 'Kanit',fontWeight: FontWeight.bold,color: Colors.white),
-                        textAlign: TextAlign.center,
-                      ),
-                      Padding(
-                          padding: EdgeInsets.all(12),
-                          child: Center(
-                            child: Text(
-                              global.description,
-                              style: TextStyle(fontFamily: 'Kanit', color: Colors.white,),
-                            ),
-                          ))
-                    ]),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  gradient: LinearGradient(
+                    colors: [Colors.blueAccent, Colors.white],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
                   )),
-              SingleChildScrollView(
-                child: Container(
-                  color: Colors.white,
-                  height: 500,
-                  child: create_toggle(_ws),
-                ),
-              ),
-              Padding(
-                  padding: EdgeInsets.only(top: 12, bottom: 12),
-                  child: Container(
-                    color: Colors.transparent,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () => cancel(),
-                          style: ButtonStyle(
-                              shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(20)))),
-                          child: Text(
-                            global.Decline,
-                            style: TextStyle(fontSize: 16),
+              child: Column(
+                // crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Container(
+                        color: Colors.transparent,
+                        child: Column(children: [
+                          Text(
+                            global.title,
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Kanit',
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
                           ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        ElevatedButton(
-                            onPressed: () => Accept(),
-                            style: ButtonStyle(
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20)))),
-                            child: Text(
-                              global.Accept,
-                              style: TextStyle(fontSize: 16),
-                            ))
-                      ],
+                          Padding(
+                              padding: EdgeInsets.all(12),
+                              child: Center(
+                                child: Text(
+                                  global.description,
+                                  style: TextStyle(
+                                    fontFamily: 'Kanit',
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ))
+                        ]),
+                      )),
+                  SingleChildScrollView(
+                    child: Container(
+                      color: Colors.white,
+                      height: 500,
+                      child: create_toggle(_ws),
                     ),
-                  ))
-            ],
-          )),
+                  ),
+                  Padding(
+                      padding: EdgeInsets.only(top: 12, bottom: 12),
+                      child: Container(
+                        color: Colors.transparent,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () => cancel(),
+                              style: ButtonStyle(
+                                  shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20)))),
+                              child: Text(
+                                global.Decline,
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            ElevatedButton(
+                                onPressed: () => Accept(),
+                                style: ButtonStyle(
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20)))),
+                                child: Text(
+                                  global.Accept,
+                                  style: TextStyle(fontSize: 16),
+                                ))
+                          ],
+                        ),
+                      ))
+                ],
+              )),
         ));
   }
 
