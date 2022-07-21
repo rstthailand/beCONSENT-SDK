@@ -9,3 +9,4 @@ String uid = "";
 String Name = "";
 String title = "Title";
 String description = "Description";
+bool havePrime = false;
