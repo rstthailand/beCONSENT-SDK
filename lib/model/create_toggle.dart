@@ -93,8 +93,14 @@ class _create_toggleState extends State<create_toggle> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
     add_index();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    
     return ListView.builder(
         // scrollDirection: Axis.vertical,
         shrinkWrap: true,
