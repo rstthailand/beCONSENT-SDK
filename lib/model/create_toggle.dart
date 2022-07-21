@@ -27,6 +27,13 @@ class _create_toggleState extends State<create_toggle> {
 
   add_index() {
     if (!global.record.isEmpty) {
+      for(var i in global.record){
+        if(i.primary != true && i.val == true){
+          setState(() {
+            global.Decline = "บันทึกค่าที่เลือก";
+          });
+        }
+      }
     } else {
       for (var i in _c.purposes) {
         if (i.primary == true) {
