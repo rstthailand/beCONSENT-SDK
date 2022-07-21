@@ -130,7 +130,6 @@ class _BeConsentState extends State<BeConsent> {
                     color: Colors.white,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         ElevatedButton(
                           onPressed: () => cancel(),
