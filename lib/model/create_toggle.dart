@@ -26,70 +26,122 @@ class _create_toggleState extends State<create_toggle> {
   bool val = false;
 
   add_index() {
-    if (!global.record.isEmpty) {
-      for(var i in global.record){
-        if(i.primary != true && i.val == true){
-          print('come');
-            global.Decline = "บันทึกค่าที่เลือก";
-        }
-      }
-    } else {
-      for (var i in _c.purposes) {
-        if (i.primary == true) {
-          if (lang == 'th') {
-            consent_record rec = consent_record(
-                id: i.id,
-                uuid: i.uuid,
-                val: true,
-                name: i.title.th,
-                description: i.description.th,
-                primary: i.primary,
-                isSelected: false);
-            global.record.add(rec);
-            global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
-            global.Accept = "ยอมรับทั้งหมด";
-          } else {
-            consent_record rec = consent_record(
-                id: i.id,
-                uuid: i.uuid,
-                val: true,
-                name: i.title.en,
-                description: i.description.en,
-                primary: i.primary,
-                isSelected: false);
-            global.record.add(rec);
-            global.Decline = "Decline Addition";
-            global.Accept = "Accept All";
+    bool havePrime = false;
+    for (var i in _c.purposes) {
+      if (global.record.isNotEmpty) {
+        break;
+      } else {
+        if (lang == 'th') {
+          if (i.primary == true) {
+            havePrime = true;
           }
+          consent_record rec = consent_record(
+              id: i.id,
+              uuid: i.uuid,
+              val: i.primary,
+              name: i.title.th,
+              description: i.description.th,
+              primary: i.primary,
+              isSelected: false);
+          global.record.add(rec);
         } else {
-          if (lang == 'th') {
-            consent_record rec = consent_record(
-                id: i.id,
-                uuid: i.uuid,
-                val: val,
-                name: i.title.th,
-                description: i.description.th,
-                primary: i.primary,
-                isSelected: false);
-            global.record.add(rec);
-            global.Decline = "ปฏิเสธ";
-            global.Accept = "ยอมรับทั้งหมด";
-          } else {
-            consent_record rec = consent_record(
-                id: i.id,
-                uuid: i.uuid,
-                val: val,
-                name: i.title.en,
-                description: i.description.en,
-                primary: i.primary,
-                isSelected: false);
-            global.record.add(rec);
-            global.Decline = "Decline";
-            global.Accept = "Accept All";
+          if (i.primary == true) {
+            havePrime = true;
           }
+          consent_record rec = consent_record(
+              id: i.id,
+              uuid: i.uuid,
+              val: i.primary,
+              name: i.title.en,
+              description: i.description.en,
+              primary: i.primary,
+              isSelected: false);
+          global.record.add(rec);
         }
       }
     }
+    if (havePrime == true) {
+      if (lang == 'th') {
+        global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
+        global.Accept = "ยอมรับทั้งหมด";
+      } else {
+        global.Decline = "Decline Addition";
+        global.Accept = "Accept All";
+      }
+    }
+    else{
+      if (lang == 'th') {
+        global.Decline = "ปฏิเสธ";
+        global.Accept = "ยอมรับทั้งหมด";
+      } else {
+        global.Decline = "Decline";
+        global.Accept = "Accept All";
+      }
+    }
+    // if (!global.record.isEmpty) {
+    //   for(var i in global.record){
+    //     if(i.primary != true && i.val == true){
+    //       print('come');
+    //         global.Decline = "บันทึกค่าที่เลือก";
+    //     }
+    //   }
+    // } else {
+    //   for (var i in _c.purposes) {
+    //     if (i.primary == true) {
+    //       if (lang == 'th') {
+    //         consent_record rec = consent_record(
+    //             id: i.id,
+    //             uuid: i.uuid,
+    //             val: true,
+    //             name: i.title.th,
+    //             description: i.description.th,
+    //             primary: i.primary,
+    //             isSelected: false);
+    //         global.record.add(rec);
+    //         global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
+    //         global.Accept = "ยอมรับทั้งหมด";
+    //       } else {
+    //         consent_record rec = consent_record(
+    //             id: i.id,
+    //             uuid: i.uuid,
+    //             val: true,
+    //             name: i.title.en,
+    //             description: i.description.en,
+    //             primary: i.primary,
+    //             isSelected: false);
+    //         global.record.add(rec);
+    //         global.Decline = "Decline Addition";
+    //         global.Accept = "Accept All";
+    //       }
+    //     } else {
+    //       if (lang == 'th') {
+    //         consent_record rec = consent_record(
+    //             id: i.id,
+    //             uuid: i.uuid,
+    //             val: val,
+    //             name: i.title.th,
+    //             description: i.description.th,
+    //             primary: i.primary,
+    //             isSelected: false);
+    //         global.record.add(rec);
+    //         global.Decline = "ปฏิเสธ";
+    //         global.Accept = "ยอมรับทั้งหมด";
+    //       } else {
+    //         consent_record rec = consent_record(
+    //             id: i.id,
+    //             uuid: i.uuid,
+    //             val: val,
+    //             name: i.title.en,
+    //             description: i.description.en,
+    //             primary: i.primary,
+    //             isSelected: false);
+    //         global.record.add(rec);
+    //         global.Decline = "Decline";
+    //         global.Accept = "Accept All";
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   @override
@@ -100,7 +152,6 @@ class _create_toggleState extends State<create_toggle> {
 
   @override
   Widget build(BuildContext context) {
-    
     return ListView.builder(
         // scrollDirection: Axis.vertical,
         shrinkWrap: true,
