@@ -95,7 +95,7 @@ class _BeConsentState extends State<BeConsent> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 12,bottom: 12),
+                padding: EdgeInsets.all(12),
                 child: Container(
                 child: Column(children: [
                   Text(
