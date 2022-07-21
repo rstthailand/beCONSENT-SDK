@@ -103,7 +103,9 @@ class _BeConsentState extends State<BeConsent> {
                     style: TextStyle(fontSize: 20, fontFamily: 'Kanit'),
                     textAlign: TextAlign.center,
                   ),
-                  Text(global.description)
+                  Padding(
+                    padding: EdgeInsets.all(12),
+                    child: Text(global.description))
                 ]),
               )),
               SingleChildScrollView(
