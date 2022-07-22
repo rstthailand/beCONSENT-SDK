@@ -40,7 +40,7 @@ class _create_toggleState extends State<create_toggle> {
                 primary: i.primary,
                 isSelected: false);
             global.record.add(rec);
-            global.Decline = "บันทึกค่าที่เลือก";
+            global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
             // global.Accept = "ยอมรับทั้งหมด";
           } else {
             consent_record rec = consent_record(
@@ -52,7 +52,7 @@ class _create_toggleState extends State<create_toggle> {
                 primary: i.primary,
                 isSelected: false);
             global.record.add(rec);
-            global.Decline = "Save Settings";
+            global.Decline = "Decline Additions";
             // global.Accept = "Accept All";
           }
         } else {
