@@ -40,8 +40,8 @@ class _create_toggleState extends State<create_toggle> {
                 primary: i.primary,
                 isSelected: false);
             global.record.add(rec);
-            global.Decline = "บันทึกค่าที่เลือก";
-            global.Accept = "ยอมรับทั้งหมด";
+            // global.Decline = "บันทึกค่าที่เลือก";
+            // global.Accept = "ยอมรับทั้งหมด";
           } else {
             consent_record rec = consent_record(
                 id: i.id,
@@ -52,8 +52,8 @@ class _create_toggleState extends State<create_toggle> {
                 primary: i.primary,
                 isSelected: false);
             global.record.add(rec);
-            global.Decline = "Save Settings";
-            global.Accept = "Accept All";
+            // global.Decline = "Save Settings";
+            // global.Accept = "Accept All";
           }
         } else {
           if (lang == 'th') {
@@ -66,8 +66,8 @@ class _create_toggleState extends State<create_toggle> {
                 primary: i.primary,
                 isSelected: false);
             global.record.add(rec);
-            global.Decline = "ปฏิเสธ";
-            global.Accept = "ยอมรับทั้งหมด";
+            // global.Decline = "ปฏิเสธ";
+            // global.Accept = "ยอมรับทั้งหมด";
           } else {
             consent_record rec = consent_record(
                 id: i.id,
@@ -78,8 +78,8 @@ class _create_toggleState extends State<create_toggle> {
                 primary: i.primary,
                 isSelected: false);
             global.record.add(rec);
-            global.Decline = "Decline";
-            global.Accept = "Accept All";
+            // global.Decline = "Decline";
+            // global.Accept = "Accept All";
           }
         }
       }
