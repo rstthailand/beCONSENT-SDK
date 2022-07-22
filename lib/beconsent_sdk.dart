@@ -134,22 +134,31 @@ class _BeConsentState extends State<BeConsent> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            ElevatedButton(
-                              onPressed: () => cancel(),
-                              style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<
-                                          RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(20)))),
-                              child: global.toggle_true
-                              ?Text(
-                                global.Decline= 'setting',
-                                style: TextStyle(fontSize: 16),
-                              )
-                              :Text(global.Decline ,
-                              style: TextStyle(fontSize: 16),)
-                            ),
+                            global.toggle_true
+                            ?ElevatedButton(
+                                onPressed: () => cancel(),
+                                style: ButtonStyle(
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20)))),
+                                child: Text(
+                                  global.Decline = 'save',
+                                  style: TextStyle(fontSize: 16),
+                                ))
+                                :ElevatedButton(
+                                onPressed: () => cancel(),
+                                style: ButtonStyle(
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20)))),
+                                child: Text(
+                                  global.Decline,
+                                  style: TextStyle(fontSize: 16),
+                                )),
                             SizedBox(
                               width: 20,
                             ),
@@ -184,5 +193,4 @@ class _BeConsentState extends State<BeConsent> {
     response.AcceptAllConsent(_ws);
     Navigator.of(context).pop();
   }
-
 }

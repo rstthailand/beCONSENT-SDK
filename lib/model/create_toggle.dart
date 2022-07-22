@@ -20,14 +20,12 @@ class _create_toggleState extends State<create_toggle> {
     _c = c;
   }
 
-
   late Consent _c;
   late var controller;
   late String lang = _c.defaultLanguage;
   bool val = false;
 
   add_index() {
-    
     // for (var i in _c.purposes) {
     //   if (global.record.isNotEmpty) {
     //   } else {
@@ -79,12 +77,6 @@ class _create_toggleState extends State<create_toggle> {
     //   }
     // }
     if (!global.record.isEmpty) {
-      for(var i in global.record){
-        if(i.primary != true && i.val == true){
-          print('come');
-            global.Decline = "บันทึกค่าที่เลือก";
-        }
-      }
     } else {
       for (var i in _c.purposes) {
         if (i.primary == true) {
@@ -172,14 +164,22 @@ class _create_toggleState extends State<create_toggle> {
                           setState(() {
                             global.record[i].val = newValue;
                             global.toggle_true = newValue;
-                          //   if(global.record[i].val == true){
-                          //   global.Decline = 'save setting';
-                          // }
-                          // else{
-                          //   global.Decline = 'ปฏิเสธ';
-                          // }
+                            for (var i in global.record) {
+                              if (i.val == true) {
+                                global.toggle_true = true;
+                                global.Decline = 'save setting';
+                              } else {
+                                global.Decline = 'ปฏิเสธ';
+                                global.toggle_true = false;
+                              }
+                            }
+                            //   if(global.record[i].val == true){
+                            //   global.Decline = 'save setting';
+                            // }
+                            // else{
+                            //   global.Decline = 'ปฏิเสธ';
+                            // }
                           });
-                          
                         },
                   trackColor: Colors.grey,
                   activeColor: Colors.blue),
