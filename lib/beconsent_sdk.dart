@@ -131,7 +131,8 @@ class _BeConsentState extends State<BeConsent> {
                       padding: EdgeInsets.only(top: 12, bottom: 12),
                       child: Container(
                         color: Colors.transparent,
-                        child: Row(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ElevatedButton(
@@ -147,9 +148,9 @@ class _BeConsentState extends State<BeConsent> {
                                   global.Decline,
                                   style: TextStyle(fontSize: 16),
                                 )),
-                            SizedBox(
-                              width: 20,
-                            ),
+                            // SizedBox(
+                            //   width: 20,
+                            // ),
                             ElevatedButton(
                                 onPressed: () => Accept(),
                                 style: ButtonStyle(
