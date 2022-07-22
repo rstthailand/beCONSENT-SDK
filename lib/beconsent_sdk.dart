@@ -142,10 +142,13 @@ class _BeConsentState extends State<BeConsent> {
                                       RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(20)))),
-                              child: Text(
+                              child: global.toggle_true
+                              ?Text(
                                 global.Decline,
                                 style: TextStyle(fontSize: 16),
-                              ),
+                              )
+                              :Text(global.Decline = 'setting',
+                              style: TextStyle(fontSize: 16),)
                             ),
                             SizedBox(
                               width: 20,

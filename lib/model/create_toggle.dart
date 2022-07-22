@@ -171,12 +171,13 @@ class _create_toggleState extends State<create_toggle> {
                       : (newValue) {
                           setState(() {
                             global.record[i].val = newValue;
-                            if(global.record[i].val == true){
-                            global.Decline = 'save setting';
-                          }
-                          else{
-                            global.Decline = 'ปฏิเสธ';
-                          }
+                            global.toggle_true = newValue;
+                          //   if(global.record[i].val == true){
+                          //   global.Decline = 'save setting';
+                          // }
+                          // else{
+                          //   global.Decline = 'ปฏิเสธ';
+                          // }
                           });
                           
                         },

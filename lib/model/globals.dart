@@ -11,4 +11,5 @@ String Name = "";
 String title = "Title";
 String description = "Description";
 bool havePrime = false;
+bool toggle_true = false;
 const blue_navi = Color(0x1269cb);
