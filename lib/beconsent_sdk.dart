@@ -43,7 +43,6 @@ popup_show(BuildContext context) {
                       global.title = _ws.title.th;
                       global.description = _ws.description.th;
                       global.Accept = "ยอมรับทั้งหมด";
-                      global.Decline = "ปฏิเสธ";
                       global.Save = "บันทึกค่าที่เลือก";
                       check_prime(_ws);
                       global.havePrime
