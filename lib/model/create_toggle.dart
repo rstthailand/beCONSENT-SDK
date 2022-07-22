@@ -35,15 +35,23 @@ class _create_toggleState extends State<create_toggle> {
 
   add_index() {
     if (!global.record.isEmpty) {
+      int count = 0;
+      int k = 0;
       for (var i in global.record) {
         if(i.primary == false){
           if (i.val == true) {
-          global.check = true;
+          k++;
         }
         }
         if(i.primary == true){
-          global.check = false;
+          count++;
         }
+      }
+      if(k == 0){
+        global.check = false;
+      }
+      if(k > 0){
+        global.check = true;
       }
     } else {
       for (var i in _c.purposes) {
