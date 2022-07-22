@@ -45,6 +45,10 @@ popup_show(BuildContext context) {
                       global.Accept = "ยอมรับทั้งหมด";
                       global.Decline = "ปฏิเสธ";
                       global.Save = "บันทึกค่าที่เลือก";
+                      check_prime(_ws.purposes);
+                      global.havePrime
+                      ? global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น"
+                      : global.Decline = "ปฏิเสธ";
                     } else {
                       global.title = _ws.title.en;
                       global.description = _ws.description.en;
@@ -199,9 +203,18 @@ class _BeConsentState extends State<BeConsent> {
     Navigator.of(context).pop();
   }
 
+  
   void Accept() {
     print("press Accept");
     response.AcceptAllConsent(_ws);
     Navigator.of(context).pop();
   }
 }
+
+void check_prime(var _ws) {
+    for (var i in _ws.purposes) {
+      if (i.primary == true) {
+        global.havePrime = true;
+      }
+    }
+  }
