@@ -28,16 +28,6 @@ press(var context) {
   return showDialog(
     context: context,
     builder: (context) => BeConsent(),
-    // FutureBuilder(
-    //     future: getData(global.Url),
-    //     builder: (context, snapshot) {
-    //       if (snapshot.connectionState == ConnectionState.done) {
-    //         return BeConsent();
-    //       }
-    //       return const Center(
-    //         child: CircularProgressIndicator(),
-    //       );
-    //     }),
   );
 }
 
