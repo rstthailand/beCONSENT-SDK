@@ -26,56 +26,6 @@ class _create_toggleState extends State<create_toggle> {
   bool val = false;
 
   add_index() {
-    // for (var i in _c.purposes) {
-    //   if (global.record.isNotEmpty) {
-    //   } else {
-    //     if (lang == 'th') {
-    //       if (i.primary == true) {
-    //         global.havePrime = true;
-    //       }
-    //       consent_record rec = consent_record(
-    //           id: i.id,
-    //           uuid: i.uuid,
-    //           val: i.primary,
-    //           name: i.title.th,
-    //           description: i.description.th,
-    //           primary: i.primary,
-    //           isSelected: false);
-    //       global.record.add(rec);
-    //     } else {
-    //       if (i.primary == true) {
-    //         global.havePrime = true;
-    //       }
-    //       consent_record rec = consent_record(
-    //           id: i.id,
-    //           uuid: i.uuid,
-    //           val: i.primary,
-    //           name: i.title.en,
-    //           description: i.description.en,
-    //           primary: i.primary,
-    //           isSelected: false);
-    //       global.record.add(rec);
-    //     }
-    //   }
-    // }
-    // if (global.havePrime == true) {
-    //   if (lang == 'th') {
-    //     global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
-    //     global.Accept = "ยอมรับทั้งหมด";
-    //   } else {
-    //     global.Decline = "Decline Addition";
-    //     global.Accept = "Accept All";
-    //   }
-    // }
-    // else{
-    //   if (lang == 'th') {
-    //     global.Decline = "ปฏิเสธ";
-    //     global.Accept = "ยอมรับทั้งหมด";
-    //   } else {
-    //     global.Decline = "Decline";
-    //     global.Accept = "Accept All";
-    //   }
-    // }
     if (!global.record.isEmpty) {
     } else {
       for (var i in _c.purposes) {

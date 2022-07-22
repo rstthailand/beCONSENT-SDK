@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 List<consent_record> record = [];
 String Url = "";
-String Decline = "Decline";
+String Decline = "Save Settings";
 String Accept = "Accept All";
 String Action = "NONE";
 String uid = "";
