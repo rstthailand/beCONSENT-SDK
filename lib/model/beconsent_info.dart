@@ -9,6 +9,30 @@ cancelConsent(Consent _c) async{
     final url = Uri.parse("http://dev.beconsent.tech/api/v1/03a29a62-eb39-4d7b-895c-7e900d893e37/user-consents");
     List<int> purpose = [];
     for (var i in global.record){
+      if(i.primary == true){
+        global.Action = "PARTIAL";
+        purpose.add(i.id);
+      }
+    }
+    Map<String, dynamic> args = {
+      "consentId": _c.consentId.toString(),
+      "uid": global.uid,
+      "name": global.Name,
+      "consentVersion": _c.version,
+      "purposes": purpose,
+      "action": global.Action,
+      "language": "th",
+      "collectionChannel": "Mobile App"};
+      var body = json.encode(args);
+    var response = await http.post(url, body: body, headers: {'Content-type': 'application/json'});
+    print(response.statusCode);
+    print(response.body);
+  }
+
+  saveConsent(Consent _c) async{
+    final url = Uri.parse("http://dev.beconsent.tech/api/v1/03a29a62-eb39-4d7b-895c-7e900d893e37/user-consents");
+    List<int> purpose = [];
+    for (var i in global.record){
       if(i.val == true){
         global.Action = "PARTIAL";
         purpose.add(i.id);

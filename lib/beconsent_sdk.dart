@@ -43,7 +43,8 @@ popup_show(BuildContext context) {
                       global.title = _ws.title.th;
                       global.description = _ws.description.th;
                       global.Accept = "ยอมรับทั้งหมด";
-                      global.Decline = "บันทึกค่าที่เลือก";
+                      global.Decline = "ปฏิเสธ";
+                      global.Save = "บันทึกค่าที่เลือก";
                     } else {
                       global.title = _ws.title.en;
                       global.description = _ws.description.en;
@@ -137,7 +138,8 @@ class _BeConsentState extends State<BeConsent> {
                             ElevatedButton(
                                 onPressed: () => cancel(),
                                 style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 189, 189, 189)),
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Color.fromARGB(255, 189, 189, 189)),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -147,13 +149,29 @@ class _BeConsentState extends State<BeConsent> {
                                   global.Decline,
                                   style: TextStyle(fontSize: 16),
                                 )),
+                                ElevatedButton(
+                                onPressed: () => save(),
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.blue),
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20)))),
+                                child: Text(
+                                  global.Save,
+                                  style: TextStyle(fontSize: 16),
+                                )),
+                                
                             // SizedBox(
                             //   width: 20,
                             // ),
                             ElevatedButton(
                                 onPressed: () => Accept(),
                                 style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(Colors.blue),
+                                    backgroundColor:
+                                        MaterialStateProperty.all(Colors.blue),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -161,7 +179,8 @@ class _BeConsentState extends State<BeConsent> {
                                                 BorderRadius.circular(20)))),
                                 child: Text(
                                   global.Accept,
-                                  style: TextStyle(fontSize: 16,color: Colors.white),
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.white),
                                 ))
                           ],
                         ),
@@ -177,11 +196,15 @@ class _BeConsentState extends State<BeConsent> {
     Navigator.of(context).pop();
   }
 
+  void save(){
+    print("save");
+    response.saveConsent(_ws);
+    Navigator.of(context).pop();
+  }
+
   void Accept() {
     print("press Accept");
     response.AcceptAllConsent(_ws);
     Navigator.of(context).pop();
   }
-
-
 }

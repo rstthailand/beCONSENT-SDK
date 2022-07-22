@@ -5,6 +5,7 @@ List<consent_record> record = [];
 String Url = "";
 String Decline = "Save Settings";
 String Accept = "Accept All";
+String Save = "Save Setting";
 String Action = "NONE";
 String uid = "";
 String Name = "";
