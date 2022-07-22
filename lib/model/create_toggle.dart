@@ -27,6 +27,11 @@ class _create_toggleState extends State<create_toggle> {
 
   add_index() {
     if (!global.record.isEmpty) {
+      if(global.accept_all == true){
+        for(var i in global.record){
+          i.val = true;
+        }
+      }
     } else {
       for (var i in _c.purposes) {
         if (i.primary == true) {
@@ -113,9 +118,7 @@ class _create_toggleState extends State<create_toggle> {
                       ? null
                       : (newValue) {
                           setState(() {
-                            global.accept_all
-                            ? global.record[i].val = true
-                            : global.record[i].val = newValue;
+                            global.record[i].val = newValue;
                             // global.toggle_true = newValue;
                           });
                         },
