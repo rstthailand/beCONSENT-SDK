@@ -70,6 +70,6 @@ return ...
 }
 ```
 
-sdk.init ใช้ในการดึงข้อมูลจาก API และ set ชื่อกับUID ในการส่งข้อมูล
-\n
-sdk.popup_show ใช้เรียก BeConsent Dialog ตอน run application
+sdk.init ใช้ในการดึงข้อมูลจาก API และ set ชื่อกับUID ในการส่งข้อมูล.
+
+sdk.popup_show ใช้เรียก BeConsent Dialog ตอน run application.
