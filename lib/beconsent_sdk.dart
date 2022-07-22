@@ -121,12 +121,10 @@ class _BeConsentState extends State<BeConsent> {
                                     color: Colors.white,
                                   ),
                                 ),
-                              ))
-                        ]),
-                      )),
-                      Container(
-                        color: Colors.white,
-                        child: ListTile(
+                              )),
+                          Container(
+                            color: Colors.white,
+                            child: ListTile(
                               title: Text("Accept All",
                                   style: TextStyle(
                                       fontSize: 16,
@@ -141,11 +139,13 @@ class _BeConsentState extends State<BeConsent> {
                                   trackColor: Colors.grey,
                                   activeColor: Colors.blue),
                             ),
-                      ),
-                  SingleChildScrollView( 
+                          ),
+                        ]),
+                      )),
+                  SingleChildScrollView(
                     child: Container(
                       color: Colors.white,
-                      height: 100,
+                      height: 300,
                       child: create_toggle(_ws),
                     ),
                   ),
@@ -171,14 +171,14 @@ class _BeConsentState extends State<BeConsent> {
                                   global.Decline,
                                   style: TextStyle(fontSize: 16),
                                 )),
-                                ElevatedButton(
-                                onPressed: global.accept_all
-                                ? () => save()
-                                : null,
+                            ElevatedButton(
+                                onPressed:
+                                    global.accept_all ? () => save() : null,
                                 style: ButtonStyle(
                                     backgroundColor: global.accept_all
                                         ? MaterialStateProperty.all(Colors.blue)
-                                        : MaterialStateProperty.all(Color.fromARGB(255, 189, 189, 189)),
+                                        : MaterialStateProperty.all(
+                                            Color.fromARGB(255, 189, 189, 189)),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
