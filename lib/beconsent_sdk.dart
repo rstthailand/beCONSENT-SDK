@@ -145,7 +145,7 @@ class _BeConsentState extends State<BeConsent> {
                   SingleChildScrollView( 
                     child: Container(
                       color: Colors.white,
-                      height: 300,
+                      height: 100,
                       child: create_toggle(_ws),
                     ),
                   ),
