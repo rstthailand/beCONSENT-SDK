@@ -171,8 +171,10 @@ class _BeConsentState extends State<BeConsent> {
                                   global.Decline,
                                   style: TextStyle(fontSize: 16),
                                 )),
-                            ElevatedButton(
-                                onPressed: () => save(),
+                                ElevatedButton(
+                                onPressed: global.accept_all
+                                ? () => save()
+                                : null,
                                 style: ButtonStyle(
                                     backgroundColor:
                                         MaterialStateProperty.all(Colors.blue),
