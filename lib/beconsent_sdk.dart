@@ -142,12 +142,10 @@ class _BeConsentState extends State<BeConsent> {
                           // ),
                         ]),
                       )),
-                  SingleChildScrollView(
-                    child: Container(
-                      color: Colors.white,
-                      height: 300,
-                      child: create_toggle(_ws),
-                    ),
+                  Container(
+                    color: Colors.white,
+                    height: 300,
+                    child: create_toggle(_ws),
                   ),
                   Padding(
                       padding: EdgeInsets.only(top: 12, bottom: 12),
