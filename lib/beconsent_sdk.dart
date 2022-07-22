@@ -122,26 +122,25 @@ class _BeConsentState extends State<BeConsent> {
                                   ),
                                 ),
                               )),
-                          // Container(
-                          //   color: Colors.white,
-                          //   child: ListTile(
-                          //     title: Text("Accept All",
-                          //         style: TextStyle(
-                          //             fontSize: 16,
-                          //             fontWeight: FontWeight.w600)),
-                          //     trailing: CupertinoSwitch(
-                          //         value: global.accept_all,
-                          //         onChanged: (newValue) {
-                          //           setState(() {
-                          //             global.accept_all = newValue;
-                          //           });
-                          //         },
-                          //         trackColor: Colors.grey,
-                          //         activeColor: Colors.blue),
-                          //   ),
-                          // ),
                         ]),
                       )),
+                  Container(
+                    color: Colors.white,
+                    child: ListTile(
+                      title: Text("Accept All",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w600)),
+                      trailing: CupertinoSwitch(
+                          value: global.accept_all,
+                          onChanged: (newValue) {
+                            setState(() {
+                              global.accept_all = newValue;
+                            });
+                          },
+                          trackColor: Colors.grey,
+                          activeColor: Colors.blue),
+                    ),
+                  ),
                   Container(
                     color: Colors.white,
                     height: 300,
