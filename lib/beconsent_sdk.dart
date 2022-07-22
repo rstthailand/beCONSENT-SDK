@@ -164,10 +164,6 @@ class _BeConsentState extends State<BeConsent> {
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.white),
                                 )),
-
-                            // SizedBox(
-                            //   width: 20,
-                            // ),
                             ElevatedButton(
                                 onPressed: () => Accept(),
                                 style: ButtonStyle(
