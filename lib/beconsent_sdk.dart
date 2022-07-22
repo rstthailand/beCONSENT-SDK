@@ -176,8 +176,9 @@ class _BeConsentState extends State<BeConsent> {
                                 ? () => save()
                                 : null,
                                 style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStateProperty.all(Colors.blue),
+                                    backgroundColor: global.accept_all
+                                        ? MaterialStateProperty.all(Colors.blue)
+                                        : MaterialStateProperty.all(Color.fromARGB(255, 189, 189, 189)),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
