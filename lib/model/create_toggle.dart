@@ -117,10 +117,10 @@ class _create_toggleState extends State<create_toggle> {
                   ? Text(global.record[i].description)
                   : null,
               trailing: CupertinoSwitch(
-                  value: global.record[i].val,
-                  onChanged: global.record[i].primary
-                      ? null
-                      : (newValue) {
+                  value: global.accept_all
+                  ? global.accept_all
+                  : global.record[i].val,
+                  onChanged: (newValue) {
                           setState(() {
                             global.record[i].val = newValue;
                             // global.toggle_true = newValue;
