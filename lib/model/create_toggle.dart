@@ -25,9 +25,17 @@ class _create_toggleState extends State<create_toggle> {
   late String lang = _c.defaultLanguage;
   bool val = false;
 
+  void check_true() {
+    for (var i in global.record) {
+      if (i.val == true) {
+        global.check = true;
+      }
+    }
+  }
+
   add_index() {
     if (!global.record.isEmpty) {
-      if(global.accept_all == true){
+      if (global.accept_all == true) {
         // for(var i in global.record){
         //   setState(() {
         //     i.val = true;
@@ -49,7 +57,7 @@ class _create_toggleState extends State<create_toggle> {
             global.record.add(rec);
             setState(() {
               global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
-            });   
+            });
           } else {
             consent_record rec = consent_record(
                 id: i.id,
@@ -96,13 +104,13 @@ class _create_toggleState extends State<create_toggle> {
 
   @override
   void initState() {
-    
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     add_index();
+    check_true();
     return ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
@@ -116,13 +124,12 @@ class _create_toggleState extends State<create_toggle> {
                   ? Text(global.record[i].description)
                   : null,
               trailing: CupertinoSwitch(
-                  value: 
-                  global.accept_all
-                  ? global.accept_all
-                  : global.record[i].val,
+                  value: global.accept_all
+                      ? global.accept_all
+                      : global.record[i].val,
                   onChanged: global.record[i].primary
-                  ? null
-                  : (newValue) {
+                      ? null
+                      : (newValue) {
                           setState(() {
                             global.record[i].val = newValue;
                             // global.toggle_true = newValue;

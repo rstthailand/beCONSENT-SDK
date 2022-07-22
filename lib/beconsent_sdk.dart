@@ -46,7 +46,6 @@ popup_show(BuildContext context) {
                       global.Accept = "ยอมรับทั้งหมด";
                       global.Save = "บันทึกค่าที่เลือก";
                       check_prime(_ws);
-                      check_true();
                       global.havePrime
                           ? global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น"
                           : global.Decline = "ปฏิเสธ";
@@ -159,7 +158,7 @@ class _BeConsentState extends State<BeConsent> {
                                 onPressed: () => cancel(),
                                 style: ButtonStyle(
                                     backgroundColor: MaterialStateProperty.all(
-                                        Color.fromARGB(255, 189, 189, 189)),
+                                        Colors.blue),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -167,7 +166,7 @@ class _BeConsentState extends State<BeConsent> {
                                                 BorderRadius.circular(20)))),
                                 child: Text(
                                   global.Decline,
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 16, color: Colors.white),
                                 )),
                             ElevatedButton(
                                 onPressed:
@@ -222,10 +221,4 @@ void check_prime(var _ws) {
   }
 }
 
-void check_true(){
-  for(var i in global.record){
-    if(i.val == true){
-      global.check = true;
-    }
-  }
-}
+
