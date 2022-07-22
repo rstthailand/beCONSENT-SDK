@@ -34,18 +34,23 @@ class _create_toggleState extends State<create_toggle> {
   }
 
   add_index() {
+    int count = 0;
+    int normal = 0;
     if (!global.record.isEmpty) {
-      int count = 0;
-      int k = 0;
       for (var i in global.record) {
-        if(i.val == true && i.primary == false){
-          print('have');
+        if(i.primary == true){
+          count++;
         }
-        else{
-          print('none');
+        if(i.primary == false && i.val == true){
+          normal++;
         }
       }
-
+      if(normal > 0){
+        global.check = true;
+      }
+      if(normal == 0){
+        global.check = false;
+      }
     } else {
       for (var i in _c.purposes) {
         if (i.primary == true) {
@@ -104,6 +109,7 @@ class _create_toggleState extends State<create_toggle> {
         }
       }
     }
+    global.check = false;
   }
 
   @override
