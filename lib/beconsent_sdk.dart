@@ -144,10 +144,10 @@ class _BeConsentState extends State<BeConsent> {
                                               BorderRadius.circular(20)))),
                               child: global.toggle_true
                               ?Text(
-                                global.Decline,
+                                global.Decline= 'setting',
                                 style: TextStyle(fontSize: 16),
                               )
-                              :Text(global.Decline = 'setting',
+                              :Text(global.Decline ,
                               style: TextStyle(fontSize: 16),)
                             ),
                             SizedBox(
