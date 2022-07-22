@@ -45,7 +45,7 @@ popup_show(BuildContext context) {
                       global.Accept = "ยอมรับทั้งหมด";
                       global.Decline = "ปฏิเสธ";
                       global.Save = "บันทึกค่าที่เลือก";
-                      check_prime(_ws.purposes);
+                      check_prime(_ws);
                       global.havePrime
                       ? global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น"
                       : global.Decline = "ปฏิเสธ";
