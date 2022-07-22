@@ -149,11 +149,11 @@ class _BeConsentState extends State<BeConsent> {
                                   global.Decline,
                                   style: TextStyle(fontSize: 16),
                                 )),
-                                ElevatedButton(
+                            ElevatedButton(
                                 onPressed: () => save(),
                                 style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(
-                                        Colors.blue),
+                                    backgroundColor:
+                                        MaterialStateProperty.all(Colors.blue),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -161,9 +161,10 @@ class _BeConsentState extends State<BeConsent> {
                                                 BorderRadius.circular(20)))),
                                 child: Text(
                                   global.Save,
-                                  style: TextStyle(fontSize: 16,color: Colors.white),
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.white),
                                 )),
-                                
+
                             // SizedBox(
                             //   width: 20,
                             // ),
@@ -196,7 +197,7 @@ class _BeConsentState extends State<BeConsent> {
     Navigator.of(context).pop();
   }
 
-  void save(){
+  void save() {
     print("save");
     response.saveConsent(_ws);
     Navigator.of(context).pop();
