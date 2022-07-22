@@ -14,4 +14,5 @@ String description = "Description";
 bool havePrime = false;
 bool toggle_true = false;
 bool accept_all = false;
+bool check = false;
 const blue_navi = Color(0x1269cb);

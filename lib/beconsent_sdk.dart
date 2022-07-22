@@ -172,7 +172,7 @@ class _BeConsentState extends State<BeConsent> {
                                 onPressed:
                                     global.accept_all ? () => save() : null,
                                 style: ButtonStyle(
-                                    backgroundColor: global.accept_all
+                                    backgroundColor: global.check
                                         ? MaterialStateProperty.all(Colors.blue)
                                         : MaterialStateProperty.all(
                                             Color.fromARGB(255, 189, 189, 189)),
@@ -232,6 +232,11 @@ void check_prime(var _ws) {
   for (var i in _ws.purposes) {
     if (i.primary == true) {
       global.havePrime = true;
+    }
+    else{
+      if(i.val == true){
+        global.check;
+      }
     }
   }
 }
