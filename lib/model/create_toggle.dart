@@ -103,8 +103,7 @@ class _create_toggleState extends State<create_toggle> {
   @override
   Widget build(BuildContext context) {
     add_index();
-    return SingleChildScrollView(
-      child: ListView.builder(
+    return ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         itemCount: global.record.length,
@@ -139,6 +138,6 @@ class _create_toggleState extends State<create_toggle> {
               },
             ),
           );
-        }));
+        })
   }
 }
