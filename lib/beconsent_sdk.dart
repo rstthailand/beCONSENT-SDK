@@ -161,7 +161,7 @@ class _BeConsentState extends State<BeConsent> {
                                                 BorderRadius.circular(20)))),
                                 child: Text(
                                   global.Save,
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 16,color: Colors.white),
                                 )),
                                 
                             // SizedBox(
