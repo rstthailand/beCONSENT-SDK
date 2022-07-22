@@ -26,31 +26,24 @@ class _create_toggleState extends State<create_toggle> {
   bool val = false;
 
   void check_true() {
+    int count = 0;
     for (var i in global.record) {
-      if (i.val == true) {
-        global.check = true;
+      if (i.val == true && i.primary == false) {
+        count++;
       }
+    }
+    if(count == 0){
+      global.check = false;
+    }
+    if(count > 0){
+      global.check = true;
     }
   }
 
   add_index() {
     int count = 0;
     int normal = 0;
-    if (!global.record.isEmpty) {
-      for (var i in global.record) {
-        if(i.primary == true){
-          count++;
-        }
-        if(i.primary == false && i.val == true){
-          normal++;
-        }
-      }
-      if(normal > 0){
-        global.check = true;
-      }
-      if(normal == 0){
-        global.check = false;
-      }
+    if (global.record.isNotEmpty) {
     } else {
       for (var i in _c.purposes) {
         if (i.primary == true) {
@@ -120,7 +113,6 @@ class _create_toggleState extends State<create_toggle> {
   @override
   Widget build(BuildContext context) {
     add_index();
-    check_true();
     return ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
@@ -142,6 +134,7 @@ class _create_toggleState extends State<create_toggle> {
                       : (newValue) {
                           setState(() {
                             global.record[i].val = newValue;
+                            check_true();
                             // global.toggle_true = newValue;
                           });
                         },
