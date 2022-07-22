@@ -38,21 +38,14 @@ class _create_toggleState extends State<create_toggle> {
       int count = 0;
       int k = 0;
       for (var i in global.record) {
-        if(i.primary == false){
-          if (i.val == true) {
-          k++;
+        if(i.val == true && i.primary == false){
+          print('have');
         }
-        }
-        if(i.primary == true){
-          count++;
+        else{
+          print('none');
         }
       }
-      if(k == 0){
-        global.check = false;
-      }
-      if(k > 0){
-        global.check = true;
-      }
+
     } else {
       for (var i in _c.purposes) {
         if (i.primary == true) {
