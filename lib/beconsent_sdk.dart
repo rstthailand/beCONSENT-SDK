@@ -137,6 +137,7 @@ class _BeConsentState extends State<BeConsent> {
                             ElevatedButton(
                                 onPressed: () => cancel(),
                                 style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(Colors.grey),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -152,6 +153,7 @@ class _BeConsentState extends State<BeConsent> {
                             ElevatedButton(
                                 onPressed: () => Accept(),
                                 style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(Colors.blue),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -159,7 +161,7 @@ class _BeConsentState extends State<BeConsent> {
                                                 BorderRadius.circular(20)))),
                                 child: Text(
                                   global.Accept,
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 16,color: Colors.white),
                                 ))
                           ],
                         ),
@@ -180,4 +182,6 @@ class _BeConsentState extends State<BeConsent> {
     response.AcceptAllConsent(_ws);
     Navigator.of(context).pop();
   }
+
+
 }
