@@ -124,6 +124,9 @@ class _BeConsentState extends State<BeConsent> {
                               ))
                         ]),
                       )),
+                      
+                  SingleChildScrollView(
+                    child: Column(children: [
                       Container(
                         color: Colors.white,
                         child: ListTile(
@@ -142,12 +145,13 @@ class _BeConsentState extends State<BeConsent> {
                                   activeColor: Colors.blue),
                             ),
                       ),
-                  SingleChildScrollView(  
-                    child: Container(
+                      Container(
                       color: Colors.white,
                       height: 350,
                       child: create_toggle(_ws),
                     ),
+                    ]),  
+                    
                   ),
                   Padding(
                       padding: EdgeInsets.only(top: 12, bottom: 12),
