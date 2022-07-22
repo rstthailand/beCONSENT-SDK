@@ -186,21 +186,6 @@ class _BeConsentState extends State<BeConsent> {
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.white),
                                 )),
-                            ElevatedButton(
-                                onPressed: () => Accept(),
-                                style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStateProperty.all(Colors.blue),
-                                    shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20)))),
-                                child: Text(
-                                  global.Accept,
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.white),
-                                ))
                           ],
                         ),
                       ))
@@ -232,9 +217,8 @@ void check_prime(var _ws) {
   for (var i in _ws.purposes) {
     if (i.primary == true) {
       global.havePrime = true;
-    }
-    else{
-      if(i.val == true){
+    } else {
+      if (i.val == true) {
         global.check;
       }
     }
