@@ -134,20 +134,7 @@ class _BeConsentState extends State<BeConsent> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            global.toggle_true
-                            ?ElevatedButton(
-                                onPressed: () => cancel(),
-                                style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20)))),
-                                child: Text(
-                                  global.Decline = 'save',
-                                  style: TextStyle(fontSize: 16),
-                                ))
-                                :ElevatedButton(
+                            ElevatedButton(
                                 onPressed: () => cancel(),
                                 style: ButtonStyle(
                                     shape: MaterialStateProperty.all<

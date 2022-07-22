@@ -90,7 +90,7 @@ class _create_toggleState extends State<create_toggle> {
                 primary: i.primary,
                 isSelected: false);
             global.record.add(rec);
-            global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
+            global.Decline = "บันทึกค่าที่เลือก";
             global.Accept = "ยอมรับทั้งหมด";
           } else {
             consent_record rec = consent_record(
@@ -102,7 +102,7 @@ class _create_toggleState extends State<create_toggle> {
                 primary: i.primary,
                 isSelected: false);
             global.record.add(rec);
-            global.Decline = "Decline Addition";
+            global.Decline = "Save Settings";
             global.Accept = "Accept All";
           }
         } else {
@@ -164,21 +164,6 @@ class _create_toggleState extends State<create_toggle> {
                           setState(() {
                             global.record[i].val = newValue;
                             global.toggle_true = newValue;
-                            for (var i in global.record) {
-                              if (i.val == true) {
-                                global.toggle_true = true;
-                                global.Decline = 'save setting';
-                              } else {
-                                global.Decline = 'ปฏิเสธ';
-                                global.toggle_true = false;
-                              }
-                            }
-                            //   if(global.record[i].val == true){
-                            //   global.Decline = 'save setting';
-                            // }
-                            // else{
-                            //   global.Decline = 'ปฏิเสธ';
-                            // }
                           });
                         },
                   trackColor: Colors.grey,
