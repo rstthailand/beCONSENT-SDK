@@ -44,18 +44,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "ffi",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/ffi-1.2.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "file",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/file-6.1.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "flutter",
       "rootUri": "file:///C:/src/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -74,12 +62,6 @@
       "languageVersion": "2.17"
     },
     {
-      "name": "flutter_web_plugins",
-      "rootUri": "file:///C:/src/flutter/packages/flutter_web_plugins",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
       "name": "http",
       "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/http-0.13.4",
       "packageUri": "lib/",
@@ -90,12 +72,6 @@
       "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/http_parser-4.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
-    },
-    {
-      "name": "js",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/js-0.6.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.16"
     },
     {
       "name": "lints",
@@ -126,78 +102,6 @@
       "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path-1.8.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
-    },
-    {
-      "name": "path_provider_linux",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path_provider_linux-0.0.1+2",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "path_provider_platform_interface",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path_provider_platform_interface-1.0.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "path_provider_windows",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path_provider_windows-0.0.5",
-      "packageUri": "lib/",
-      "languageVersion": "2.11"
-    },
-    {
-      "name": "platform",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/platform-3.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "plugin_platform_interface",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/plugin_platform_interface-1.0.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "process",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/process-4.2.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
-    },
-    {
-      "name": "shared_preferences",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/shared_preferences-0.5.12+4",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "shared_preferences_linux",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/shared_preferences_linux-0.0.2+4",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "shared_preferences_macos",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/shared_preferences_macos-0.0.1+11",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "shared_preferences_platform_interface",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/shared_preferences_platform_interface-1.0.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "shared_preferences_web",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/shared_preferences_web-0.1.2+7",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
-    },
-    {
-      "name": "shared_preferences_windows",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/shared_preferences_windows-0.0.2+3",
-      "packageUri": "lib/",
-      "languageVersion": "2.1"
     },
     {
       "name": "sky_engine",
@@ -254,25 +158,13 @@
       "languageVersion": "2.14"
     },
     {
-      "name": "win32",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/win32-2.6.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "xdg_directories",
-      "rootUri": "file:///C:/Users/ravip/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/xdg_directories-0.1.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.3"
-    },
-    {
       "name": "beconsent_sdk",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-07-22T03:58:31.643654Z",
+  "generated": "2022-07-22T04:10:41.153065Z",
   "generator": "pub",
   "generatorVersion": "2.17.6"
 }

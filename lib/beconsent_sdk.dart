@@ -6,7 +6,6 @@ import 'package:beconsent_sdk/model/Consent.dart';
 import 'package:beconsent_sdk/model/create_toggle.dart';
 import 'package:http/http.dart' as http;
 import 'package:beconsent_sdk/model/globals.dart' as global;
-import 'package:shared_preferences/shared_preferences.dart';
 
 late Consent _ws;
 
