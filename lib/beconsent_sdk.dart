@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
 import 'package:beconsent_sdk/model/Consent.dart';
 import 'package:beconsent_sdk/model/create_toggle.dart';
-import 'package:beconsent_sdk/model/record_consent.dart';
 import 'package:http/http.dart' as http;
 import 'package:beconsent_sdk/model/globals.dart' as global;
+import 'package:shared_preferences/shared_preferences.dart';
 
 late Consent _ws;
 
@@ -32,30 +32,35 @@ press(var context) {
 }
 
 popup_show(BuildContext context) {
-  Future.delayed(
-      Duration.zero,
-      () => showDialog(
-            context: context,
-            builder: (context) => FutureBuilder(
-                future: getData(global.Url),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    if (_ws.defaultLanguage == "th") {
-                      global.title = _ws.title.th;
-                      global.description = _ws.description.th;
-                      global.Accept = "ยอมรับทั้งหมด";
-                      global.Decline = "บันทึกค่าที่เลือก";
-                    } else {
-                      global.title = _ws.title.en;
-                      global.description = _ws.description.en;
-                    }
-                    return BeConsent();
-                  }
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }),
-          ));
+  SharedPreferences.getInstance().then((prefs) {
+    final int dialogOpen = prefs.getInt('dialog_open') ?? 0;
+    if (dialogOpen == 0) {
+      Future.delayed(
+          Duration.zero,
+          () => showDialog(
+                context: context,
+                builder: (context) => FutureBuilder(
+                    future: getData(global.Url),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        if (_ws.defaultLanguage == "th") {
+                          global.title = _ws.title.th;
+                          global.description = _ws.description.th;
+                          global.Accept = "ยอมรับทั้งหมด";
+                          global.Decline = "บันทึกค่าที่เลือก";
+                        } else {
+                          global.title = _ws.title.en;
+                          global.description = _ws.description.en;
+                        }
+                        return BeConsent();
+                      }
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }),
+              ));
+    }
+  });
 }
 
 class BeConsent extends StatefulWidget {
@@ -138,7 +143,8 @@ class _BeConsentState extends State<BeConsent> {
                             ElevatedButton(
                                 onPressed: () => cancel(),
                                 style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 189, 189, 189)),
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Color.fromARGB(255, 189, 189, 189)),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -154,7 +160,8 @@ class _BeConsentState extends State<BeConsent> {
                             ElevatedButton(
                                 onPressed: () => Accept(),
                                 style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(Colors.blue),
+                                    backgroundColor:
+                                        MaterialStateProperty.all(Colors.blue),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -162,7 +169,8 @@ class _BeConsentState extends State<BeConsent> {
                                                 BorderRadius.circular(20)))),
                                 child: Text(
                                   global.Accept,
-                                  style: TextStyle(fontSize: 16,color: Colors.white),
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.white),
                                 ))
                           ],
                         ),
@@ -183,6 +191,4 @@ class _BeConsentState extends State<BeConsent> {
     response.AcceptAllConsent(_ws);
     Navigator.of(context).pop();
   }
-
-
 }
