@@ -77,6 +77,7 @@ class _BeConsentState extends State<BeConsent> {
 
   @override
   Widget build(BuildContext context) {
+    changeText();
     return Dialog(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
@@ -183,5 +184,22 @@ class _BeConsentState extends State<BeConsent> {
     print("press Accept");
     response.AcceptAllConsent(_ws);
     Navigator.of(context).pop();
+  }
+
+  void changeText(){
+    int count =0;
+    for(var i in global.record){
+        if(i.val == true && i.primary == false){
+          count++;
+        }
+      }
+    setState(() {
+      if(count > 0){
+        global.Decline = 'save setting';
+      }
+      else{
+        global.Decline = 'gogo';
+      }
+    });
   }
 }
