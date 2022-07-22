@@ -137,7 +137,7 @@ class _BeConsentState extends State<BeConsent> {
                             ElevatedButton(
                                 onPressed: () => cancel(),
                                 style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(Colors.grey),
+                                  backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 189, 189, 189)),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
