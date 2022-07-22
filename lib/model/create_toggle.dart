@@ -173,7 +173,7 @@ class _create_toggleState extends State<create_toggle> {
                             global.record[i].val = newValue;
                           });
                           if(newValue == true){
-                            global.Decline == 'save setting';
+                            global.Decline = 'save setting';
                           }
                         },
                   trackColor: Colors.grey,
