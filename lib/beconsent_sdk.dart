@@ -188,13 +188,17 @@ class _BeConsentState extends State<BeConsent> {
 
   void changeText(){
     int count =0;
+    int prime =0;
     for(var i in global.record){
-        if(i.val == true && i.primary == false){
+        if(i.val == true){
           count++;
+        }
+        if(i.val == true){
+          prime++;
         }
       }
     setState(() {
-      if(count > 0){
+      if(prime < count){
         global.Decline = 'save setting';
       }
       else{
