@@ -113,8 +113,10 @@ class _create_toggleState extends State<create_toggle> {
                       ? null
                       : (newValue) {
                           setState(() {
-                            global.record[i].val = newValue;
-                            global.toggle_true = newValue;
+                            global.accept_all
+                            ? global.record[i].val = true
+                            : global.record[i].val = newValue;
+                            // global.toggle_true = newValue;
                           });
                         },
                   trackColor: Colors.grey,

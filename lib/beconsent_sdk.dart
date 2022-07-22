@@ -1,5 +1,6 @@
 library beconsent_sdk;
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
 import 'package:beconsent_sdk/model/Consent.dart';
@@ -46,8 +47,8 @@ popup_show(BuildContext context) {
                       global.Save = "บันทึกค่าที่เลือก";
                       check_prime(_ws);
                       global.havePrime
-                      ? global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น"
-                      : global.Decline = "ปฏิเสธ";
+                          ? global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น"
+                          : global.Decline = "ปฏิเสธ";
                     } else {
                       global.title = _ws.title.en;
                       global.description = _ws.description.en;
@@ -125,10 +126,28 @@ class _BeConsentState extends State<BeConsent> {
                       )),
                   SingleChildScrollView(
                     child: Container(
-                      color: Colors.white,
-                      height: 350,
-                      child: create_toggle(_ws),
-                    ),
+                        color: Colors.white,
+                        height: 350,
+                        child: Column(
+                          children: [
+                            ListTile(
+                              title: Text("Accept All",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600)),
+                              trailing: CupertinoSwitch(
+                                  value: global.accept_all,
+                                  onChanged: (newValue) {
+                                    setState(() {
+                                      global.accept_all = newValue;
+                                    });
+                                  },
+                                  trackColor: Colors.grey,
+                                  activeColor: Colors.blue),
+                            ),
+                            create_toggle(_ws),
+                          ],
+                        )),
                   ),
                   Padding(
                       padding: EdgeInsets.only(top: 12, bottom: 12),
@@ -202,7 +221,6 @@ class _BeConsentState extends State<BeConsent> {
     Navigator.of(context).pop();
   }
 
-  
   void Accept() {
     print("press Accept");
     response.AcceptAllConsent(_ws);
@@ -211,9 +229,9 @@ class _BeConsentState extends State<BeConsent> {
 }
 
 void check_prime(var _ws) {
-    for (var i in _ws.purposes) {
-      if (i.primary == true) {
-        global.havePrime = true;
-      }
+  for (var i in _ws.purposes) {
+    if (i.primary == true) {
+      global.havePrime = true;
     }
   }
+}
