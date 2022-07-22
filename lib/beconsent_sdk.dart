@@ -146,7 +146,8 @@ class _BeConsentState extends State<BeConsent> {
                                   trackColor: Colors.grey,
                                   activeColor: Colors.blue),
                             ),
-                            create_toggle(_ws),
+                            SingleChildScrollView(
+                            child: create_toggle(_ws)),
                           ],
                         ))),
                   ),

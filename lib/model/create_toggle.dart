@@ -29,7 +29,9 @@ class _create_toggleState extends State<create_toggle> {
     if (!global.record.isEmpty) {
       if(global.accept_all == true){
         for(var i in global.record){
-          i.val = true;
+          setState(() {
+            i.val = true;
+          });
         }
       }
     } else {
