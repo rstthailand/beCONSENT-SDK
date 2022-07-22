@@ -119,7 +119,9 @@ class _create_toggleState extends State<create_toggle> {
                   value: global.accept_all
                   ? global.accept_all
                   : global.record[i].val,
-                  onChanged: (newValue) {
+                  onChanged: global.record[i].primary
+                  ? null
+                  : (newValue) {
                           setState(() {
                             global.record[i].val = newValue;
                             // global.toggle_true = newValue;
