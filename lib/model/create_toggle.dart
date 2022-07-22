@@ -35,12 +35,12 @@ class _create_toggleState extends State<create_toggle> {
 
   add_index() {
     if (!global.record.isEmpty) {
-      if (global.accept_all == true) {
-        // for(var i in global.record){
-        //   setState(() {
-        //     i.val = true;
-        //   });
-        // }
+      for (var i in global.record) {
+        if(i.primary == false){
+          if (i.val == true) {
+          global.check = true;
+        }
+        }
       }
     } else {
       for (var i in _c.purposes) {
