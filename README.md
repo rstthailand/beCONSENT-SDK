@@ -44,3 +44,31 @@ flutter pub get
 import 'package:beconsent_sdk/beconsent_sdk.dart' as sdk;
 ```
 
+เรียกใช้คำสั่ง
+```
+sdk.init("<URL>",
+      "<Name>",
+      "<UID>");
+      
+sdk.popup_show(context);
+```
+
+ตัวอย่าง
+```
+void main() {
+sdk.init("<URL>",
+      "<Name>",
+      "<UID>");
+      runApp(const MyApp());
+      }
+.
+.
+.
+Widget build(BuildContext context) {      
+sdk.popup_show(context);
+return ...
+}
+```
+
+sdk.init ใช้ในการดึงข้อมูลจาก API และ set ชื่อกับUID ในการส่งข้อมูล
+sdk.popup_show ใช้เรียก BeConsent Dialog ตอน run application
