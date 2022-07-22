@@ -41,6 +41,9 @@ class _create_toggleState extends State<create_toggle> {
           global.check = true;
         }
         }
+        if(i.primary == true){
+          global.check = false;
+        }
       }
     } else {
       for (var i in _c.purposes) {
