@@ -129,7 +129,7 @@ class _BeConsentState extends State<BeConsent> {
                         color: Colors.white,
                         height: 350,
                         child: SingleChildScrollView(
-                          child: Column(
+                            child: Column(
                           children: [
                             ListTile(
                               title: Text("Accept All",
@@ -146,8 +146,7 @@ class _BeConsentState extends State<BeConsent> {
                                   trackColor: Colors.grey,
                                   activeColor: Colors.blue),
                             ),
-                            SingleChildScrollView(
-                            child: create_toggle(_ws)),
+                            create_toggle(_ws),
                           ],
                         ))),
                   ),
