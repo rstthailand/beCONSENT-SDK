@@ -46,6 +46,7 @@ popup_show(BuildContext context) {
                       global.Accept = "ยอมรับทั้งหมด";
                       global.Save = "บันทึกค่าที่เลือก";
                       check_prime(_ws);
+                      check_true();
                       global.havePrime
                           ? global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น"
                           : global.Decline = "ปฏิเสธ";
@@ -217,10 +218,14 @@ void check_prime(var _ws) {
   for (var i in _ws.purposes) {
     if (i.primary == true) {
       global.havePrime = true;
-    } else {
-      if (i.val == true) {
-        global.check;
-      }
+    } 
+  }
+}
+
+void check_true(){
+  for(var i in global.record){
+    if(i.val == true){
+      global.check = true;
     }
   }
 }
