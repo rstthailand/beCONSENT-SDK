@@ -28,11 +28,11 @@ class _create_toggleState extends State<create_toggle> {
   add_index() {
     if (!global.record.isEmpty) {
       if(global.accept_all == true){
-        for(var i in global.record){
-          setState(() {
-            i.val = true;
-          });
-        }
+        // for(var i in global.record){
+        //   setState(() {
+        //     i.val = true;
+        //   });
+        // }
       }
     } else {
       for (var i in _c.purposes) {
@@ -116,7 +116,8 @@ class _create_toggleState extends State<create_toggle> {
                   ? Text(global.record[i].description)
                   : null,
               trailing: CupertinoSwitch(
-                  value: global.accept_all
+                  value: 
+                  global.accept_all
                   ? global.accept_all
                   : global.record[i].val,
                   onChanged: global.record[i].primary
