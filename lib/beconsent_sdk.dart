@@ -124,14 +124,9 @@ class _BeConsentState extends State<BeConsent> {
                               ))
                         ]),
                       )),
-                  SingleChildScrollView(
-                    child: Container(
+                      Container(
                         color: Colors.white,
-                        height: 350,
-                        child: SingleChildScrollView(
-                            child: Column(
-                          children: [
-                            ListTile(
+                        child: ListTile(
                               title: Text("Accept All",
                                   style: TextStyle(
                                       fontSize: 16,
@@ -146,9 +141,13 @@ class _BeConsentState extends State<BeConsent> {
                                   trackColor: Colors.grey,
                                   activeColor: Colors.blue),
                             ),
-                            create_toggle(_ws),
-                          ],
-                        ))),
+                      ),
+                  SingleChildScrollView(  
+                    child: Container(
+                      color: Colors.white,
+                      height: 350,
+                      child: create_toggle(_ws),
+                    ),
                   ),
                   Padding(
                       padding: EdgeInsets.only(top: 12, bottom: 12),
