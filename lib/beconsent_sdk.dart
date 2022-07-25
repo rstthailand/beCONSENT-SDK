@@ -210,6 +210,9 @@ class _BeConsentState extends State<BeConsent> {
                               if (global.accept_all == true) {
                                 global.check = true;
                               }
+                              if (global.accept_all == false) {
+                                global.check = false;
+                              }
                             });
                           },
                           trackColor: Colors.grey,
@@ -240,7 +243,18 @@ class _BeConsentState extends State<BeConsent> {
                       : (newValue) {
                           setState(() {
                             global.record[i].val = newValue;
-                            global.check = global.record[i].val;
+                            int count = 0;
+                            for(var i in global.record){
+                              if(i.val == true && i.primary == false){
+                                count++;
+                              }
+                            }
+                            if(count > 0){
+                              global.check = true;
+                            }
+                            if(count == 0){
+                              global.check = false;
+                            }
                             // global.toggle_true = newValue;
                           });
                         },
