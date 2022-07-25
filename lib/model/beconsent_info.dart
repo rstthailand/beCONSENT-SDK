@@ -17,6 +17,9 @@ cancelConsent(Consent _c) async {
       global.Action = "CHANGE_TO_PARTIAL";
       purpose.add(i.id);
     }
+    if(i.primary == false){
+      global.Action = "CHANGE_TO_NONE";
+    }
   }
   Map<String, dynamic> args = {
     "consentId": _c.consentId.toString(),
@@ -40,6 +43,9 @@ cancelConsent(Consent _c) async {
     if (i.primary == true) {
       global.Action = "PARTIAL";
       purpose.add(i.id);
+    }
+    if(i.primary == false){
+      global.Action = "NONE";
     }
   }
   Map<String, dynamic> args = {
