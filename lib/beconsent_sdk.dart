@@ -343,8 +343,6 @@ void check_true() {
   }
   if (count == 0) {
     global.check = false;
+    global.accept_all ? global.check = true : global.check = false;
   }
-  global.accept_all
-  ? global.check = true
-  : global.check = false;
 }
