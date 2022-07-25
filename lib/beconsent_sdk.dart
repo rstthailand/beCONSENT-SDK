@@ -81,6 +81,26 @@ class _BeConsentState extends State<BeConsent> {
 
   @override
   Widget build(BuildContext context) {
+    void check_true() {
+      int count = 0;
+      for (var i in global.record) {
+        if (i.val == true && i.primary == false) {
+          count++;
+        }
+      }
+      if (count == 0) {
+        setState(() {
+          global.check = false;
+        });
+      }
+      if (count > 0) {
+        setState(() {
+          global.check = true;
+        });
+      }
+    }
+
+    check_true();
     return Dialog(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
@@ -135,7 +155,7 @@ class _BeConsentState extends State<BeConsent> {
                           onChanged: (newValue) {
                             setState(() {
                               global.accept_all = newValue;
-                              if(global.accept_all == true){
+                              if (global.accept_all == true) {
                                 global.check = true;
                               }
                             });
@@ -173,8 +193,7 @@ class _BeConsentState extends State<BeConsent> {
                                       fontSize: 16, color: Colors.white),
                                 )),
                             ElevatedButton(
-                                onPressed:
-                                    global.check ? () => save() : null,
+                                onPressed: global.check ? () => save() : null,
                                 style: ButtonStyle(
                                     backgroundColor: global.check
                                         ? MaterialStateProperty.all(Colors.blue)
