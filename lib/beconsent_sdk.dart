@@ -132,7 +132,7 @@ class _BeConsentState extends State<BeConsent> {
                 isSelected: false);
             global.c.add(i.primary);
             global.record.add(rec);
-            // global.Decline = "Decline";
+            global.Decline = "Decline";
             // global.Accept = "Accept All";
           }
         }
