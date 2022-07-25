@@ -51,21 +51,6 @@ class _create_toggleState extends State<create_toggle> {
     int count = 0;
     int normal = 0;
     if (global.record.isNotEmpty) {
-      for (var i in global.record) {
-      if (i.val == true && i.primary == false) {
-        count++;
-      }
-    }
-    if(count == 0){
-      setState(() {
-        global.check = false;
-      });
-    }
-    if(count > 0){
-      setState(() {
-        global.check = true;
-      });
-    }
     } else {
       for (var i in _c.purposes) {
         if (i.primary == true) {
