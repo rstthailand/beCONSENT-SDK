@@ -81,26 +81,7 @@ class _BeConsentState extends State<BeConsent> {
 
   @override
   Widget build(BuildContext context) {
-    void check_true() {
-      int count = 0;
-      for (var i in global.record) {
-        if (i.val == true && i.primary == false) {
-          count++;
-        }
-      }
-      if (count == 0) {
-        setState(() {
-          global.check = false;
-        });
-      }
-      if (count > 0) {
-        setState(() {
-          global.check = true;
-        });
-      }
-    }
 
-    check_true();
     return Dialog(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
@@ -167,7 +148,53 @@ class _BeConsentState extends State<BeConsent> {
                   Container(
                     color: Colors.white,
                     height: 300,
-                    child: create_toggle(_ws),
+                    child: ListView.builder(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        itemCount: global.record.length,
+        itemBuilder: (context, i) {
+          return Card(
+            child: ListTile(
+              title: Text(global.record[i].name,
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+              subtitle: global.record[i].isSelected
+                  ? Text(global.record[i].description)
+                  : null,
+              trailing: CupertinoSwitch(
+                  value: global.accept_all
+                      ? global.accept_all
+                      : global.record[i].val,
+                  onChanged: global.record[i].primary
+                      ? null
+                      : (newValue) {
+                          setState(() {
+                            global.record[i].val = newValue;
+                            for(var i in global.record){
+                              if(i.val == true && i.primary == false){
+                                global.check = true;
+                              }
+                              if(i.val == false && i.primary == false){
+                                global.check = false;
+                              }
+                            }
+                            // global.toggle_true = newValue;
+                          });
+                        },
+                  trackColor: Colors.grey,
+                  activeColor: Colors.blue),
+              onTap: () {
+                setState(() {
+                  if (global.record[i].isSelected == false) {
+                    global.record[i].isSelected = true;
+                  } else {
+                    global.record[i].isSelected = false;
+                  }
+                });
+              },
+            ),
+          );
+        }),
+                    // child: create_toggle(_ws),
                   ),
                   Padding(
                       padding: EdgeInsets.only(top: 12, bottom: 12),
