@@ -135,6 +135,9 @@ class _BeConsentState extends State<BeConsent> {
                           onChanged: (newValue) {
                             setState(() {
                               global.accept_all = newValue;
+                              if(global.accept_all == true){
+                                global.check = true;
+                              }
                             });
                           },
                           trackColor: Colors.grey,
