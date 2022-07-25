@@ -37,6 +37,7 @@ saveConsent(Consent _c) async {
   final user_check = Uri.parse(
       "http://dev.beconsent.tech/api/v1/${_c.workspaceUUID}/user-consents/consent/${_c.consentUUID}/version/${_c.version}/get-user-consent");
   var res = await http.post(user_check, body: {"uid": global.uid});
+  print(res.statusCode);
 
   if (res.statusCode == 404) {
     List<int> purpose = [];
