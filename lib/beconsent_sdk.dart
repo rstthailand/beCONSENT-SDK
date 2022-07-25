@@ -43,7 +43,6 @@ popup_show(BuildContext context) {
                     if (_ws.defaultLanguage == "th") {
                       global.title = _ws.title.th;
                       global.description = _ws.description.th;
-                      global.Accept = "ยอมรับทั้งหมด";
                       global.Save = "บันทึกค่าที่เลือก";
                       check_prime(_ws);
                       global.havePrime
@@ -71,7 +70,6 @@ class BeConsent extends StatefulWidget {
 
 class _BeConsentState extends State<BeConsent> {
   late Future<String?> code;
-  String? label = "";
   String lang = _ws.defaultLanguage;
   bool val = false;
 
@@ -120,7 +118,7 @@ class _BeConsentState extends State<BeConsent> {
                 isSelected: false);
             global.c.add(i.primary);
             global.record.add(rec);
-            // global.Decline = "ปฏิเสธ";
+            global.Decline = "ปฏิเสธ";
             // global.Accept = "ยอมรับทั้งหมด";
           } else {
             consent_record rec = consent_record(
