@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:beconsent_sdk/model/Consent.dart';
 import 'package:beconsent_sdk/model/record_consent.dart';
 import 'package:beconsent_sdk/model/globals.dart' as global;
+create_toggle add_index() => add_index();
 
 class create_toggle extends StatefulWidget {
   late Consent _c;
   create_toggle(Consent c) {
     _c = c;
   }
+
+  create_toggle.add_index();
   @override
   State<StatefulWidget> createState() {
     return _create_toggleState(_c);
@@ -123,7 +126,6 @@ class _create_toggleState extends State<create_toggle> {
         }
       }
     }
-    global.check = false;
   }
 
   @override
