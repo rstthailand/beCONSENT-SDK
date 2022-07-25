@@ -13,7 +13,6 @@ String Name = "";
 String title = "Title";
 String description = "Description";
 bool havePrime = false;
-bool toggle_true = false;
 bool accept_all = false;
 bool check = false;
 int count = 0;
