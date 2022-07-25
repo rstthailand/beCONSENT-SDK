@@ -155,7 +155,11 @@ class _create_toggleState extends State<create_toggle> {
                       : (newValue) {
                           setState(() {
                             global.record[i].val = newValue;
-                            global.c[i] = newValue;
+                            for(var i in global.record){
+                              if(i.val == true && i.primary == false){
+                                global.check = true;
+                              }
+                            }
                             // global.toggle_true = newValue;
                           });
                         },
