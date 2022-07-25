@@ -2,6 +2,7 @@ import 'package:beconsent_sdk/model/record_consent.dart';
 import 'package:flutter/cupertino.dart';
 
 List<consent_record> record = [];
+List<bool> c = [];
 String Url = "";
 String Decline = "Save Settings";
 String Accept = "Accept All";

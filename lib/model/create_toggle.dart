@@ -33,10 +33,14 @@ class _create_toggleState extends State<create_toggle> {
       }
     }
     if(count == 0){
-      global.check = false;
+      setState(() {
+        global.check = false;
+      });
     }
     if(count > 0){
-      global.check = true;
+      setState(() {
+        global.check = true;
+      });
     }
   }
 
@@ -56,7 +60,7 @@ class _create_toggleState extends State<create_toggle> {
                 description: i.description.th,
                 primary: i.primary,
                 isSelected: false);
-            global.record.add(rec);
+            global.c.add(i.primary);
             setState(() {
               global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น";
             });
@@ -83,6 +87,7 @@ class _create_toggleState extends State<create_toggle> {
                 description: i.description.th,
                 primary: i.primary,
                 isSelected: false);
+            global.c.add(i.primary);
             global.record.add(rec);
             // global.Decline = "ปฏิเสธ";
             // global.Accept = "ยอมรับทั้งหมด";
@@ -95,6 +100,7 @@ class _create_toggleState extends State<create_toggle> {
                 description: i.description.en,
                 primary: i.primary,
                 isSelected: false);
+            global.c.add(i.primary);
             global.record.add(rec);
             // global.Decline = "Decline";
             // global.Accept = "Accept All";
@@ -107,6 +113,7 @@ class _create_toggleState extends State<create_toggle> {
 
   @override
   void initState() {
+    check_true();
     super.initState();
   }
 
@@ -134,7 +141,7 @@ class _create_toggleState extends State<create_toggle> {
                       : (newValue) {
                           setState(() {
                             global.record[i].val = newValue;
-                            check_true();
+                            global.c[i] = newValue;
                             // global.toggle_true = newValue;
                           });
                         },
