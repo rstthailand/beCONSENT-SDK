@@ -203,16 +203,7 @@ class _BeConsentState extends State<BeConsent> {
                           onChanged: (newValue) {
                             setState(() {
                               global.accept_all = newValue;
-                              if(global.accept_all == true){
-                                setState(() {
-                                  global.check = global.accept_all;
-                                });
-                              }
-                              if(global.accept_all == false){
-                                setState(() {
-                                  global.check = global.accept_all;
-                                });
-                              }
+                              check_true();
                             });
                           },
                           trackColor: Colors.grey,
@@ -353,4 +344,7 @@ void check_true() {
   if (count == 0) {
     global.check = false;
   }
+  global.accept_all
+  ? global.check = true
+  : global.check = false;
 }
