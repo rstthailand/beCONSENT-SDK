@@ -59,7 +59,7 @@ void main() {
 sdk.init("<URL>",
       "<Name>",
       "<UID>");
-      runApp(const MyApp());
+runApp(const MyApp());
       }
 .
 .
