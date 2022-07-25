@@ -157,8 +157,8 @@ class _BeConsentState extends State<BeConsent> {
                             ElevatedButton(
                                 onPressed: () => cancel(),
                                 style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(
-                                        Colors.blue),
+                                    backgroundColor:
+                                        MaterialStateProperty.all(Colors.blue),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -166,11 +166,12 @@ class _BeConsentState extends State<BeConsent> {
                                                 BorderRadius.circular(20)))),
                                 child: Text(
                                   global.Decline,
-                                  style: TextStyle(fontSize: 16, color: Colors.white),
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.white),
                                 )),
                             ElevatedButton(
                                 onPressed:
-                                    global.accept_all ? () => save() : null,
+                                    global.check ? () => save() : null,
                                 style: ButtonStyle(
                                     backgroundColor: global.check
                                         ? MaterialStateProperty.all(Colors.blue)
@@ -217,8 +218,6 @@ void check_prime(var _ws) {
   for (var i in _ws.purposes) {
     if (i.primary == true) {
       global.havePrime = true;
-    } 
+    }
   }
 }
-
-
