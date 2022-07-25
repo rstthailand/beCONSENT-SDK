@@ -2,6 +2,7 @@ library beconsent_sdk;
 
 import 'package:beconsent_sdk/model/record_consent.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:beconsent_sdk/model/beconsent_info.dart' as response;
 import 'package:beconsent_sdk/model/Consent.dart';
@@ -44,10 +45,10 @@ popup_show(BuildContext context) {
                       global.title = _ws.title.th;
                       global.description = _ws.description.th;
                       global.Save = "บันทึกค่าที่เลือก";
-                      check_prime(_ws);
-                      global.havePrime
-                          ? global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น"
-                          : global.Decline = "ปฏิเสธ";
+                      // check_prime(_ws);
+                      // global.havePrime
+                      //     ? global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น"
+                      //     : global.Decline = "ปฏิเสธ";
                     } else {
                       global.title = _ws.title.en;
                       global.description = _ws.description.en;
