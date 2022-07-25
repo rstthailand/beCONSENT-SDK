@@ -73,7 +73,7 @@ class _BeConsentState extends State<BeConsent> {
   late Future<String?> code;
   String? label = "";
   String lang = _ws.defaultLanguage;
-  bool val =false;
+  bool val = false;
 
   add_index() {
     int count = 0;
@@ -150,8 +150,6 @@ class _BeConsentState extends State<BeConsent> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Dialog(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
@@ -206,12 +204,7 @@ class _BeConsentState extends State<BeConsent> {
                           onChanged: (newValue) {
                             setState(() {
                               global.accept_all = newValue;
-                              if (global.accept_all == true) {
-                                global.check = true;
-                              }
-                              if (global.accept_all == false) {
-                                global.check = false;
-                              }
+                              check_true();
                             });
                           },
                           trackColor: Colors.grey,
@@ -222,55 +215,46 @@ class _BeConsentState extends State<BeConsent> {
                     color: Colors.white,
                     height: 300,
                     child: ListView.builder(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemCount: global.record.length,
-        itemBuilder: (context, i) {
-          return Card(
-            child: ListTile(
-              title: Text(global.record[i].name,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-              subtitle: global.record[i].isSelected
-                  ? Text(global.record[i].description)
-                  : null,
-              trailing: CupertinoSwitch(
-                  value: global.accept_all
-                      ? global.accept_all
-                      : global.record[i].val,
-                  onChanged: global.record[i].primary
-                      ? null
-                      : (newValue) {
-                          setState(() {
-                            global.record[i].val = newValue;
-                            int count = 0;
-                            for(var i in global.record){
-                              if(i.val == true && i.primary == false){
-                                count++;
-                              }
-                            }
-                            if(count > 0){
-                              global.check = true;
-                            }
-                            if(count == 0){
-                              global.check = false;
-                            }
-                            // global.toggle_true = newValue;
-                          });
-                        },
-                  trackColor: Colors.grey,
-                  activeColor: Colors.blue),
-              onTap: () {
-                setState(() {
-                  if (global.record[i].isSelected == false) {
-                    global.record[i].isSelected = true;
-                  } else {
-                    global.record[i].isSelected = false;
-                  }
-                });
-              },
-            ),
-          );
-        }),
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: global.record.length,
+                        itemBuilder: (context, i) {
+                          return Card(
+                            child: ListTile(
+                              title: Text(global.record[i].name,
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600)),
+                              subtitle: global.record[i].isSelected
+                                  ? Text(global.record[i].description)
+                                  : null,
+                              trailing: CupertinoSwitch(
+                                  value: global.accept_all
+                                      ? global.accept_all
+                                      : global.record[i].val,
+                                  onChanged: global.record[i].primary
+                                      ? null
+                                      : (newValue) {
+                                          setState(() {
+                                            global.record[i].val = newValue;
+                                            check_true();
+                                            // global.toggle_true = newValue;
+                                          });
+                                        },
+                                  trackColor: Colors.grey,
+                                  activeColor: Colors.blue),
+                              onTap: () {
+                                setState(() {
+                                  if (global.record[i].isSelected == false) {
+                                    global.record[i].isSelected = true;
+                                  } else {
+                                    global.record[i].isSelected = false;
+                                  }
+                                });
+                              },
+                            ),
+                          );
+                        }),
                     // child: create_toggle(_ws),
                   ),
                   Padding(
@@ -345,5 +329,20 @@ void check_prime(var _ws) {
     if (i.primary == true) {
       global.havePrime = true;
     }
+  }
+}
+
+void check_true() {
+  int count = 0;
+  for (var i in global.record) {
+    if (i.val == true && i.primary == false) {
+      count++;
+    }
+  }
+  if (count > 0) {
+    global.check = true;
+  }
+  if (count == 0) {
+    global.check = false;
   }
 }
