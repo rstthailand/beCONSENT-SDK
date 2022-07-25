@@ -105,10 +105,10 @@ saveConsent(Consent _c) async {
         global.Action = "CHANGE_TO_PARTIAL";
         purpose.add(i.id);
       }
-      if (global.accept_all = true) {
-        global.Action = "CHANGE_TO_ALL";
-        purpose.add(i.id);
-      }
+      // if (global.accept_all = true) {
+      //   global.Action = "CHANGE_TO_ALL";
+      //   purpose.add(i.id);
+      // }
     }
     Map<String, dynamic> args = {
       "consentId": _c.consentId.toString(),
