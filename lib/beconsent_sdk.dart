@@ -25,14 +25,14 @@ init(String url, String name, String uid) {
   getData(global.Url);
 }
 
-press(var context) {
-  return showDialog(
-    context: context,
-    builder: (context) => BeConsent(),
-  );
-}
+// press(var context) {
+//   return showDialog(
+//     context: context,
+//     builder: (context) => BeConsent(),
+//   );
+// }
 
-popup_show(BuildContext context) {
+show(BuildContext context) {
   Future.delayed(
       Duration.zero,
           () => showDialog(
