@@ -191,7 +191,7 @@ class DataController {
   late final int id;
   late final String uuid;
   late final int workspaceId;
-  late final String name;
+  late final Name name;
   late final String contactPerson;
   late final String address;
   late final String country;
@@ -205,7 +205,7 @@ class DataController {
     id = json['id'];
     uuid = json['uuid'];
     workspaceId = json['workspaceId'];
-    name = json['name'];
+    name = Name.fromJson(json['name']);
     contactPerson = json['contactPerson'];
     address = json['address'];
     country = json['country'];
