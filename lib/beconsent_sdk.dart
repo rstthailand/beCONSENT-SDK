@@ -35,31 +35,31 @@ press(var context) {
 popup_show(BuildContext context) {
   Future.delayed(
       Duration.zero,
-      () => showDialog(
-            context: context,
-            builder: (context) => FutureBuilder(
-                future: getData(global.Url),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    if (_ws.defaultLanguage == "th") {
-                      global.title = _ws.title.th;
-                      global.description = _ws.description.th;
-                      global.Save = "บันทึกค่าที่เลือก";
-                      // check_prime(_ws);
-                      // global.havePrime
-                      //     ? global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น"
-                      //     : global.Decline = "ปฏิเสธ";
-                    } else {
-                      global.title = _ws.title.en;
-                      global.description = _ws.description.en;
-                    }
-                    return BeConsent();
-                  }
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }),
-          ));
+          () => showDialog(
+        context: context,
+        builder: (context) => FutureBuilder(
+            future: getData(global.Url),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                if (_ws.defaultLanguage == "th") {
+                  global.title = _ws.title.th;
+                  global.description = _ws.description.th;
+                  global.Save = "บันทึกค่าที่เลือก";
+                  // check_prime(_ws);
+                  // global.havePrime
+                  //     ? global.Decline = "ปฏิเสธค่าที่ไม่จำเป็น"
+                  //     : global.Decline = "ปฏิเสธ";
+                } else {
+                  global.title = _ws.title.en;
+                  global.description = _ws.description.en;
+                }
+                return BeConsent();
+              }
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }),
+      ));
 }
 
 class BeConsent extends StatefulWidget {
@@ -153,6 +153,8 @@ class _BeConsentState extends State<BeConsent> {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
         child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          physics: ClampingScrollPhysics(),
           child: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -192,12 +194,14 @@ class _BeConsentState extends State<BeConsent> {
                               )),
                         ]),
                       )),
+                  Container( height: 20.0, color: Colors.white),
                   Container(
                     color: Colors.white,
                     child: ListTile(
                       title: Text("Accept All",
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w600)),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600)),
                       trailing: CupertinoSwitch(
                           value: global.accept_all,
                           onChanged: (newValue) {
@@ -212,17 +216,17 @@ class _BeConsentState extends State<BeConsent> {
                   ),
                   Container(
                     color: Colors.white,
-                    height: 300,
                     child: ListView.builder(
                         scrollDirection: Axis.vertical,
                         shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
                         itemCount: global.record.length,
                         itemBuilder: (context, i) {
-                          return Card(
+                          return Container(
                             child: ListTile(
                               title: Text(global.record[i].name,
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w600)),
                               subtitle: global.record[i].isSelected
                                   ? Text(global.record[i].description)
@@ -234,12 +238,12 @@ class _BeConsentState extends State<BeConsent> {
                                   onChanged: global.record[i].primary
                                       ? null
                                       : (newValue) {
-                                          setState(() {
-                                            global.record[i].val = newValue;
-                                            check_true();
-                                            // global.toggle_true = newValue;
-                                          });
-                                        },
+                                    setState(() {
+                                      global.record[i].val = newValue;
+                                      check_true();
+                                      // global.toggle_true = newValue;
+                                    });
+                                  },
                                   trackColor: Colors.grey,
                                   activeColor: Colors.blue),
                               onTap: () {
@@ -256,8 +260,9 @@ class _BeConsentState extends State<BeConsent> {
                         }),
                     // child: create_toggle(_ws),
                   ),
+                  Container( height: 20.0, color: Colors.white),
                   Padding(
-                      padding: EdgeInsets.only(top: 12, bottom: 12),
+                      padding: EdgeInsets.all(20),
                       child: Container(
                         color: Colors.transparent,
                         child: Column(
@@ -268,34 +273,44 @@ class _BeConsentState extends State<BeConsent> {
                                 onPressed: () => cancel(),
                                 style: ButtonStyle(
                                     backgroundColor:
-                                        MaterialStateProperty.all(Colors.blue),
+                                    MaterialStateProperty.all(Colors.blue),
                                     shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(20)))),
-                                child: Text(
-                                  global.Decline,
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.white),
-                                )),
+                                            BorderRadius.circular(20)))),
+
+                                child: Padding(
+                                    padding: EdgeInsets.all(10.0),
+                                    child: Text(
+                                      global.Decline,
+                                      style: TextStyle(
+                                          fontSize: 16, color: Colors.white),
+                                    )
+                                )
+                            ),
+                            SizedBox(height: 10),
                             ElevatedButton(
                                 onPressed: global.check ? () => save() : null,
                                 style: ButtonStyle(
                                     backgroundColor: global.check
                                         ? MaterialStateProperty.all(Colors.blue)
                                         : MaterialStateProperty.all(
-                                            Color.fromARGB(255, 189, 189, 189)),
+                                        Color.fromARGB(255, 189, 189, 189)),
                                     shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(20)))),
-                                child: Text(
-                                  global.Save,
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.white),
-                                )),
+                                            BorderRadius.circular(20)))),
+                                child: Padding(
+                                    padding: EdgeInsets.all(10.0),
+                                    child: Text(
+                                      global.Save,
+                                      style: TextStyle(
+                                          fontSize: 16, color: Colors.white),
+                                    )
+                                )
+                            ),
                           ],
                         ),
                       ))
